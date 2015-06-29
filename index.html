@@ -8,13 +8,16 @@
 <link href="css/goodsplace.css" rel="stylesheet" media="screen, projection" />
 <link rel="stylesheet"  href="css/base.css" />
 <script src="js/moo.min.js"></script>
-<script src="js/ui.min.js"></script>
 <script src="js/shop.min.js"></script>
-<script src="js/switch.js"></script>
+
 <!-- [扩展样式文件和js]-->
 <link rel="stylesheet"  href="css/extend.css" />
 <script src="js/jquery.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
 <script src="js/jquery.SuperSlide.2.1.1.js"></script>
+
+<script type="text/javascript" src="js/moo.min.js"></script>
+<script type="text/javascript" src="js/switch.js"></script>
 
 </head>
 <body>
@@ -594,64 +597,6 @@
     </li>
         
   </ul>
-<script>
-var category = $('category_box');
-$('category_handle').getParent().addEvents({
-    'mouseenter': function(e){
-        category.setStyle('visibility','visible');
-    },
-    'mouseleave': function(e){
-        category.setStyle('visibility','hidden');
-    }
-});
-
-category.getElements('.category-item').addEvents({
-    'mouseover':function(e){
-        var self = this;
-        clearTimeout(this.showTimer);
-        clearTimeout(this.hideTimer);
-        var active = function(){
-            if(self.getElement('.cat-children-box')){
-                self.addClass('active');
-            }
-        }
-        this.showTimer = active.delay(100);
-    },
-    'mouseout':function(e){
-        var self = this;
-        clearTimeout(this.showTimer);
-        clearTimeout(this.hideTimer);
-        var active = function(){
-            if(self.getElement('.cat-children-box')){
-                self.removeClass('active');
-            }
-        }
-        this.hideTimer = active.delay(100);
-    }
-});
-
-window.addEvent('domready',function(){
-	var dcat = $$('.all-category .category-item');
-	if(dcat){
-		var dpopup = dcat.getElement('.cat-children-box');
-		for(i=0;i<dcat.length;i++){
-			var a = dcat[i].index = i;
-			var b = 72 * a;
-			var c = dpopup[i].getSize().y;
-			if(b<c-72){
-				dpopup[i].setStyles({
-					'top':0+'px'
-				});
-			}
-			else{
-				dpopup[i].setStyles({
-					'top':b-c+72+'px'
-				});
-			};
-		};
-	}	
-});
-</script>
 
 </div>
             </div>
@@ -740,39 +685,57 @@ window.addEvent('domready',function(){
             </div>
         </div>
     </div>  
-    <div class="floor floor1">
-    	<div class="hd"><span id="f1" class="fgoto"></span><h3 class="fl">1F 进口鲜果</h3><div class="f-link fr"><ul class="urllist"><li class="first last"><a href="http://www.guolehui.com.cn/gallery-36.html" target="_blank">更多</a></li></ul></div></div>
+   <div class="floor floor3">
+        <div class="hd">
+            <span id="f3" class="fgoto"></span><h3 class="fl">1F 鲜果区</h3>
+            <div class="f-link fr">
+                <ul class="urllist">
+                    <li class="first last"><a href="" target="_blank">更多</a></li></ul></div></div>
         <div class="bd clr">
-        	<div class="l-column fl">
-            	
-
-
-        <div class="indexFloorGoods">
-            <div class="hd">
-                <ul><li>1</li><li>2</li><li>3</li></ul>
-            </div>
-            <div class="bd">
-                <ul>
-                    <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/68/fc/62/3f2b0e8e1b6ce7994d54db9e981c10d9a0ed6d51.jpg?1429024983#h" /></a></li>
-                    <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/28/66/27/cdb4358b21e1837c0204bcf46564e50251b8592e.jpg?1429026190#h" /></a></li>
-                    <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/d8/17/7c/27be6709fc639915b5cec874278cfd98ead487b8.jpg?1421201249#h" /></a></li>
+            <div class="l-column fl">
+                
+<div class="ex-slide1-box" style="width:240px;height:520px;">
+  <div id="ex_slide_236" class="ex-slide1">
+    <ol class="switchable-content clearfix">
+                      <li class="switchable-panel">
+                  <a href="http://www.guolehui.com.cn/gallery-48.html" title="" >
+                        <img src="http://mall.guolehui.com.cn/public/images/d8/17/7c/27be6709fc639915b5cec874278cfd98ead487b8.jpg?1421201249#h" width="240px" height="520px" alt="" />
+                  </a>
+          </li>
+                      <li class="switchable-panel">
+                  <a href="http://www.guolehui.com.cn/product-676.html" title="" >
+                        <img src="http://mall.guolehui.com.cn/public/images/96/cf/24/ea16295e81a5cb8d11ce036a50ade7a8ca9f1214.jpg?1413358520#h" width="240px" height="520px" alt="" />
+                  </a>
+          </li>
+                      <li class="switchable-panel">
+                  <a href="http://mall.guolehui.com.cn/product-965.html" title="" >
+                        <img src="http://mall.guolehui.com.cn/public/images/8d/5b/d2/fd1d50f9af2e4612ff0904fbbb88252f68e1425f.jpg?1413358617#h" width="240px" height="520px" alt="" />
+                  </a>
+          </li>
+              </ol>
+        <ul class="switchable-triggerBox slide-trigger">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
                 </ul>
-            </div>
-        </div>
-        <script type="text/javascript">
-        jQuery(".indexFloorGoods").slide({mainCell:".bd ul",autoPlay:true});
-        </script>
-
-
+  </div>
+</div>
+<script>
+    new Switchable('ex_slide_236',{
+        effect:'fade',
+        autoplay:true,
+        interval:3000
+    });
+</script>
             </div>
             <div class="r-column fr">
-            	<div class="goods-column Auto_Widget" data-widget-type="Switchable" data-widget-config="{eventType:'mouse',content:'.goods-body-column',activeClass:'oactive',panels:'.gb-item',triggersBox:'.goods-tab',autoplay:false,duration:350,islazyload:true,circular:false,effect:'scrolly',activeIndex:0}">
+                <div class="goods-column Auto_Widget" data-widget-type="Switchable" data-widget-config="{eventType:'mouse',content:'.goods-body-column',activeClass:'oactive',panels:'.gb-item',triggersBox:'.goods-tab',autoplay:false,duration:350,islazyload:true,circular:false,effect:'scrolly',activeIndex:0}">
                     <div class="goods-tab-column">
                         <ul class="goods-tab">
-                            <li><span>推荐鲜果</span><i></i></li>
-                            <li><span>优惠专区</span><i></i></li>
-                            <li><span>新品上市</span><i></i></li>
-                            <li><span>热卖鲜果</span><i></i></li>
+                            <li><span>sss</span><i></i></li>
+                            <li><span>商务礼盒</span><i></i></li>
+                            <li><span>儿童礼盒</span><i></i></li>
+                            <li><span>节日礼盒</span><i></i></li>
                         </ul>
                         <div class="goods-pic"></div>
                     </div>
@@ -780,375 +743,309 @@ window.addEvent('domready',function(){
                         <ul class="goods-body">
                             <li class="gb-item">  <ul class="goods-column clr">
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-929.html"><img src="http://www.guolehui.com.cn/public/images/df/da/48/68eeebf09f3672356df019a3a81cd8f4aca62876.jpg?1434640282#h" alt="果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-674.html"><img src="http://www.guolehui.com.cn/public/images/e3/2c/10/72f1124976459941d73ddb72c9815cff7777e214.png?1420114782#h" alt="威尔农庄尊贵商务礼品【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-929.html">果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】</a></h6>
-          
+         <h6><a target="_blank" href="/product-674.html">威尔农庄尊贵商务礼品【全国通用】</a></h6>
+          <div class="attribute">
+            <p>产地:山东 配送:青岛</p>
+            <p>品种:樱桃</p>
+           
+          </div>
           <ul>
-          	<li class="mktprice1">￥186.00</li>          
-          	<li class="price1">￥155.00</li>
+            <li class="mktprice1">￥358.00</li>          
+            <li class="price1">￥298.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-257-929-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-159-674-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-927.html"><img src="http://www.guolehui.com.cn/public/images/54/9f/03/690c6c9cf196d9a9ae64da15c517bec85c9846ef.jpg?1431070126#h" alt="【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-673.html"><img src="http://www.guolehui.com.cn/public/images/a9/63/aa/c96bfb37d4ca632f65994ad3169e551ce2bfc822.png?1420114796#h" alt="真情意意水果礼盒【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-927.html">【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇</a></h6>
+         <h6><a target="_blank" href="/product-673.html">真情意意水果礼盒【全国通用】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥83.00</li>          
-          	<li class="price1">￥69.00</li>
+            <li class="mktprice1">￥408.00</li>          
+            <li class="price1">￥358.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-256-926-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-158-673-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-933.html"><img src="http://www.guolehui.com.cn/public/images/a7/4c/0b/b1c6b99fd492d752f5f224c245950dc945b8b7aa.jpg?1431563701#h" alt="优质泰国金枕头榴莲/每个大概5斤【限上海配送】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-672.html"><img src="http://www.guolehui.com.cn/public/images/8e/18/13/dd1b33e6d71c05bac57439f27bc98a0a5e41c1f7.png?1421488721#h" alt="儿童水果套餐礼盒" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-933.html">优质泰国金枕头榴莲/每个大概5斤【限上海配送】</a></h6>
+         <h6><a target="_blank" href="/product-672.html">儿童水果套餐礼盒</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥119.00</li>          
-          	<li class="price1">￥99.00</li>
+            <li class="mktprice1">￥218.00</li>          
+            <li class="price1">￥188.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-258-932-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-157-672-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-974.html"><img src="http://www.guolehui.com.cn/public/images/ca/a5/1f/fa53ab469081178c1dd638facbe84689c2222b37.jpg?1433333123#h" alt="南非红西柚8个装" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-671.html"><img src="http://www.guolehui.com.cn/public/images/df/7f/72/dca1f554a069ef34cde99b154ae1e06babe49605.png?1420114821#h" alt="家和万事兴水果礼盒【特价】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-974.html">南非红西柚8个装</a></h6>
+         <h6><a target="_blank" href="/product-671.html">家和万事兴水果礼盒【特价】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥82.00</li>          
-          	<li class="price1">￥68.00</li>
+            <li class="mktprice1">￥198.00</li>          
+            <li class="price1">￥168.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-268-974-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-156-671-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-958.html"><img src="http://www.guolehui.com.cn/public/images/73/08/ec/84d8a621031f4a65168f06718a9f214eff3d2f8f.jpg?1431051473#h" alt="新西兰Zespri金奇异果   【 每个重量95-115g】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-670.html"><img src="http://www.guolehui.com.cn/public/images/9a/4e/2d/2d69eca5db91ebf21a72260ca565e27eb5a14256.png?1420113993#h" alt="威利农山庄尊贵商务礼品" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-958.html">新西兰Zespri金奇异果   【 每个重量95-115g】</a></h6>
+         <h6><a target="_blank" href="/product-670.html">威利农山庄尊贵商务礼品</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥20.00</li>          
-          	<li class="price1">￥17.00</li>
+            <li class="mktprice1">￥568.00</li>          
+            <li class="price1">￥458.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-255-923-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-155-670-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-887.html"><img src="http://www.guolehui.com.cn/public/images/18/bb/f2/e37976467ea5ae1174298c16169bd2699a642501.jpg?1431180807#h" alt="新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-669.html"><img src="http://www.guolehui.com.cn/public/images/bb/e3/d9/9e4b2b97a80c2d25ba74f52db31b0410a9126e9b.png?1420114009#h" alt="蓝色经典水果套餐" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-887.html">新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】</a></h6>
+         <h6><a target="_blank" href="/product-669.html">蓝色经典水果套餐</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥91.00</li>          
-          	<li class="price1">￥76.00</li>
+            <li class="mktprice1">￥238.00</li>          
+            <li class="price1">￥188.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-246-887-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-154-669-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-630.html"><img src="http://www.guolehui.com.cn/public/images/8b/67/af/219063a180689cdd2d636f204ad8abd454484efe.jpg?1422595744#h" alt="【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-668.html"><img src="http://www.guolehui.com.cn/public/images/66/80/3a/06acee2bfc9d8ce77c5e0fa990265b7fbe1eea68.png?1420114068#h" alt="果乐缤纷水果礼盒" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-630.html">【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】</a></h6>
+         <h6><a target="_blank" href="/product-668.html">果乐缤纷水果礼盒</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥30.00</li>          
-          	<li class="price1">￥25.00</li>
+            <li class="mktprice1">￥308.00</li>          
+            <li class="price1">￥238.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-133-630-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-153-668-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-622.html"><img src="http://www.guolehui.com.cn/public/images/e5/32/97/1ac42c4af5c1f2bca21a35e6c534b5e92a32f032.jpg?1425383382#h" alt="【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-667.html"><img src="http://www.guolehui.com.cn/public/images/31/1a/9d/bd795585a6c7af7da4a74b188b7657f2ca65222b.png?1420114115#h" alt="美白塑身水果套餐" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-622.html">【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质</a></h6>
+         <h6><a target="_blank" href="/product-667.html">美白塑身水果套餐</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥107.00</li>          
-          	<li class="price1">￥89.00</li>
+            <li class="mktprice1">￥298.00</li>          
+            <li class="price1">￥258.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-132-624-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-152-667-1.html">加入购物车</a>    
       </div>
      </li>
       </ul>
 </li>
                             <li class="gb-item">  <ul class="goods-column clr">
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-788.html"><img src="http://www.guolehui.com.cn/public/images/6f/5c/e1/95262a0a52957fa533b291e6851cad4a4574a9d2.jpg?1408805823#h" alt="【精品】优质新鲜泰国山竹" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-674.html"><img src="http://www.guolehui.com.cn/public/images/e3/2c/10/72f1124976459941d73ddb72c9815cff7777e214.png?1420114782#h" alt="威尔农庄尊贵商务礼品【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-788.html">【精品】优质新鲜泰国山竹</a></h6>
+         <h6><a target="_blank" href="/product-674.html">威尔农庄尊贵商务礼品【全国通用】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥84.00</li>          
-          	<li class="price1">￥50.00</li>
+            <li class="mktprice1">￥358.00</li>          
+            <li class="price1">￥298.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-112-581-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-159-674-1.html">加入购物车</a>    
+      </div>
+     </li>
+        <li class="goods-list">
+              <div class="goodpic"><a target="_blank" href="/product-673.html"><img src="http://www.guolehui.com.cn/public/images/a9/63/aa/c96bfb37d4ca632f65994ad3169e551ce2bfc822.png?1420114796#h" alt="真情意意水果礼盒【全国通用】" width="160" height="160"/></a>
+      </div>
+      <div class="info">
+         <h6><a target="_blank" href="/product-673.html">真情意意水果礼盒【全国通用】</a></h6>
+          
+          <ul>
+            <li class="mktprice1">￥408.00</li>          
+            <li class="price1">￥358.00</li>
+          </ul>
+          
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-158-673-1.html">加入购物车</a>    
+      </div>
+     </li>
+        <li class="goods-list">
+              <div class="goodpic"><a target="_blank" href="/product-670.html"><img src="http://www.guolehui.com.cn/public/images/9a/4e/2d/2d69eca5db91ebf21a72260ca565e27eb5a14256.png?1420113993#h" alt="威利农山庄尊贵商务礼品" width="160" height="160"/></a>
+      </div>
+      <div class="info">
+         <h6><a target="_blank" href="/product-670.html">威利农山庄尊贵商务礼品</a></h6>
+          
+          <ul>
+            <li class="mktprice1">￥568.00</li>          
+            <li class="price1">￥458.00</li>
+          </ul>
+          
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-155-670-1.html">加入购物车</a>    
+      </div>
+     </li>
+        <li class="goods-list">
+              <div class="goodpic"><a target="_blank" href="/product-669.html"><img src="http://www.guolehui.com.cn/public/images/bb/e3/d9/9e4b2b97a80c2d25ba74f52db31b0410a9126e9b.png?1420114009#h" alt="蓝色经典水果套餐" width="160" height="160"/></a>
+      </div>
+      <div class="info">
+         <h6><a target="_blank" href="/product-669.html">蓝色经典水果套餐</a></h6>
+          
+          <ul>
+            <li class="mktprice1">￥238.00</li>          
+            <li class="price1">￥188.00</li>
+          </ul>
+          
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-154-669-1.html">加入购物车</a>    
       </div>
      </li>
       </ul>
 </li>
                             <li class="gb-item">  <ul class="goods-column clr">
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-929.html"><img src="http://www.guolehui.com.cn/public/images/df/da/48/68eeebf09f3672356df019a3a81cd8f4aca62876.jpg?1434640282#h" alt="果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-674.html"><img src="http://www.guolehui.com.cn/public/images/e3/2c/10/72f1124976459941d73ddb72c9815cff7777e214.png?1420114782#h" alt="威尔农庄尊贵商务礼品【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-929.html">果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】</a></h6>
+         <h6><a target="_blank" href="/product-674.html">威尔农庄尊贵商务礼品【全国通用】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥186.00</li>          
-          	<li class="price1">￥155.00</li>
+            <li class="mktprice1">￥358.00</li>          
+            <li class="price1">￥298.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-257-929-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-159-674-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-927.html"><img src="http://www.guolehui.com.cn/public/images/54/9f/03/690c6c9cf196d9a9ae64da15c517bec85c9846ef.jpg?1431070126#h" alt="【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-673.html"><img src="http://www.guolehui.com.cn/public/images/a9/63/aa/c96bfb37d4ca632f65994ad3169e551ce2bfc822.png?1420114796#h" alt="真情意意水果礼盒【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-927.html">【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇</a></h6>
+         <h6><a target="_blank" href="/product-673.html">真情意意水果礼盒【全国通用】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥83.00</li>          
-          	<li class="price1">￥69.00</li>
+            <li class="mktprice1">￥408.00</li>          
+            <li class="price1">￥358.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-256-926-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-158-673-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-933.html"><img src="http://www.guolehui.com.cn/public/images/a7/4c/0b/b1c6b99fd492d752f5f224c245950dc945b8b7aa.jpg?1431563701#h" alt="优质泰国金枕头榴莲/每个大概5斤【限上海配送】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-672.html"><img src="http://www.guolehui.com.cn/public/images/8e/18/13/dd1b33e6d71c05bac57439f27bc98a0a5e41c1f7.png?1421488721#h" alt="儿童水果套餐礼盒" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-933.html">优质泰国金枕头榴莲/每个大概5斤【限上海配送】</a></h6>
+         <h6><a target="_blank" href="/product-672.html">儿童水果套餐礼盒</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥119.00</li>          
-          	<li class="price1">￥99.00</li>
+            <li class="mktprice1">￥218.00</li>          
+            <li class="price1">￥188.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-258-932-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-157-672-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-974.html"><img src="http://www.guolehui.com.cn/public/images/ca/a5/1f/fa53ab469081178c1dd638facbe84689c2222b37.jpg?1433333123#h" alt="南非红西柚8个装" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-671.html"><img src="http://www.guolehui.com.cn/public/images/df/7f/72/dca1f554a069ef34cde99b154ae1e06babe49605.png?1420114821#h" alt="家和万事兴水果礼盒【特价】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-974.html">南非红西柚8个装</a></h6>
+         <h6><a target="_blank" href="/product-671.html">家和万事兴水果礼盒【特价】</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥82.00</li>          
-          	<li class="price1">￥68.00</li>
+            <li class="mktprice1">￥198.00</li>          
+            <li class="price1">￥168.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-268-974-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-156-671-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-958.html"><img src="http://www.guolehui.com.cn/public/images/73/08/ec/84d8a621031f4a65168f06718a9f214eff3d2f8f.jpg?1431051473#h" alt="新西兰Zespri金奇异果   【 每个重量95-115g】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-670.html"><img src="http://www.guolehui.com.cn/public/images/9a/4e/2d/2d69eca5db91ebf21a72260ca565e27eb5a14256.png?1420113993#h" alt="威利农山庄尊贵商务礼品" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-958.html">新西兰Zespri金奇异果   【 每个重量95-115g】</a></h6>
+         <h6><a target="_blank" href="/product-670.html">威利农山庄尊贵商务礼品</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥20.00</li>          
-          	<li class="price1">￥17.00</li>
+            <li class="mktprice1">￥568.00</li>          
+            <li class="price1">￥458.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-255-923-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-155-670-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-887.html"><img src="http://www.guolehui.com.cn/public/images/18/bb/f2/e37976467ea5ae1174298c16169bd2699a642501.jpg?1431180807#h" alt="新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-669.html"><img src="http://www.guolehui.com.cn/public/images/bb/e3/d9/9e4b2b97a80c2d25ba74f52db31b0410a9126e9b.png?1420114009#h" alt="蓝色经典水果套餐" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-887.html">新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】</a></h6>
+         <h6><a target="_blank" href="/product-669.html">蓝色经典水果套餐</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥91.00</li>          
-          	<li class="price1">￥76.00</li>
+            <li class="mktprice1">￥238.00</li>          
+            <li class="price1">￥188.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-246-887-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-154-669-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-630.html"><img src="http://www.guolehui.com.cn/public/images/8b/67/af/219063a180689cdd2d636f204ad8abd454484efe.jpg?1422595744#h" alt="【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-668.html"><img src="http://www.guolehui.com.cn/public/images/66/80/3a/06acee2bfc9d8ce77c5e0fa990265b7fbe1eea68.png?1420114068#h" alt="果乐缤纷水果礼盒" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-630.html">【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】</a></h6>
+         <h6><a target="_blank" href="/product-668.html">果乐缤纷水果礼盒</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥30.00</li>          
-          	<li class="price1">￥25.00</li>
+            <li class="mktprice1">￥308.00</li>          
+            <li class="price1">￥238.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-133-630-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-153-668-1.html">加入购物车</a>    
       </div>
      </li>
         <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-622.html"><img src="http://www.guolehui.com.cn/public/images/e5/32/97/1ac42c4af5c1f2bca21a35e6c534b5e92a32f032.jpg?1425383382#h" alt="【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质" width="160" height="160"/></a>
+              <div class="goodpic"><a target="_blank" href="/product-667.html"><img src="http://www.guolehui.com.cn/public/images/31/1a/9d/bd795585a6c7af7da4a74b188b7657f2ca65222b.png?1420114115#h" alt="美白塑身水果套餐" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-622.html">【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质</a></h6>
+         <h6><a target="_blank" href="/product-667.html">美白塑身水果套餐</a></h6>
           
           <ul>
-          	<li class="mktprice1">￥107.00</li>          
-          	<li class="price1">￥89.00</li>
+            <li class="mktprice1">￥298.00</li>          
+            <li class="price1">￥258.00</li>
           </ul>
           
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-132-624-1.html">加入购物车</a>    
+          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-152-667-1.html">加入购物车</a>    
       </div>
      </li>
       </ul>
 </li>
                             <li class="gb-item">  <ul class="goods-column clr">
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-929.html"><img src="http://www.guolehui.com.cn/public/images/df/da/48/68eeebf09f3672356df019a3a81cd8f4aca62876.jpg?1434640282#h" alt="果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-929.html">果乐汇空运到货；30mm优质美国樱桃/车厘子【特价】</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥186.00</li>          
-          	<li class="price1">￥155.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-257-929-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-927.html"><img src="http://www.guolehui.com.cn/public/images/54/9f/03/690c6c9cf196d9a9ae64da15c517bec85c9846ef.jpg?1431070126#h" alt="【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-927.html">【现货】佳沛新西兰绿奇异果，每个重量90g以上；果乐汇</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥83.00</li>          
-          	<li class="price1">￥69.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-256-926-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-933.html"><img src="http://www.guolehui.com.cn/public/images/a7/4c/0b/b1c6b99fd492d752f5f224c245950dc945b8b7aa.jpg?1431563701#h" alt="优质泰国金枕头榴莲/每个大概5斤【限上海配送】" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-933.html">优质泰国金枕头榴莲/每个大概5斤【限上海配送】</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥119.00</li>          
-          	<li class="price1">￥99.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-258-932-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-974.html"><img src="http://www.guolehui.com.cn/public/images/ca/a5/1f/fa53ab469081178c1dd638facbe84689c2222b37.jpg?1433333123#h" alt="南非红西柚8个装" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-974.html">南非红西柚8个装</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥82.00</li>          
-          	<li class="price1">￥68.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-268-974-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-958.html"><img src="http://www.guolehui.com.cn/public/images/73/08/ec/84d8a621031f4a65168f06718a9f214eff3d2f8f.jpg?1431051473#h" alt="新西兰Zespri金奇异果   【 每个重量95-115g】" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-958.html">新西兰Zespri金奇异果   【 每个重量95-115g】</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥20.00</li>          
-          	<li class="price1">￥17.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-255-923-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-887.html"><img src="http://www.guolehui.com.cn/public/images/18/bb/f2/e37976467ea5ae1174298c16169bd2699a642501.jpg?1431180807#h" alt="新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-887.html">新西兰红玫瑰苹果【每个果实的重量220-240g优质品质】</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥91.00</li>          
-          	<li class="price1">￥76.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-246-887-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-630.html"><img src="http://www.guolehui.com.cn/public/images/8b/67/af/219063a180689cdd2d636f204ad8abd454484efe.jpg?1422595744#h" alt="【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-630.html">【8斤特价】新鲜越南火龙果，【每个果实重量500g以上优质品质】</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥30.00</li>          
-          	<li class="price1">￥25.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-133-630-1.html">加入购物车</a>    
-      </div>
-     </li>
-        <li class="goods-list">
-              <div class="goodpic"><a target="_blank" href="/product-622.html"><img src="http://www.guolehui.com.cn/public/images/e5/32/97/1ac42c4af5c1f2bca21a35e6c534b5e92a32f032.jpg?1425383382#h" alt="【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质" width="160" height="160"/></a>
-      </div>
-      <div class="info">
-      	 <h6><a target="_blank" href="/product-622.html">【精品】优质墨西哥牛油果，每个果子的重量在160g-180g优质品质</a></h6>
-          
-          <ul>
-          	<li class="mktprice1">￥107.00</li>          
-          	<li class="price1">￥89.00</li>
-          </ul>
-          
-          <a class="addcart-btn listact f-addcart" target="_dialog_minicart" href="/index.php/cart-add-goods-132-624-1.html">加入购物车</a>    
-      </div>
-     </li>
       </ul>
 </li>
                         </ul>
                     </div>
-                </div>
+                </div>               
             </div>
         </div>
-    </div>
-    <div class="floor-show"><a href="http://www.guolehui.com.cn/product-717.html" target="_blank"><img src='http://mall.guolehui.com.cn/public/images/03/3d/ec/886b2abab153d2580514ab44887d50423a6bfe0d.jpg?1417917218#w' alt="新年提货券礼品卡定制服务--果乐汇" width='1190'height='90' /></a>
+    </div> 
 
-</div>
+
+
     <div class="floor floor2">
     	<div class="hd"><span id="f2" class="fgoto"></span><h3 class="fl">2F 国产鲜果</h3><div class="f-link fr"><ul class="urllist"><li class="first last"><a href="http://www.guolehui.com.cn/gallery-46.html" target="_blank">更多</a></li></ul></div></div>
         <div class="bd clr">
@@ -1551,9 +1448,7 @@ window.addEvent('domready',function(){
             </div>
         </div>
     </div>    
-    <div class="floor-show"><a href="" target="_blank"><img src='http://mall.guolehui.com.cn/public/images/6d/03/66/b138621db222f327edb3952fe81f67b33ab51b7f.jpg?1426002935#w' alt="优惠券-果乐汇" width='1190'height='90' /></a>
 
-</div>
     <div class="floor floor3">
     	<div class="hd"><span id="f3" class="fgoto"></span><h3 class="fl">3F 高档鲜果礼盒</h3><div class="f-link fr"><ul class="urllist"><li class="first last"><a href="http://www.guolehui.com.cn/gallery-47.html" target="_blank">更多</a></li></ul></div></div>
         <div class="bd clr">
@@ -1611,8 +1506,8 @@ window.addEvent('domready',function(){
               <div class="goodpic"><a target="_blank" href="/product-674.html"><img src="http://www.guolehui.com.cn/public/images/e3/2c/10/72f1124976459941d73ddb72c9815cff7777e214.png?1420114782#h" alt="威尔农庄尊贵商务礼品【全国通用】" width="160" height="160"/></a>
       </div>
       <div class="info">
-      	 <h6><a target="_blank" href="/product-674.html">威尔农庄尊贵商务礼品【全国通用】</a></h6>
-          
+      	 <h6><a target="_blank" href="/product-674.html">ss威尔农庄尊贵商务礼品【全国通用】</a></h6>
+
           <ul>
           	<li class="mktprice1">￥358.00</li>          
           	<li class="price1">￥298.00</li>
@@ -1904,9 +1799,7 @@ window.addEvent('domready',function(){
             </div>
         </div>
     </div> 
-    <div class="floor-show"><a href="http://www.guolehui.com.cn/product-927.html" target="_blank"><img src='http://www.guolehui.com.cn/public/images/d1/0b/b7/adfbee41691827d7c83bfdf4a7501a83fbc895bc.jpg?1409496905#w' alt="新西兰奇异果2015最后一季---果乐汇" width='1190'height='90' /></a>
 
-</div>
     <div class="floor floor4">
     	<div class="hd"><span id="f4" class="fgoto"></span><h3 class="fl">4F 礼卡礼券</h3><div class="f-link fr"><ul class="urllist"><li class="first last"><a href="" target="_blank">更多</a></li></ul></div></div>
         <div class="bd clr">
@@ -2197,16 +2090,13 @@ window.addEvent('domready',function(){
             </div>
         </div>
     </div>
-    <div class="floor-show"><a href="" target="_blank"><img src='http://mall.guolehui.com.cn/public/images/5a/ac/19/7a07f36d727c50328f2632c11e1bf66991a724bf.jpg?1414374090#w' alt="安心食品"  /></a>
-
-</div>
+    <div class="floor-show"><a href="">     
+        <img src='images/footertop.jpg' alt="" width='1190'/></a>
+    </div>
     
     
    </div> 
-    <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6850d4ccf25e09b7b51786c66dcfbc4f' type='text/javascript'%3E%3C/script%3E"));
-</script>
+
     
     </div>
     
@@ -2216,359 +2106,73 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     
 
 </div>
-<div class="float-nav" id="float_nav">
-<ul>
-	<li class="item1"><a href="javascript:;">楼层直达</a></li>
-    <li class="item2"><a href="#f1" target="_self">进口鲜果</a></li>   
-    <li class="item2"><a href="#f2" target="_self">国产鲜果</a></li>   
-    <li class="item2"><a href="#f3" target="_self">水果礼盒</a></li>   
-    <li class="item2"><a href="#f4" target="_self">礼卡礼券</a></li>       
-       
-       
-       
-       
-       
-       
-       
-              
-        
-    <li class="item3"><div><img src="http://mall.guolehui.com.cn/public/images/15/b7/23/d45aaba434c06623896f6bc371fcb8fad28522b1.gif?1411891691#h" width=63 height=63></div><p>随时随地逛</p></li>
-    <li class="item4"><a target="_self" onclick="javascript:window.open('http://wpa.qq.com/msgrd?v=3&uin=2511019317&&Site=qq&&menu=yes', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" href="javascript:void(0);" title="在线咨询">在线咨询</a></li>
-    <li class="item5"><a href="javascript:void(0);" id="gotop" target="_self" title="TOP">TOP</a></li>
+
+<div id="footer" class="footer">
+<div class="foot">
+      <div class="pageFooter">
+ 
+      <div class="right">
+        <ul>
+          <li class="title">购物指南</li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/140/133.html" target="_blank">积分制度</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/140/132.html" target="_blank">会员介绍</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/140/128.html" target="_blank">购物流程</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/140/138.html" target="_blank">常见问题</a></li>
+        </ul>
+        <ul>
+          <li class="title">配送服务</li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/141/134.html" target="_blank">配送政策</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/141/136.html" target="_blank">开箱验货</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/141/137.html" target="_blank">配送运费</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/141/135.html" target="_blank">配送范围</a></li>
+        </ul>
+        <ul>
+          <li class="title">支付方式</li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/143/139.html" target="_blank">货到付款</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/143/141.html" target="_blank">在线支付</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/143/131.html" target="_blank">优选卡</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/143/142.html" target="_blank">发票制度</a></li>
+        </ul>
+        <ul>
+          <li class="title">售后服务</li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/144/145.html" target="_blank">退款说明</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/144/144.html" target="_blank">退换货流程</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/144/143.html" target="_blank">退换货政策</a></li>
+          <li><a rel="nofollow" href="http://help.sfbest.com/390/4643.html" target="_blank">隐私条款</a></li>
+        </ul>
+
+<ul class="sj">
+<li class="title">商家中心</li>
+  
+<li>商家入驻</li>
+  
+<li><a rel="nofollow" href="http://help.sfbest.com/392/7232.html" target="_blank">商家规则</a></li>
 </ul>
-</div>
-<script src="http://www.guolehui.com.cn/themes/super3/widgets/z_floatnav/images/floatnav.js"></script><div id="footer" class="footer">
-	
-	<div class="helparea">
-    	<div class="wrap">
-        	<div class="top-area">
-                <div class="l-column fl"><a href="http://www.guolehui.com.cn/member-send.html" target="_blank"><img src='http://mall.guolehui.com.cn/public/images/5b/85/95/34fc029e08c32e3b671dd9d46ff87815f6758763.jpg?1421215430#w' alt="果乐汇客服热线"  /></a>
-
-</div>
-                <div class="c-column fl">
-                	<ul class="clr">
-                    	<li class="item"><div class="content-list">
-        <h3 class="content-title">新手指南</h3>
-        <div class='article-index-list'><ul>
-    <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-xinshouzhinan-69.html" title="用户注册">用户注册</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-xinshouzhinan-65.html" title="预存款支付">预存款支付</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-xinshouzhinan-63.html" title="会员积分">会员积分</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-xinshouzhinan-62.html" title="顾客须知">顾客须知</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-xinshouzhinan-61.html" title="订购方式">订购方式</a>
-</li>    </ul></div>
-</div>
-
-</li>
-                        <li class="item"><div class="content-list">
-        <h3 class="content-title">购物指南</h3>
-        <div class='article-index-list'><ul>
-    <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwuzhinan-91.html" title="手机订购">手机订购</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwuzhinan-70.html" title="礼品储值卡使用">礼品储值卡使用</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwuzhinan-67.html" title="用户常见问题">用户常见问题</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwuzhinan-66.html" title="发票说明">发票说明</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwuzhinan-64.html" title="联系客服">联系客服</a>
-</li>    </ul></div>
-</div>
-
-</li>
-                        <li class="item"><div class="content-list">
-        <h3 class="content-title">支付配送方式</h3>
-        <div class='article-index-list'><ul>
-    <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-zhifupeisongfangshi-37.html" title="礼品卡/账户余额">礼品卡/账户余额</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-zhifupeisongfangshi-72.html" title="货到付款">货到付款</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-zhifupeisongfangshi-39.html" title="订单出库时间">订单出库时间</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-zhifupeisongfangshi-71.html" title="全国配送范围">全国配送范围</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-zhifupeisongfangshi-38.html" title="支付方式">支付方式</a>
-</li>    </ul></div>
-</div>
-
-</li>
-                        <li class="item"><div class="content-list">
-        <h3 class="content-title">购物条款</h3>
-        <div class='article-index-list'><ul>
-    <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwutiaokuan-79.html" title="48小时退换货">48小时退换货</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwutiaokuan-78.html" title="提货券兑换售后">提货券兑换售后</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwutiaokuan-73.html" title="商品退换货政策">商品退换货政策</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwutiaokuan-35.html" title="隐私保护政策">隐私保护政策</a>
-</li> <li class="article-index lv-1 content-item">
-    <a href="http://www.guolehui.com.cn/article-gouwutiaokuan-36.html" title="会员注册协议">会员注册协议</a>
-</li>    </ul></div>
-</div>
-
-</li>
-                    </ul>
-                </div>
-                <div class="r-column fr">
-                	<h6>随时随地逛</h6>
-                    <div class="scan"><img src='http://mall.guolehui.com.cn/public/images/de/28/62/14a45ecb6671467329954bef92c18fcf846c0bae.png?1420546265#h' alt="二维码" width='116'height='116' />
-
-</div>
-                </div>
-            </div>
-            <div class="bottom-area"><ul class="urllist"><li class="first"><a href="http://www.guolehui.com.cn/topic/About-us.html" target="_blank">关于我们</a></li><li><a href="http://www.guolehui.com.cn/article-help-l-1.html" target="_blank">帮助中心</a></li><li><a href="http://www.guolehui.com.cn/article-cominfo_jobs-75.html" target="_blank">诚聘英才</a></li><li><a href="http://www.guolehui.com.cn/article-help-76.html" target="_blank">联系我们</a></li><li><a href="http://www.guolehui.com.cn/article-cominfo_about-77.html" target="_blank">业务合作</a></li><li><a href="http://www.guolehui.com.cn/topic/xianzhaibian.html" target="_blank">限时理赔</a></li><li><a href="http://www.guolehui.com.cn/topic/guolehuipinpai.html" target="_blank">媒体报道</a></li><li class="last"><a href="https://www.jinshuju.net/f/U0VCsv" target="_blank">企业采购一对一服务</a></li></ul></div>
+      </div>
+      <div class="left">
+        <div class="f_wx">
+          <img src="images/mobile.jpg"/>
+          <p>四季果园手机版</p>
         </div>
+        <div class="f_ios">
+          <img src="images/weixin.jpg"/>
+          <p>请关注我们的微信</p>
+        </div>
+      </div>
     </div>
-    
-    <div class="wrap"><div class="sys-copyright"><script>
-var Shop = window['Shop'] || {"url":{"region":"\/tools-selRegion.html","placeholder":"http:\/\/www.guolehui.com.cn\/public\/app\/b2c\/statics\/images\/imglazyload.gif"},"set":{"refer_timeout":15}};
-window.addEvent('domready',function(){
-    var __time_out = 1000;
-    if (Shop.set != undefined&&Shop.set.refer_timeout) __time_out = Shop.set.refer_timeout;
-    var ReferObj ={};
-    Object.append(ReferObj,{
-        serverTime:1435105742,
-        init:function(){
-            var FIRST_REFER=Memory.get('first_refer');
-            var NOW_REFER=Memory.get('now_refer');
-            var nowDate=this.time=this.serverTime*1000;
-            if(!window.location.href.test('#r-')&&!document.referrer||document.referrer.test(document.domain))return;
-            if(window.location.href.test('#r-')) Memory.clean('n');
-            if(!FIRST_REFER){
-
-                if(NOW_REFER){
-                    Memory.set('first_refer',NOW_REFER,this.getTimeOut(JSON.decode(NOW_REFER).DATE));
-                }else{
-                    this.setRefer('first_refer',__time_out);
-                }
-            }
-            this.setRefer('now_refer',__time_out);
-            this.createGUID();
-        },
-        getUid:function(){
-            var lf=window.location.href,pos=lf.indexOf('#r-');
-            return pos!=-1?lf.substr(pos+4):'';
-        },
-        getRefer:function(){
-            return document.referrer?document.referrer:'';
-        },
-        setRefer:function(referName,timeout){
-            var uid=this.getUid(),referrer=this.getRefer();
-            var data={'ID':uid,'REFER':referrer,'DATE':this.time};
-
-            if('now_refer'==referName){
-                var refer=JSON.decode(Memory.get('first_refer'));
-                if(uid!=''&&refer&&refer.ID==''){
-                    var fdata={'ID':uid,'REFER':refer.REFER,'DATE':refer.DATE};
-                    Memory.set('first_refer',JSON.encode(fdata),this.getTimeOut(refer.DATE));
-                }else if(uid==''){
-                    Object.append(data,{'ID':refer.ID});
-                }
-            }
-            Memory.set(referName,JSON.encode(data),__time_out||15);
-        },
-        getTimeOut:function(nowDate){
-            var timeout=nowDate+__time_out*24*3600*1000;
-            var date=new Date(timeout);
-            return date;
-        },
-        createGUID:function(){
-            var GUID = (function(){
-                var S4=function(){
-                    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-                };
-                return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4()).toUpperCase();
-            })();
-            Memory.set('n',GUID,3650);
-        }
-    });
-    ReferObj.init();
-});
+    <div class="clear"></div>
 
 
-miniCart = {
-    'show':function(target){
-        target = $(target);
-        if (!target) return;
-
-        if(this.dialog){
-            this.hide();
-        }
-
-        var options = {
-                body: 'popup-body',
-                header: 'popup-header',
-                close: 'popup-btn-close',
-                content:'popup-content',
-                title:'正在加入购物车',
-                main:'<div class="loading">loading...</div>'
-            }, dialog = this.dialog = new Element('div#mini_cart_dialog.popup-container.mini-cart-dialog',{
-                'html': $('popup_template').get('html').substitute(options),
-                styles:{
-                    display:'block',
-                    zIndex: maxZindex('div', 1)
-                }
-            }).inject(document.body);
-
-        this.title = dialog.getElement('.popup-header h2');
-        this.close = dialog.getElements('.popup-btn-close');
-        this.content = dialog.getElement('.popup-content');
-        this.dialog.addEvent('click:relay(.popup-btn-close)',this.hide.bind(this));
-
-        var setSize = this.setSize = function(){
-            if(!dialog.isDisplayed()) return;
-            dialog.setStyles({
-                top:target.getPosition().y+target.getSize().y,
-                left:target.getPosition().x.limit(0,window.getSize().x-dialog.getSize().x) + window.getScroll().x
-            });
-        };
-
-        setSize();
-        window.addEvent('resize',setSize);
-    },
-    'hide':function(){
-        try{
-            this.dialog.destroy();
-            window.removeEvent('resize',this.setSize);
-        }catch(e){}
-    },
-    'load':function(options){
-        options = options || {};
-        options = Object.merge({
-            method: 'post',
-            onRequest: function(){
-                miniCart.show(options.target);
-            },
-            onSuccess: function(re){
-                if(re) {
-                    this.title.innerHTML = '提醒';
-                    this.content.innerHTML = re;
-                }
-
-                updateCartInfo();
-                
-                if(document.getElement('.minicart_box')&&document.getElement('.minicart_box').get('show_gallery')){
-                    document.getElement('.minicart_box').fireEvent('_show'); //迷你购物车
-                }
-                options.callback && options.callback(re);
-            }.bind(this),
-            onFailure: function(xhr){
-                this.title.innerHTML = '提醒';
-                this.content.innerHTML = '<div class="minicart-error"><p align="center">加入购物车失败。<br />可能库存不足或提交信息不完整。</p></div>';
-            }.bind(this)
-        },options||{});
-        if(!options.url) return false;
-
-        new Request(options).send(options.data ? options.data.toQueryString() + '&mini_cart=true' : 'mini_cart=true');
-    },
-    init:function(target, url, data){
-        var linktocart;
-        if(typeOf(target) == 'element') linktocart = target.getElements('[target=_dialog_minicart]');
-        else if(typeOf(target) == 'elements') linktocart = target;
-        else linktocart = $$('a[target=_dialog_minicart], button[target=_dialog_minicart]');
-        if(linktocart.length){
-            linktocart.addEvent('click',function(e){
-                e.preventDefault();
-                miniCart.load({url: url || this.href, data: data || this.getParent('.goods-item') || this.getParent('li'), target: this});
-            });
-        }
-    }
-};
-
-formToCart = function(container,target) {
-    container = $(container || document.body);
-    target = target || '.action-addtocart';
-    if(!container) return;
-
-    var formtocart = container.getElement('form[target=_dialog_minicart]') || container.getFirst().getParent('form[target=_dialog_minicart]');
-    if(formtocart) {
-        formtocart.addEvent('submit', function(e){
-            e.stop();
-            target = this.getElement(target) || this.getElement('*[type=submit]');
-            miniCart.load({
-                url:this.action,
-                method:this.method,
-                data:this,
-                target: target,
-                callback: function() {
-                    target.removeClass('disabled');
-                }.bind(this)
-            });
-        });
-    };
-}
-
-window.addEvent('domready',function(){
-    miniCart.init();
-    formToCart();
-});
-</script>
-
-<script id="popup_template" type="text/template">
-  <div class="{body}">
-     <div class="{header} clearfix">
-        <h2>{title}</h2>
-        <span><button type="button" title="关闭" class="{close}" hidefocus><i>×</i></button></span>
+    </div>   
+    <div class="bottom">
+      <div class="siteinfo">
+        <p><span><a rel="nofollow" href="/www/379/5109.html" target="_blank">关于我们</a></span><span><a rel="nofollow" href="/www/380/5116.html" target="_blank">联系我们</a></span><span><a rel="nofollow" href="/www/381/5117.html" target="_blank">招聘人才</a></span><span><a href="/www/330/2705.html" target="_blank">友情链接</a></span><span><a rel="nofollow" href="http://supplier.sfbest.com/supplierApply" target="_blank">供应商申请</a></span><span>Copyright© 四季果园 sjfruit.com 版权所有</span></p>
+        <p><span>京公网安备11010502026831号</span><span><a class="beian" rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn">京ICP证150325号</a></span><span>食品流通许可证SP1101131210068671(1-1)号</span><span><a class="beian" rel="nofollow" target="_blank" href="/www/174/461.html">企业营业执照</a></span></p>
+      </div>
     </div>
-    <div class="{content} clearfix">{main}</div>
-  </div>
-</script>
-<script id="message_template" type="text/template">
-  <div class="{body} clearfix">
-    <div class="icon">{icon}</div>
-    <div class="{content}">{main}</div>
-  </div>
-</script>
-<script id="dropmenu_template" type="text/template">
-  <div class="{body}">
-    <div class="{content} clearfix">{main}</div>
-  </div>
-</script>
-<p><font color="#666666"><span style="font-family: Tahoma;">&nbsp;</span><span style="font-family: Tahoma;">guolehui.com.cn&nbsp;</span><font face="Tahoma">果乐汇 &nbsp;All Rights Reserved©2011-2015 &nbsp;上海汤圣电子商务有限公司版权所有 </font></font></p>
-<p><span style="widows: 1; text-transform: none; text-indent: 0px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 19px; font-family: Arial, Verdana, sans-serif; white-space: normal; float: none; letter-spacing: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; background-color: rgb(255, 255, 255);"><font color="#666666">《中华人民共和国电信与信息服务业务经营许可证》</font><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" type="url" target="_blank">沪ICP备12027781号</a><font face="Tahoma">&nbsp;</font><font color="#666666"><font face="Tahoma">营业执照号：<span style="line-height: 16px;">310116002512665</span>&nbsp;</font></font></span></p>
-<p><span style="WIDOWS: 1; TEXT-TRANSFORM: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; DISPLAY: inline !important; FONT: 12px/19px Arial, Verdana, sans-serif; WHITE-SPACE: normal; FLOAT: none; LETTER-SPACING: normal; COLOR: rgb(153,153,153); WORD-SPACING: 0px; -webkit-text-stroke-width: 0px"><font color="#000000" face="Tahoma"><br/></font></span></p>
-<p>
-<img src="http://mall.guolehui.com.cn/public/images/04/4c/fc/ca040708e028cc2ca1093f8def1bd22a08c8ea2c.gif?1412564297#w">&nbsp; &nbsp; &nbsp;&nbsp;<a href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20130909171114957" type="url" target="_blank"> 
-<img src="http://mall.guolehui.com.cn/public/images/2b/8b/24/3c71eec90eeb1a8afad5208ca326d2eb79fb3752.gif?1412564314#w"></a>&nbsp; &nbsp; &nbsp;&nbsp;<a href="http://www.guolehui.com.cn" type="url"> 
-<img src="http://mall.guolehui.com.cn/public/images/2f/bd/94/a38fbabff7dc8fcc85b540026472d06bc8527a6b.gif?1412564402#w"></a>&nbsp; &nbsp; &nbsp;&nbsp;</p><div style="color:#333;font-family:Verdana;font-size:11px;line-height:20px!important;overflow:visible!important;display:block!important;visibility:visible!important;position:relative;z-Index:65535!important;text-align:center;">
-Powered By <a style="text-decoration:none" href="http://www.shopex.cn" target="_blank"><b style="color: rgb(92, 113, 158);">Shop</b><b style="color: rgb(243, 144, 0);">Ex</b></a> 
-</div></div></div>
 </div>
-<script>
-window.addEvent('domready', function() {  
-    //滚动定位
-	var navbar = $('nav');
-	var navbarPos = navbar.getPosition();
-	var fixedStart = navbarPos.y;
-	var fixnavBar = function(){
-	if(fixedStart<this.getScrollTop()){
-	if(Browser.ie6) {
-		navbar.setStyles({'width':'100%'+'px','position':'absolute','top':this.getScrollTop()})}
-		else{
-		navbar.addClass('navfixed').setStyles({'width':'100%'});
-	}
-	}else{
-		if(Browser.ie6) {
-		navbar.setStyles({'position':'','top':'','width':''});
-	};
-	navbar.removeClass('navfixed').setStyle('width','');
-	}
-	};
-		window.addEvents({
-		'resize':fixnavBar,
-		'scroll':fixnavBar
-	}); 
-});
-</script>
 
-<script src="js/index.js"></script>
+
+
 </body>
 </html>

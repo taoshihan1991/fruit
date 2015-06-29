@@ -1,0 +1,197 @@
+
+#toubiao_421 .topimgbg { width:100%; height:100px; position:relative; overflow:hidden;}
+#toubiao_421 .topimg {position:relative; width:1200px; margin:0 auto;height:100px;}
+
+
+
+
+
+.trustlogin { background:url(http://mall.guolehui.com.cn/public/app/openid/statics/icons/thridparty1.gif) no-repeat left; padding-left:18px; height:20px; line-height:20px; }
+#accountlogin{display:none;cursor:pointer;padding:5px;width:170px;z-index:100; position:absolute; border:2px solid #BADBF2; background:#fff; }
+#accountlogin span{display:block;width:80px;height:27px;float:left;margin:2px;_display:inline;_margin:2px 1px 2px 2px;}
+
+
+    .province-reach {
+        display: none;
+        position: absolute;
+        width: 350px;
+        border: 1px solid #e9e9e9;
+        background: #fff;
+        font-size: 12px;
+        line-height: 30px;
+        padding: 10px 10px;
+        z-index: 230000;
+    }
+    .province-reach ul {
+        float: left;
+        clear: both;
+    }
+    .ul-area1 li {
+        float: left;
+        width: 100%;
+        clear: both;
+        line-height: 20px;
+        padding: 5px 0px;
+    }
+    .area02 {
+    width: 224px;
+    float: left;
+    }
+    .area_child {
+        background: url('http://mall.guolehui.com.cn/themes/super3/widgets/choose_region/images/storage1.png') no-repeat 34px 12px;
+        border: 1px solid #ccc;
+        padding: 2px 8px;
+    }
+    .area02 a {
+        text-align: center;
+        padding: 0 2px;
+    }
+    .region-div a:hover {
+        text-decoration: underline;
+        color:#209114;
+    }
+    .region-div{
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 6px;
+       /* width: 42px;*/
+        text-align: center;
+    }
+    .childregion{
+        position:absolute;
+        background-color: #f6f6f6;
+        border:1px solid #CDCDCD;
+        display: none;
+        margin-top:4px;
+        margin-left: -19px;
+        width:250px;
+        padding:10px;
+    }
+    .now-region-div{
+        font-size: 14px;
+    }
+    .now_region{
+        font-size: 14px;
+    }
+
+
+#focus_234 {width:100%;position:relative;overflow:hidden;}
+#focus_234 .viewbox {width:950px;height:360px;margin:0 auto;overflow:visible;position:relative}
+#focus_234 .withdraw,
+#focus_234 .flashview li,
+#focus_234 .flashview li a {width:950px;}
+#focus_234 .withdraw,
+#focus_234 .flashview,
+#focus_234 .flashview li,
+#focus_234 .flashview li a{height:360px;}
+#focus_234 .flashview {position:absolute;top:0;}
+#focus_234 .flashview li {float:left;overflow:hidden;display:block;}
+#focus_234 .flashview li a {display:block;text-align:center;}
+#focus_234 .prev,
+#focus_234 .next {position:absolute;top:145px;cursor:pointer;height:69px;width:41px;z-index:9999;display:block;overlow:hidden;background:url("http://mall.guolehui.com.cn/themes/super3/widgets/z_widebanner/images/icon-slides.png") no-repeat 0 0;_background-image:url("http://mall.guolehui.com.cn/themes/super3/widgets/z_widebanner/images/icon-slides.gif");display:block;}
+#focus_234 .prev {left:0;background-position:0 0;}
+#focus_234 .next {right:0;background-position:-42px 0;}
+#focus_234 .slide-number {padding:8px 0;text-align:center;position:absolute;bottom:0;z-index:100;width:100%;display:block;}
+#focus_234 .slide-number a{background:#000;border-radius:20px;-moz-border-radius:20px;-webkit-border-radius:20px;display:inline-block;height:20px;margin-right:6px;overflow:hidden;vertical-align:top;width:20px;color:#FFF;line-height:20px;text-align:center;font-family:arial;}
+#focus_234 .slide-number a:hover{color:#FFF;text-decoration:none;}
+#focus_234 .slide-number .active {background:#C40000;}
+
+
+    #ex_slide_216{
+        width:240px;
+        height:520px;
+        overflow:hidden;
+        position:relative;
+    }
+    #ex_slide_216 ol li{
+        height:520px;
+        width:240px;
+        list-style:none;
+        display:block;
+        overflow:hidden;
+        border:0;
+        margin:0;
+		visibility:visible !important;
+    }
+    #ex_slide_216 .slide-trigger{
+        position:absolute;
+        z-index:999;
+    }
+	.slide-trigger{bottom:10px;right:10px;}
+	.slide-trigger li{float:left;width:15px;height:15px;line-height:15px;color:#000;background:#ececec;opacity:0.7;text-align:center;margin-left:8px;cursor:pointer}
+	.slide-trigger li.active{background:#ff0000;color:#ffffff}
+
+
+    #ex_slide_235{
+        width:240px;
+        height:520px;
+        overflow:hidden;
+        position:relative;
+    }
+    #ex_slide_235 ol li{
+        height:520px;
+        width:240px;
+        list-style:none;
+        display:block;
+        overflow:hidden;
+        border:0;
+        margin:0;
+		visibility:visible !important;
+    }
+    #ex_slide_235 .slide-trigger{
+        position:absolute;
+        z-index:999;
+    }
+	.slide-trigger{bottom:10px;right:10px;}
+	.slide-trigger li{float:left;width:15px;height:15px;line-height:15px;color:#000;background:#ececec;opacity:0.7;text-align:center;margin-left:8px;cursor:pointer}
+	.slide-trigger li.active{background:#ff0000;color:#ffffff}
+
+
+    #ex_slide_236{
+        width:240px;
+        height:520px;
+        overflow:hidden;
+        position:relative;
+    }
+    #ex_slide_236 ol li{
+        height:520px;
+        width:240px;
+        list-style:none;
+        display:block;
+        overflow:hidden;
+        border:0;
+        margin:0;
+		visibility:visible !important;
+    }
+    #ex_slide_236 .slide-trigger{
+        position:absolute;
+        z-index:999;
+    }
+	.slide-trigger{bottom:10px;right:10px;}
+	.slide-trigger li{float:left;width:15px;height:15px;line-height:15px;color:#000;background:#ececec;opacity:0.7;text-align:center;margin-left:8px;cursor:pointer}
+	.slide-trigger li.active{background:#ff0000;color:#ffffff}
+
+
+    #ex_slide_237{
+        width:240px;
+        height:520px;
+        overflow:hidden;
+        position:relative;
+    }
+    #ex_slide_237 ol li{
+        height:520px;
+        width:240px;
+        list-style:none;
+        display:block;
+        overflow:hidden;
+        border:0;
+        margin:0;
+		visibility:visible !important;
+    }
+    #ex_slide_237 .slide-trigger{
+        position:absolute;
+        z-index:999;
+    }
+	.slide-trigger{bottom:10px;right:10px;}
+	.slide-trigger li{float:left;width:15px;height:15px;line-height:15px;color:#000;background:#ececec;opacity:0.7;text-align:center;margin-left:8px;cursor:pointer}
+	.slide-trigger li.active{background:#ff0000;color:#ffffff}
