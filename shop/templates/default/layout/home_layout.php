@@ -69,31 +69,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 <body>
 
 <?php require_once template('layout/layout_top');?>
-<!-- [最顶部] -->
-  <div class="topbar" id="topbar">
-      <div class="wrap">    
-          <ul class="quick-menu frt">
-               <li class="cart-menu"><div class="head-cart"><a href="" class="minicart-text">购物车<b class="op-cart-number">0</b>件  </a></div>
-              </li>
-               <li><a rel="nofollow" target="_top" href="">我的订单</a></li>           
-               <li><span class="line">|</span></li> 
-               <li><a rel="nofollow" target="_top" href="">我的收藏</a></li>        
-               <li><span class="line">|</span></li>
-               <li><a href="" target="_self">帮助中心</a></li>       
-            </ul>   
-            <ul class="topbar-left"> 
-              <li class="to-home"><a href="./" target="_self">返回首页</a></li>
-              <li class="add-fav"><a href="javascript:void(0);" onclick="">收藏本站</a></li>            
-              <li class="login flt">
-              <span id="loginBar_191" style="" class="ie-bug">
-              Hi，欢迎来到四季果园！<a href="">请登录</a><a href="">免费注册</a></span>
-              <span id="memberBar_191">
-                  Hi，<span id="uname_191"></span>！<a href="">会员中心</a><a href="">退出</a>
-              </span></li>
-            </ul>
-      </div>
-  </div>
-<!-- [//最顶部] -->
+
 <div class="header" id="header">
   <div class="menu-column wrap">
     <div class="m-text frt"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/phone.png"/></div>
@@ -104,35 +80,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
         <ul class="ul-area1">
             <li>
                 <p class="area02">
-                                                <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1' class="area_child">北京</a>
-                                <div class="childregion_1 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">北京市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_21' class="area_child">上海</a>
-                                <div class="childregion_21 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">上海市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_42' class="area_child">天津</a>
-                                <div class="childregion_42 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">天津市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_62' class="area_child">重庆</a>
-                                <div class="childregion_62 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">重庆市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
+                            <div class="region-div">
                                 <a href="javascript:void(0);" data-child='childregion_104' class="area_child">安徽</a>
                                 <div class="childregion_104 childregion">
                                                                             <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">合肥市</a></div>
@@ -152,203 +100,6 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
                                                                             <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">铜陵市</a></div>
                                                                             <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">芜湖市</a></div>
                                                                             <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">宣城市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_227' class="area_child">福建</a>
-                                <div class="childregion_227 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">福州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">厦门市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_322' class="area_child">甘肃</a>
-                                <div class="childregion_322 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">兰州市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_423' class="area_child">广东</a>
-                                <div class="childregion_423 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">广州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">潮州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">东莞市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">佛山市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">惠州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">汕头市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">深圳市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">肇庆市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">中山市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">珠海市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_566' class="area_child">广西</a>
-                                <div class="childregion_566 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">南宁市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">桂林市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_690' class="area_child">贵州</a>
-                                <div class="childregion_690 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">贵阳市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_788' class="area_child">海南</a>
-                                <div class="childregion_788 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">海口市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_814' class="area_child">河北</a>
-                                <div class="childregion_814 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">石家庄市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">唐山市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_998' class="area_child">河南</a>
-                                <div class="childregion_998 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">郑州市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1320' class="area_child">湖北</a>
-                                <div class="childregion_1320 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">武汉市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1436' class="area_child">湖南</a>
-                                <div class="childregion_1436 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">长沙市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1573' class="area_child">吉林</a>
-                                <div class="childregion_1573 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">长春市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1643' class="area_child">江苏</a>
-                                <div class="childregion_1643 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">南京市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">常州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">连云港市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">南通市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">苏州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">泰州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">无锡市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">盐城市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">扬州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">镇江市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1763' class="area_child">江西</a>
-                                <div class="childregion_1763 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">南昌市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">赣州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">吉安市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">九江市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">上饶市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_1874' class="area_child">辽宁</a>
-                                <div class="childregion_1874 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">沈阳市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2103' class="area_child">宁夏</a>
-                                <div class="childregion_2103 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">银川市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2182' class="area_child">山东</a>
-                                <div class="childregion_2182 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">济南市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">青岛市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">威海市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">潍坊市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">烟台市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">淄博市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2340' class="area_child">山西</a>
-                                <div class="childregion_2340 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">太原市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2471' class="area_child">陕西</a>
-                                <div class="childregion_2471 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">西安市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2589' class="area_child">四川</a>
-                                <div class="childregion_2589 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">成都市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">广安市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">绵阳市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">南充市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_2987' class="area_child">云南</a>
-                                <div class="childregion_2987 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">昆明市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_3133' class="area_child">浙江</a>
-                                <div class="childregion_3133 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">杭州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">湖州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">嘉兴市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">金华市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">丽水市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">宁波市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">衢州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">绍兴市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">台州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">温州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">舟山市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                                    <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_3267' class="area_child">上海外环外</a>
-                                <div class="childregion_3267 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">上海市</a></div>
                                                                         <div style="clear: both;"></div>
                                 </div>
                             </div>
@@ -378,330 +129,89 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
         });
     })();
 </script>
-
-
 </div>
         <div class="search flt"> 
-            
             <form action="/search-result.html" method="post" class="SearchBar searchBar_">
-  <table cellpadding="0" cellspacing="0">
-    <tr>
-      <td class="search_label">
-      
-    <input name="search_keywords" size="12" type="text" value="果乐汇-见证每个果实的重量" onfocus="this.value=(this.value=='果乐汇-见证每个果实的重量')?'':this.value;" onblur="this.value=(this.value=='')?'果乐汇-见证每个果实的重量':this.value;" class="inputstyle keywords" autocompleter="associate_autocomplete_goods:name,goods_id" ac_options="{}" />
-      </td>
-      
-      <td><input type="submit" value="搜索" class="btn_search" onfocus='this.blur();'/></td>
-    </tr>
-  </table>
-</form>         <div class="search-words"><ul class="urllist"><li class="first"><a href="http://www.guolehui.com.cn/gallery-65.html" target="_blank">新西兰奇异果</a></li><li class="comma"><span>|</span></li><li><a href="http://www.guolehui.com.cn/product-929.html" target="_blank">美国樱桃</a></li><li class="comma"><span>|</span></li><li><a href="http://www.guolehui.com.cn/product-729.html" target="_blank">美国3107新奇士脐橙</a></li><li class="comma"><span>|</span></li><li class="last"><a href="http://www.guolehui.com.cn/product-919.html" target="_blank">妃子笑荔枝 </a></li></ul></div>
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <td class="search_label">
+                <input name="search_keywords" size="12" type="text" value="四季果园-见证每个果实的重量" onfocus="this.value=(this.value=='四季果园-见证每个果实的重量')?'':this.value;" onblur="this.value=(this.value=='')?'果乐汇-见证每个果实的重量':this.value;" class="inputstyle keywords" autocompleter="associate_autocomplete_goods:name,goods_id" ac_options="{}" />
+                </td>
+                <td><input type="submit" value="搜索" class="btn_search" onfocus='this.blur();'/></td>
+              </tr>
+            </table>
+          </form>         
+          <div class="search-words"><ul class="urllist"><li class="first"><a href="" target="_blank">新西兰奇异果</a></li></ul></div>
         </div>
+
     </div>
     <div class="nav-column" id="nav">
-      <div class="wrap clr">
-            <div class="all-category flt" id="all-category">
-                <div class="category-handle cat-popup" id="category_handle">
-                    <a href="/gallery.html?scontent=n," target="_blank">所有产品分类</a>
-                </div>
-                <div class="category-box" id="category_box" style="visibility:hidden;">
-
-
-
-
-
-  <ul class="category-list">
-        <li class="category-item">
-      <div class="cat-root-box cate1">
-       <h3><a href="/gallery-36.html"  class="category-link">进口鲜果 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-37.html"  class="level2">美国水果</a><a href="/gallery-38.html"  class="level2">南非水果</a><a href="/gallery-39.html"  class="level2">泰国水果</a><a href="/gallery-40.html"  class="level2">越南水果</a><a href="/gallery-41.html"  class="level2">法国水果</a><a href="/gallery-42.html"  class="level2">智利水果</a><a href="/gallery-43.html"  class="level2">菲律宾水果</a><a href="/gallery-44.html"  class="level2">墨西哥水果</a><a href="/gallery-45.html"  class="level2">澳大利亚水果</a><a href="/gallery-68.html"  class="level2">西班牙水果</a><a href="/gallery-65.html"  class="level2">新西兰水果</a><a href="/gallery-67.html"  class="level2">  秘鲁水果</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-37.html"  class="level2">美国水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-38.html"  class="level2">南非水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-39.html"  class="level2">泰国水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-40.html"  class="level2">越南水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-41.html"  class="level2">法国水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-42.html"  class="level2">智利水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-43.html"  class="level2">菲律宾水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-44.html"  class="level2">墨西哥水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-45.html"  class="level2">澳大利亚水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-68.html"  class="level2">西班牙水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-65.html"  class="level2">新西兰水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-67.html"  class="level2">  秘鲁水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item">
-      <div class="cat-root-box cate2">
-       <h3><a href="/gallery-46.html"  class="category-link">国产鲜果 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-54.html"  class="level2">新品上市</a><a href="/gallery-53.html"  class="level2">时令水果</a><a href="/gallery-55.html"  class="level2">推荐水果</a><a href="/gallery-52.html"  class="level2">国产热卖水果</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-54.html"  class="level2">新品上市</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-53.html"  class="level2">时令水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-55.html"  class="level2">推荐水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-52.html"  class="level2">国产热卖水果</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item">
-      <div class="cat-root-box cate3">
-       <h3><a href="/gallery-47.html"  class="category-link">高档鲜果礼盒 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-64.html"  class="level2">推荐水果礼盒</a><a href="/gallery-56.html"  class="level2">商务套餐</a><a href="/gallery-57.html"  class="level2">家庭套餐</a><a href="/gallery-58.html"  class="level2">美容套餐</a><a href="/gallery-59.html"  class="level2">水果礼篮</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-64.html"  class="level2">推荐水果礼盒</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-56.html"  class="level2">商务套餐</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-57.html"  class="level2">家庭套餐</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-58.html"  class="level2">美容套餐</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-59.html"  class="level2">水果礼篮</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item">
-      <div class="cat-root-box cate4">
-       <h3><a href="/gallery-48.html"  class="category-link">高端水果礼盒方案 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-60.html"  class="level2">端午水果礼盒</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-60.html"  class="level2">端午水果礼盒</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item">
-      <div class="cat-root-box cate5">
-       <h3><a href="/gallery-49.html"  class="category-link">2015提货券系列 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-61.html"  class="level2">三羊开泰提货券</a><a href="/gallery-62.html"  class="level2">通用系列提货券</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-61.html"  class="level2">三羊开泰提货券</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-62.html"  class="level2">通用系列提货券</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item">
-      <div class="cat-root-box cate6">
-       <h3><a href="/gallery-50.html"  class="category-link">礼卡礼券 >></a></h3>
-                <div class="cat-lv2-redundancy clearfix"><a href="/gallery-63.html"  class="level2">礼品储值卡</a></div>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-                    <div class="cat-children">
-                                <dl class="sub-category clearfix">
-                  <dt><a href="/gallery-63.html"  class="level2">礼品储值卡</a></dt>
-                  <dd class="clearfix">
-                                      </dd>
-                </dl>
-                              </div>
-                  
-      </div>
-    </li>
-        <li class="category-item no-lv2">
-      <div class="cat-root-box cate7">
-       <h3><a href="/gallery-69.html"  class="category-link">端午鲜果粽礼盒礼券</a></h3>
-                 
-         <i class="left-shape"></i>
-      </div>
-      <div class="cat-children-box clearfix">
-            
-      </div>
-    </li>
-        
-  </ul>
-
-</div>
-            </div>
-            <div class="nav flt"><ul class="MenuList MenuList_194 clearfix">
-    <li><a  href="" >首页</a></li>
-        <li><a  href="" target="_blank">鲜果区</a></li>
-        <li><a  href="" target="_blank">干果区</a></li>
-        <li><a  href="" target="_blank">礼品区</a></li>
-        <li><a  href="" target="_blank">套餐</a></li>
-        <li><a  href="" target="_blank">团购区</a></li>
-        <li><a  href="" target="_blank">论坛</a></li>
-    </ul>
-</div>
-
-
-</div>
+            <div class="wrap clr">
+              <div class="all-category flt" id="all-category">
+                  <div class="category-handle cat-popup" id="category_handle">
+                      <a href="/gallery.html?scontent=n," target="_blank">所有产品分类</a>
+                  </div>
+              
+              </div>
+              <div class="nav flt">
+                <ul class="MenuList MenuList_194 clearfix">
+                  <li><a  href="" >首页</a></li>
+                  <li><a  href="" target="_blank">鲜果区</a></li>
+                  <li><a  href="" target="_blank">干果区</a></li>
+                  <li><a  href="" target="_blank">礼品区</a></li>
+                  <li><a  href="" target="_blank">套餐</a></li>
+                  <li><a  href="" target="_blank">团购区</a></li>
+                  <li><a  href="" target="_blank">论坛</a></li>
+                </ul>
+              </div>
+               <ul class="category-list">
+                  <li class="category-item">
+                      <a href="" class="indexCateDoor">基础展示</a>
+                  </li>
+                  <li class="category-item">
+                      <a href="" class="indexCateDoor">种植联盟</a>
+                  </li>
+                      <li class="category-item">
+                      <a href="" class="indexCateDoor">质量认证</a>
+                  </li>
+                  <li class="category-item">
+                      <a href="" class="indexCateDoor">线下门店</a>
+                  </li>
+              
+                  <li class="category-item current">
+                      <a href="" class="indexCateDoor">发布公告</a>
+                  </li>
+              </ul>
+          </div>
         </div>
     </div>
-</div><div class="content wrap" id="content">
-
-  <div class="wrap clr">
-    <div class="w238 cat-box fl" id="category_index">  
-        <ul class="category-list">
-            <li class="category-item green1">
-                <div class="icon"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/01jdzs.png"/></div>
-                <a href="" class="indexCateDoor">基础展示</a>
-            </li>
-            <li class="category-item green2">
-                <div class="icon"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/02zzlm.png"/></div>
-                <a href="" class="indexCateDoor">种植联盟</a>
-            </li>
-            <li class="category-item green2">
-                <div class="icon"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/03xxmd.png"/></div>
-                <a href="" class="indexCateDoor">线下门店</a>
-            </li>
-            <li class="category-item">
-                <div class="icon"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/04fbgg.png"/></div>
-                <a href="" class="indexCateDoor">发布公告</a>
-            </li>
-        </ul>
-    </div>
-        <div class="w950 index-top fr">
-            
-            <div class="l-column fl">
-                <div class="banner">
+</div>
+<!-- [banner大图轮播] -->
                   <div id="indexBanner" class="indexBanner">
                       <div class="hd">
                           <ul><li>1</li><li>2</li><li>3</li></ul>
                       </div>
                       <div class="bd">
                           <ul>
-                              <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/2c/b0/c8/1f51e2c44c53a59ab3aa5fe71849bfbfffab242c.jpg?1430665892#w" /></a></li>
-                              <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/2c/b0/c8/1f51e2c44c53a59ab3aa5fe71849bfbfffab242c.jpg?1430665892#w" /></a></li>
-                              <li><a href="" target="_blank"><img src="http://mall.guolehui.com.cn/public/images/2c/b0/c8/1f51e2c44c53a59ab3aa5fe71849bfbfffab242c.jpg?1430665892#w" /></a></li>
+                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
+                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
+                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
                           </ul>
                       </div>
 
                       <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
-                      <a class="prev" href="javascript:void(0)"></a>
-                      <a class="next" href="javascript:void(0)"></a>
+                      <div class="pageBtn">
+                        <a class="prev" href="javascript:void(0)"></a>
+                        <a class="next" href="javascript:void(0)"></a>
+                      </div>
+                      
                   </div>
                   <script type="text/javascript">
                   jQuery(".indexBanner").slide({mainCell:".bd ul",autoPlay:true});
                   </script>
-                </div>            
-            </div>
-            <div class="m-r">
-            <div class="banner-pic f1">
-                    <a href=""><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/bx3.png"/></a>
-                    <a href=""><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/bx1.png"/></a>
-                    <a href=""><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/bx2.png"/></a>
-                    <a href=""><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/bx3.png"/></a>
-            </div>
-         
-            </div>
-        </div>
-    </div>  
+<!-- [//banner大图轮播] -->
+<div class="content wrap" id="content">
+
    <div class="floor floor3">
         <div class="hd">
             <span id="f3" class="fgoto"></span><h3 class="fl">1F 鲜果区</h3>

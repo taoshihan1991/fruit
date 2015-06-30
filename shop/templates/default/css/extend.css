@@ -1,4 +1,7 @@
 /*@author tsh*/
+body{
+	overflow-x:hidden;
+}
 .clear{
 	clear: both;
 }
@@ -35,40 +38,53 @@
 .cat-box{
 	border:none;
 }
+.nav-column .wrap{
+	position: relative;
+}
+.MenuList{
+	width: 950px;
+}
+.MenuList li a{
+	color: #444;
+}
+#nav .nav{
+	border-bottom: 3px solid #008939;
+}
 .category-list{
 	width: 240px;
 	-moz-box-shadow: 0px 4px 5px #C2C2C2;
 	box-shadow: 0px 4px 5px #C2C2C2;
+		position: absolute;
+	position: absolute;
+	top: 37px;
 }
 .category-list .category-item{
+
 	width: 100%;
 	padding: 0;
-	height: 125px;
+	height: 102px;
 	position: relative;
-}
-.category-list .category-item .icon{
-	position: absolute;
-	top: 32px;
-	left: 55px;
+	background: #339933;
+	border-top: 1px solid #71b871;
 }
 .category-list .category-item .indexCateDoor{
+	font-family: "Microsoft Yahei";
 	color: #fff;
-	font-size: 16px;
+	font-size: 18px;
 	position: absolute;
-	left: 112px;
-	top: 48px;
-	font-weight: bold;
+	display: block;
+	width: 100%;
+	height: 102px;
+	line-height: 102px;
+	text-align: center;
+	text-decoration: none;
 }
-.category-list .green1{
-	background: #3A9B3E;
-}
-.category-list .green2{
-	background: #59AB5C;
-	border-bottom: 1px solid #D2DFD2;
+.category-list .category-item.current{
+	background: #6ca735;
 }
 
-        .indexBanner{ width:950px; height:377px; overflow:hidden; position:relative;}
-        .indexBanner .hd{ height:20px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+        .indexBanner{ width:1600px; height:515px; overflow:hidden; position:relative;margin: 0 auto;}
+        .indexBanner .hd{ height:20px; overflow:hidden; position:absolute; right:250px; bottom:5px; z-index:1; }
         .indexBanner .hd ul{ overflow:hidden; zoom:1; float:left;  }
         .indexBanner .hd ul li{
 		background: #000;
@@ -77,7 +93,6 @@
 		-webkit-border-radius: 20px;
 		display: inline-block;
 		height: 20px;
-		margin-right: 6px;
 		overflow: hidden;
 		vertical-align: top;
 		width: 20px;
@@ -87,13 +102,13 @@
 		font-family: arial;
          float:left; margin-right:2px;cursor:pointer; }
         .indexBanner .hd ul li.on{ background:#f00; color:#fff; }
-        .indexBanner .bd{ position:relative; height:100%; z-index:0;   }
+        .indexBanner .bd{ position:relative; height:100%; z-index:0;}
         .indexBanner .bd li{ zoom:1; vertical-align:middle; }
-        .indexBanner .bd img{width:951px; height:380px;display:block;  }
+        .indexBanner .bd img{width:1600px; height:515px;display:block;  }
 
         /* 下面是前/后按钮代码，如果不需要删除即可 */
         .indexBanner .prev,
-        .indexBanner .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:42px; height:75px; background:url(../images/icon-slides.png) 0px 0px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+        .indexBanner .next{ position:absolute; left:0; top:50%; margin-top:-25px; display:block; width:42px; height:75px; background:url(../images/icon-slides.png) 0px 0px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
         .indexBanner .next{ left:auto; right:3%; background-position:-42px 0px; }
         .indexBanner .prev:hover,
         .indexBanner .next:hover{ filter:alpha(opacity=100);opacity:1;  }
