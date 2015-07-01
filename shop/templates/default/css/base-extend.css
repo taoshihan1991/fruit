@@ -18,7 +18,7 @@ p{margin:0;}
 #DialogDiv h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
 #DialogDiv .form{padding:10px;}
 
-.wrap{width:1190px;margin-left:auto;margin-right:auto;}
+.wrap{width:1190px;margin:0 auto;}
 .wrap-s{width:240px;}
 .wrap-m{width:940px;}
 

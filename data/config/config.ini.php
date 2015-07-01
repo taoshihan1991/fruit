@@ -41,7 +41,7 @@ $config['cache']['type'] 			= 'file';
 //$config['fullindexer']['open']      = false;
 //$config['fullindexer']['appname']   = 'shopnc';
 $config['debug'] 			= false;
-$config['default_store_id'] = '1';
+$config['default_store_id'] = '2';
 // 是否开启伪静态
 $config['url_model'] = false;
 // 二级域名后缀

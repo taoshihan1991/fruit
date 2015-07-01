@@ -23,6 +23,7 @@ class articleModel{
 	public function getArticleList($condition,$page=''){
 		$condition_str = $this->_condition($condition);
 		$param = array();
+		$param['field']	= empty($condition['field'])?'*':$condition['field'];;
 		$param['table'] = 'article';
 		$param['where'] = $condition_str;
 		$param['limit'] = $condition['limit'];

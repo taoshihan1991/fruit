@@ -2,12 +2,168 @@
 <script src="<?php echo SHOP_RESOURCE_SITE_URL.'/js/search_goods.js';?>"></script>
 <script src="<?php echo RESOURCE_SITE_URL.'/js/class_area_array.js';?>"></script>
 <link href="<?php echo SHOP_TEMPLATES_URL;?>/css/layout.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-body {
-_behavior: url(<?php echo SHOP_TEMPLATES_URL;
-?>/css/csshover.htc);
-}
-</style>
+
+
+
+<!-- 列表页box -->
+<div class="crumb"><div class="Navigation">您现在的位置：  <span><a href="http://www.guolehui.com.cn" alt="" title="">首页</a></span>
+  <span>&gt;</span>
+    <span class="now">进口鲜果 &gt;&gt;</span>
+
+</div></div>
+
+
+<div class="wrap" id="content">
+    <div class="w162 flt">
+      <div class="sidecat">
+        <div class="GoodsCategoryWrap">
+            <ul class="show-all">
+
+                <li><i class="tree-parent tree-parent-collapsed"></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $value['gc_id']));?>" <?php if ($value['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $value['gc_name']?></a>
+                  <?php if (!empty($value['class2'])) {?>
+                  <ul>
+                    <?php foreach ($value['class2'] as $val) {?>
+                    <li><i class="tree-parent tree-parent-collapsed"></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id']));?>" <?php if ($val['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $val['gc_name']?></a>
+                      <?php if (!empty($val['class3'])) {?>
+                      <ul>
+                        <?php foreach ($val['class3'] as $v) {?>
+                        <li class="tree-parent tree-parent-collapsed"><i></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $v['gc_id']));?>" <?php if ($v['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $v['gc_name']?></a></li>
+                        <?php }?>
+                      </ul>
+                      <?php }?>
+                    </li>
+                    <?php }?>
+                  </ul>
+                  <?php }?>
+                </li>
+                
+                <?php if(!empty($output['goods_class_array'])){foreach ($output['goods_class_array'] as $value) {?>
+                <li>
+                <h4 class="e-cat-depth-0"><a href="<?php echo urlShop('search','index',array('cate_id'=>$value['gc_id']))?>" class="depth-0"><?php echo $value['gc_name']?> &gt;&gt;</a></h4>
+                <ul class="cat-down">
+                    <?php if(!empty($value['class2'])){foreach ($value['class2'] as $v) {?>
+                    <li class="e-cat-depth-1">
+                       <a href="<?php echo urlShop('search','index',array('cate_id'=>$v['gc_id']))?>" class="depth-1"><?php echo $v['gc_name']?></a>
+                    </li>
+                    <?php }}?>   
+                </ul>
+                </li>
+                <?php }}?>
+            </ul>
+        </div>
+      </div>
+    </div>
+<div class="w1020 frt">
+  <div id="main" class="clearfix">
+  <!-- 商品列表开始 -->
+  <div class="page-maincontent">
+        <!-- 筛选区 -->
+        <div class="list-right-nav">
+                    <ul>
+                                    <li>品类：
+                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-1">绿奇异果</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-3">苹果</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-8">橙</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-36">樱桃</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-54">阳光金果</a>
+                             </li>
+                                    <li>产地：
+                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
+                                                                <a href="/web/product_list/40/0/1-0-0-0-0-0-0">进口</a>
+                                                                <a href="/web/product_list/40/0/2-0-0-0-0-0-0">国产</a>
+                             </li>
+                                    <li>品牌：
+                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
+                                                                <a href="/web/product_list/40/0/0-1-0-0-0-0-0">经典佳沛</a>
+                                                                <a href="/web/product_list/40/0/0-2-0-0-0-0-0">新奇士</a>
+                             </li>
+                                    <li>规格：
+                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-1-0-0-0">单品</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-2-0-0-0">套餐</a>
+                             </li>
+                                    <li style="border-bottom:none;">价格：
+                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-0T100-0-0">100以下</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-100T300-0-0">100~300</a>
+                                                                <a href="/web/product_list/40/0/0-0-0-0-300T-0-0">300以上</a>
+                             </li>
+                                </ul>
+               </div>
+        <!-- //筛选区 -->
+    <!-- 排序状态条 -->
+    <div id="gallery_sortbar" class="gallery-sortbar clearfix">
+      <div class="gallery-sort">
+        <a href="javascript:void(0);" class="action-sort active" data-sort=""><em>默认</em></a>
+        <a href="javascript:void(0);" class="action-sort price-desc" data-sort="price desc"><em>价格<span class="icon desc">*</span><span class="icon asc">+</span></em></a>
+        <a href="javascript:void(0);" class="action-sort " data-sort="buy_w_count desc"><em>销量<span class="icon">*</span></em></a>
+        <label for="">排序：</label><select name="orderBy" id="" class="action-orderby">
+                    <option value="" selected="">默认</option>
+                    <option value="price desc">按价格 从高到低</option>
+                    <option value="price asc">按价格 从低到高</option>
+                    <option value="view_w_count desc">访问周次数</option>
+                    <option value="view_count desc">总访问次数</option>
+                    <option value="buy_count desc">周购买次数</option>
+                    <option value="buy_w_count desc">总购买次数</option>
+                  </select>
+      </div>
+
+
+          
+          </div>
+    <div id="gallery_show" class="gallery-show">
+      <div class="gallery-grid">
+
+  <ul class="clearfix">
+        <?php if(!empty($output['goods_list'])){foreach($output['goods_list'] as $value){?>
+            <li class="goods-item first">
+                <div class="goods-pic">
+                      <a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><img class="action-goods-img" alt="<?php echo $value['goods_name'];?>" src="<?php echo thumb($value, 360);?>"></a>
+                  </div>
+                <div class="goods-info">
+                      <h3 class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><?php echo $value['goods_name'];?></a></h3>
+                      <div class="attribute">
+                        <p>产地:山东 配送:青岛</p>
+                        <p>品种:樱桃</p>
+                </div>
+
+          <div class="goods-action">
+            <div class="goods-buy">
+                <a class="btn btn-major action-addtocart" href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>" target="_dialog_minicart"><span><span>加入购物车</span></span></a>
+            </div>
+          </div>  
+          <div class="goods-price"><ins class="price">￥<?php echo $value['goods_price'];?></ins></div>
+        </li>
+        <?php }}?>
+      </ul>
+</div>
+<div class="pageview"><span class="flip prev over"><i class="ico prev">‹</i></span><a href="/gallery-ajax_get_goods.html" class="flip active">1</a><a href="/gallery-ajax_get_goods.html" class="flip">2</a><a href="/gallery-ajax_get_goods.html" class="flip next"><i class="ico next">›</i></a></div>    </div>
+   
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<!-- //列表页box -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="nch-container wrapper" >
   <div class="left">
     <?php if (!empty($output['goods_class_array'])) {?>

@@ -31,10 +31,94 @@ class indexControl extends BaseHomeControl{
 		$web_html = $model_web_config->getWebHtml('index');
 		Tpl::output('web_html',$web_html);
 
+		// 1F 鲜果区楼层数据
+		$goods_class = H('goods_class');
+		$floor1Goods=$this->getGoodsByLevelPid($goods_class,1057);
+		Tpl::output('floor1Goods',$floor1Goods);
+		// 2F 
+		$floor2Goods=$this->getGoodsByLevelPid($goods_class,1058);
+		Tpl::output('floor2Goods',$floor2Goods);
+		// 3F 
+	 	$floor3Goods=$this->getGoodsByLevelPid($goods_class,1059);
+		Tpl::output('floor3Goods',$floor3Goods);
+		// 4F 
+		$floor4Goods=$this->getGoodsByLevelPid($goods_class,1060);
+		Tpl::output('floor4Goods',$floor4Goods);
+		// 5F 
+		$floor5Goods=$this->getGoodsByLevelPid($goods_class,1061);
+		Tpl::output('floor5Goods',$floor5Goods);
+		$this->getBottomArticle();
+
 		Model('seo')->type('index')->show();
 		Tpl::showpage('index');
 	}
+	/**
+	* 按楼层组装数据
+	* @return 分配变量
+	*/
+	public function getBottomArticle(){
+		$model_ac=Model('article_class');
+		$model_article=Model('article');
+		$classList=$model_ac->getClassList(array());
+		$result=array();
+		foreach($classList as $v){
+			$list=$model_article->getArticleList(array('ac_id'=>$v['ac_id'],'field'=>'article_title,article_id'),5);
+			$temp=array();
+			$temp['ac_name']=$v['ac_name'];
+			$temp['list']=$list;
+			$result[]=$temp;
+		}
+		Tpl::output('bottomArticle',$result);
+	}
+	/**
+	* 按楼层组装数据
+	* @return 分配变量
+	*/
+	public function getGoodsByLevelPid($goods_class,$pid){
+		$categoryTab=array();
+		$i=0;
+		foreach($goods_class as $k=>$v){
+			if($v['gc_parent_id']==$pid){
+				$i++;
+				$categoryTab[]=$v;
+				if($i>=9) break;
+			}
+		}
+		
+		foreach($categoryTab as $k=>$v){
+			if(isset($v['gc_id'])){
+				$list=$this->getDataByCate($v['child'].','.$v['gc_id'],10,360);
+			}else{
+				$list=$this->getDataByCate($v['child'],8,360);
+			}
+			
+			$categoryTab[$k]['goods']=$list;
+		}
+		
+		return $categoryTab;
+	}
+	/**
+	* 按分类取商品
+	* @return array
+	*/
+	public function getDataByCate($cate,$limit,$pic_type='360'){
+		$goods_model=Model('goods');
+		$condition=array(
+			'goods.goods_state'=>1,
+			'goods.gc_id'=>array('in',$cate)
+		);
 
+		$list=array();
+		$list=$goods_model->table('goods,goods_attr_index,attribute_value')
+						  ->where($condition)
+						  ->join('left')->on('goods.goods_id=goods_attr_index.goods_id,goods_attr_index.attr_value_id=attribute_value.attr_value_id')
+						  ->order('goods.goods_addtime desc')->limit($limit)->select();
+		foreach($list as $k=>$v){
+			$list[$k]['pic']=thumb($v,$pic_type);
+			$list[$k]['url']=urlShop('goods', 'index', array('goods_id' => $v['goods_id']));
+		}
+		return $list;
+	}
 	//json输出商品分类
 	public function josn_classOp() {
 		/**

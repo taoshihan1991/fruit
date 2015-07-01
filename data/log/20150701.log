@@ -1,0 +1,102 @@
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1062') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1063') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1064') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1065') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1069') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1066') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1067') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1068') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1072') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1070') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1071') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1073') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1074') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1075') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1078') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1076') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:28:44] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Table 'fruit.fr_attr_value' doesn't exist
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attr_value` AS `attr_value` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1077') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1062') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1063') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1064') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1065') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1069') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1066') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1067') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1068') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1072') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1070') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1071') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1073') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1074') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1075') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1078') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1076') ) ORDER BY goods.goods_addtime desc LIMIT 10  
+[2015-07-01 14:30:13] /4fruit/shop/ ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'attribute.attr_value_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods` AS `goods` LEFT JOIN `fruit`.`fr_goods_attr_index` AS `goods_attr_index` ON goods.goods_id=goods_attr_index.goods_id LEFT JOIN `fruit`.`fr_attribute` AS `attribute` ON goods_attr_index.attr_value_id=attribute.attr_value_id WHERE ( goods.goods_state = '1' ) AND ( goods.gc_id IN ('','1077') ) ORDER BY goods.goods_addtime desc LIMIT 10  

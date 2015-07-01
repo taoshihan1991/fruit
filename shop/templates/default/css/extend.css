@@ -57,6 +57,7 @@ body{
 		position: absolute;
 	position: absolute;
 	top: 37px;
+	display: none;
 }
 .category-list .category-item{
 
@@ -242,4 +243,7 @@ padding-right: 13px;
 	right: 2px;
 	bottom: 0;
 	padding-right: 0;
+}
+.ex-slide1 ol li{
+	top: 0;
 }
