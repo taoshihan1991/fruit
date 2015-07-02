@@ -13,173 +13,228 @@ cursor: url(<?php echo SHOP_TEMPLATES_URL;
 }
 </style>
 
-<div id="content" class="wrapper pr">
-  <div class="ncs-detail"><!-- S 商品举报 -->
-    <?php if(!$output['store_self']) { ?>
-    <div class="ncs-inform"><span><?php echo $lang['goods_index_inform'];?><i></i></span><a href="index.php?act=member_inform&op=inform_submit&goods_id=<?php echo $output['goods']['goods_id'];?>" title="<?php echo $lang['goods_index_goods_inform'];?>"><?php echo $lang['goods_index_goods_inform'];?></a> </div>
-    <?php } ?>
-    <!-- End --> 
-    
-    <!-- S 商品图片 -->
-    <div id="ncs-goods-picture" class="ncs-goods-picture image_zoom"> </div>
-    <!-- S 商品基本信息 -->
-    <div class="ncs-goods-summary">
-      <div class="name">
-        <h1><?php echo $output['goods']['goods_name']; ?></h1>
-        <strong><?php echo $output['goods']['goods_jingle'];?></strong> </div>
-      <div class="ncs-meta"> 
-        <!-- S 商品参考价格 -->
-        <dl>
-          <dt><?php echo $lang['goods_index_goods_cost_price'];?><?php echo $lang['nc_colon'];?></dt>
-          <dd class="cost-price"><strong><?php echo $lang['currency'].$output['goods']['goods_marketprice'];?></strong></dd>
-        </dl>
-        <!-- S 商品发布价格 -->
-        <dl>
-          <dt><?php echo $lang['goods_index_goods_price'];?><?php echo $lang['nc_colon'];?></dt>
-          <dd class="price">
-            <?php if ($output['goods']['promotion_type'] == 'groupbuy') {?>
-            <span class="tag">团购</span><strong><?php echo $lang['currency'].$output['goods']['promotion_price'];?></strong><em>(原售价<?php echo $lang['nc_colon'];?><?php echo $lang['currency'].$output['goods']['goods_price'];?>)</em>
-            <?php } elseif ($output['goods']['promotion_type'] == 'xianshi') {?>
-            <?php if ($output['xianshi_info']['xianshi_title'] != '') {?><span class="tag"><?php echo $output['xianshi_info']['xianshi_title'];?></span><?php }?><strong><?php echo $lang['currency'].$output['goods']['promotion_price'];?></strong><em>(原售价<?php echo $lang['nc_colon'];?><?php echo $lang['currency'].$output['goods']['goods_price'];?>)</em>
-            <?php } else {?>
-            <strong><?php echo $lang['currency'].$output['goods']['goods_price'];?></strong>
-            <?php }?>
-          </dd>
-        </dl>
-        <!-- E 商品发布价格 -->
-        <!-- S 限时优惠 -->
-        <?php if ($output['goods']['promotion_type'] == 'xianshi') {?>
-        <dl>
-          <dt>促销信息：</dt>
-          <dd class="promotion-info">直降：<?php echo $lang['currency'].$output['goods']['down_price'];?>
-          <em>
-          <?php if($output['goods']['lower_limit']) {?>
-          <?php echo sprintf('最低%s件起',$output['goods']['lower_limit']);?>
-          <?php } ?>
-          </em>
-          <span><?php echo $output['xianshi_info']['xianshi_explain'];?></span> </dd>
-        </dl>
-        <?php }?>
-        <!-- E 限时优惠  -->
-        <!-- S 团购-->
-        <?php if ($output['goods']['promotion_type'] == 'groupbuy') {?>
-        <dl>
-          <dt>促销信息：</dt>
-          <dd class="promotion-info">
-          <em>
-          <?php if ($output['goods']['upper_limit']) {?>
-          <?php echo sprintf('最多限购%s件',$output['goods']['upper_limit']);?>
-          <?php } ?>
-          </em>
-          <span><?php echo $output['goods']['remark'];?></span> </dd>
-        </dl>
-        <?php }?>
-        <!-- E 团购 -->
-        <!-- S 描述相符评分及评价数量 -->
-        <dl>
-          <dt><?php echo $lang['goods_index_evaluation'];?><?php echo $lang['nc_colon'];?></dt>
-          <dd><div class="raty" data-score="<?php echo $output['goods_evaluate_info']['good_star'];?>"></div><a href="#ncGoodsRate">(<?php echo $output['goods_evaluate_info']['all'];?><?php echo $lang['goods_index_number_of_consult'];?>)</a></dd>
-        </dl>
-        <!-- E 描述相符评分及评价数量 --> 
-        <!-- S 物流运费 -->
-        <dl class="ncs-freight">
-          <dt>
-            <?php if ($output['goods']['goods_transfee_charge'] == 1){?>
-            <?php echo $lang['goods_index_freight'].$lang['nc_colon'];?>
-            <?php }else{?>
-            <!-- 如果买家承担运费 --> 
-            <!-- 如果使用了运费模板 -->
-            <?php if ($output['goods']['transport_id'] != '0'){?>
-            <?php echo $lang['goods_index_trans_to'];?><a href="javascript:void(0)" id="ncrecive"><?php echo $lang['goods_index_trans_country'];?></a><?php echo $lang['nc_colon'];?>
-            <div class="ncs-freight-box" id="transport_pannel">
-              <?php if (is_array($output['area_list'])){?>
-              <?php foreach($output['area_list'] as $k=>$v){?>
-              <a href="javascript:void(0)" nctype="<?php echo $k;?>"><?php echo $v;?></a>
-              <?php }?>
-              <?php }?>
-            </div>
-            <?php }else{?>
-            <?php echo $lang['goods_index_trans_zcountry'];?><?php echo $lang['nc_colon'];?>
-            <?php }?>
-            <?php }?>
-          </dt>
-          <dd id="transport_price">
-            <?php if($output['group']) { ?>
-            <span><?php echo $lang['goods_index_groupbuy_no_shipping_fee'];?></span>
-            <?php } else { ?>
-            <?php if ($output['goods']['goods_freight'] == 0){?>
-            <?php echo $lang['goods_index_trans_for_seller'];?>
-            <?php }else{?>
-            <!-- 如果买家承担运费 --> 
-            <span>运费<?php echo $lang['nc_colon'];?><em id="nc_kd"><?php echo $output['goods']['goods_freight'];?></em><?php echo $lang['goods_index_yuan'];?></span>
-            <?php }?>
-            <?php }?>
-          </dd>
-          <dd style="color:red;display:none" id="loading_price">loading.....</dd>
-        </dl>
-        <!-- E 物流运费 ---> 
-        <!-- S 累计售出数量 -->
-        <dl>
-          <dt><?php echo $lang['goods_index_sold'];?><?php echo $lang['nc_colon'];?></dt>
-          <dd><strong><a href="#ncGoodsTraded"><?php echo $output['goods']['goods_salenum']; ?></a></strong>&nbsp;<?php echo $lang['nc_jian'];?></dd>
-        </dl>
-        <!-- E 累计售出数量 --> 
-        
-      </div>
-      <?php if($output['goods']['goods_state'] == 1 && $output['goods']['goods_verify'] == 1){?>
-      <div class="ncs-key"> 
-        <!-- S 商品规格值-->
-        <?php if (is_array($output['goods']['spec_name'])) { ?>
-        <?php foreach ($output['goods']['spec_name'] as $key => $val) {?>
-        <dl nctype="nc-spec">
-          <dt><?php echo $val;?><?php echo $lang['nc_colon'];?></dt>
-          <dd>
-            <?php if (is_array($output['goods']['spec_value'][$key]) and !empty($output['goods']['spec_value'][$key])) {?>
-            <ul nctyle="ul_sign">
-              <?php foreach($output['goods']['spec_value'][$key] as $k => $v) {?>
-              <?php if( $key == 1 ){?>
-              <!-- 图片类型规格-->
-              <li class="sp-img"><a href="javascript:void(0);" class="<?php if (isset($output['goods']['goods_spec'][$k])) {echo 'hovered';}?>" data-param="{valid:<?php echo $k;?>}" title="<?php echo $v;?>"><img src="<?php echo $output['spec_image'][$k];?>"/><i></i></a></li>
-              <?php }else{?>
-              <!-- 文字类型规格-->
-              <li class="sp-txt"><a href="javascript:void(0)" class="<?php if (isset($output['goods']['goods_spec'][$k])) { echo 'hovered';} ?>" data-param="{valid:<?php echo $k;?>}"><?php echo $v;?><i></i></a></li>
-              <?php }?>
-              <?php }?>
-            </ul>
-            <?php }?>
-          </dd>
-        </dl>
-        <?php }?>
-        <?php }?>
-        <!-- E 商品规格值--> 
-        <!-- S 购买数量及库存 -->
-        <dl>
-          <dt><?php echo $lang['goods_index_buy_amount'];?><?php echo $lang['nc_colon'];?></dt>
-          <dd class="ncs-figure-input">
-            <input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30">
-            <a href="javascript:void(0)" class="increase">+</a><a href="javascript:void(0)" class="decrease">-</a> <em>(<?php echo $lang['goods_index_stock'];?><strong nctype="goods_stock"><?php echo $output['goods']['goods_storage']; ?></strong><?php echo $lang['nc_jian'];?>)</em> </dd>
-        </dl>
-        <!-- E 购买数量及库存 --> 
-        
-        <!-- S 购买按钮 -->
-        <div class="ncs-btn"><!-- S 提示已选规格及库存不足无法购买 -->
-          <div nctype="goods_prompt" class="ncs-point">
-            <?php if (!empty($output['goods']['goods_spec'])) {?>
-            <span class="yes"><?php echo $lang['goods_index_you_choose'];?> <strong><?php echo implode($lang['nc_comma'], $output['goods']['goods_spec']);?></strong></span>
-            <?php }?>
-            <?php if ($output['goods']['goods_storage'] <= 0) {?>
-            <span class="no"><i class="icon-exclamation-sign"></i>&nbsp;<?php echo $lang['goods_index_understock_prompt'];?></span>
-            <?php }?>
-          </div>
-          <!-- E 提示已选规格及库存不足无法购买 --> 
-          <!-- 立即购买--> 
-          <a href="javascript:void(0);" nctype="buynow_submit" class="buynow <?php if ($output['goods']['goods_storage'] <= 0) {?>no-buynow<?php }?>" title="<?php echo $lang['goods_index_now_buy'];?>"><?php echo $lang['goods_index_now_buy'];?></a> 
-          <?php if ($output['goods']['promotion_type'] != 'groupbuy') {?>
-          <!-- 加入购物车-->
-          <a href="javascript:void(0);" nctype="addcart_submit" class="addcart <?php if ($output['goods']['goods_storage'] <= 0) {?>no-addcart<?php }?>" title="<?php echo $lang['goods_index_add_to_cart'];?>"><i class="icon-shopping-cart"></i><?php echo $lang['goods_index_add_to_cart'];?></a>
-          <?php } ?>
 
-          <!-- S 加入购物车弹出提示框 -->
+
+<!-- [详情页box] -->
+<div class="wrap" id="content">
+<div class="wrap-s flt">
+<div id="Ranks-265" class="siderank box1">
+ <h3>热销商品</h3>
+ <div class="body">
+  <ul class="clearfix ranklist">
+      <?php if(is_array($output['hot_sales']) && !empty($output['hot_sales'])){?>
+      <?php foreach($output['hot_sales'] as $key=>$val){?>
+        <li class="item l<?php echo $key+1;?> <?php if($key==0){?>selected<?php }?>">
+      <div class="gname"><span class="hl"><?php echo $key+1;?></span><h6><a  target="_blank" href="<?php echo urlShop('goods', 'index',array('goods_id'=>$val['goods_id']));?>"><?php echo $val['goods_name']?></a></h6></div>   
+      <div class="rank-box clearfix">
+        <div class="im"><a target="_blank" href="<?php echo urlShop('goods', 'index',array('goods_id'=>$val['goods_id']));?>"><img src="<?php echo thumb($val, 240);?>" alt="<?php echo $val['goods_name']?>" width="90" height="90"></a></div>
+        <ul class="p"><li><span class="price1">￥<?php echo $val['goods_price']?></span></li><li>市场价：<span class="mktprice1">￥<?php echo $val['goods_marketprice']?></span></li></ul>           
+      </div>    
+     </li>
+     <?php }}?>
+    
+      </ul>
+  </div>
+</div>
+
+<div id="Ranks-266" class="siderank box1">
+ <h3>热门收藏</h3>
+ <div class="body">
+  <ul class="clearfix ranklist">
+      <?php if(is_array($output['hot_collect']) && !empty($output['hot_collect'])){?>
+      <?php foreach($output['hot_collect'] as $key=>$val){?>
+        <li class="item l<?php echo $key+1;?> <?php if($key==0){?>selected<?php }?>">
+      <div class="gname"><span class="hl"><?php echo $key+1;?></span><h6><a  target="_blank" href="<?php echo urlShop('goods', 'index',array('goods_id'=>$val['goods_id']));?>"><?php echo $val['goods_name']?></a></h6></div>   
+      <div class="rank-box clearfix">
+        <div class="im"><a target="_blank" href="<?php echo urlShop('goods', 'index',array('goods_id'=>$val['goods_id']));?>"><img src="<?php echo thumb($val, 240);?>" alt="<?php echo $val['goods_name']?>" width="90" height="90"></a></div>
+        <ul class="p"><li><span class="price1">￥<?php echo $val['goods_price']?></span></li><li>市场价：<span class="mktprice1">￥<?php echo $val['goods_marketprice']?></span></li></ul>           
+      </div>    
+     </li>
+     <?php }}?>
+      </ul>
+  </div>
+</div>
+
+</div>
+<div class="wrap-m frt"><div id="main" class="clearfix">
+  <!-- 商品详情 -->
+  <div class="page-maincontent">
+    <div id="product_container" class="product-container clearfix">
+      <!-- 标题简介 -->
+      <div class="product-titles">
+      <h2><?php echo $output['goods']['goods_name']; ?></h2>
+      </div>
+
+  <div class="product-side">
+    <!-- 商品相册 -->
+<div id="product_album" class="product-album">
+  <div class="product-album-preview clearfix">
+    <div class="product-album-pic" style="width:300px;height:300px;line-height:298px;*font-size:270px;">
+      <a href="http://www.guolehui.com.cn/public/images/48/c2/f0/6cfd976101e93d7b3f9fd8bcd451bb9030ecdd3e.jpg?1434640282#h" class="album-preview-container" id="op_product_zoom"><img src="http://www.guolehui.com.cn/public/images/e9/70/33/5c3f675040e8e9a8edcf97b20dabf84da316c2ae.jpg?1431183135#h" alt="" class="small-pic"><div class="album-zooms-handle"></div></a>
+    </div>
+    <img class="loading" app="b2c" src="http://www.guolehui.com.cn/public/app/b2c/statics/images/loading.gif" alt="正在加载大图..." style="display:none;">    <div class="product-album-zoom"></div>
+      <div class="loading" style="visibility: hidden; left: 90px; top: 138px;"><img alt="loading..." src="http://www.guolehui.com.cn/public/app/b2c/statics/images/loading.gif"> 正在加载大图...</div></div>
+  <div class="product-album-thumb product-album-thumb-bottom">
+    <div class="flip prev forward over"><a href="javascript:void(0);" class="icon">4</a></div>
+    <div class="thumbnail-list" style="width:268px;">
+      <ul class="clearfix" style="width: 216px;">
+                  <li class="">
+            <div class="arrow arrow-top"><i class="below"></i></div>
+            <div class="thumbnail"><a href="http://www.guolehui.com.cn/public/images/48/c2/f0/6cfd976101e93d7b3f9fd8bcd451bb9030ecdd3e.jpg?1434640282#h" rel="op_product_zoom" rev="http://www.guolehui.com.cn/public/images/84/94/79/7d50400ac2de4cc4a728e5663284edca0fecfad4.jpg?1434640282#h"><img src="http://www.guolehui.com.cn/public/images/df/da/48/68eeebf09f3672356df019a3a81cd8f4aca62876.jpg?1434640282#h" alt="" width="60" height="60"></a></div>
+          </li>
+                    <li class="">
+            <div class="arrow arrow-top"><i class="below"></i></div>
+            <div class="thumbnail"><a href="http://www.guolehui.com.cn/public/images/12/24/1a/e98b479f1fdf3d5df57b5126135ae84565557d9a.jpg?1431184381#h" rel="op_product_zoom" rev="http://www.guolehui.com.cn/public/images/b6/db/66/da4c9a068106e66ac3aae4a1faad97e12cff7b1f.jpg?1431184381#h"><img src="http://www.guolehui.com.cn/public/images/fa/c2/7f/b17a656e9fbcab55658b21b586535bcbd9c59f2a.jpg?1431184381#h" alt="" width="60" height="60"></a></div>
+          </li>
+                    <li class="active">
+            <div class="arrow arrow-top"><i class="below"></i></div>
+            <div class="thumbnail"><a href="http://www.guolehui.com.cn/public/images/c9/eb/a1/101e3f407fe424fff7b18291ee329447ed05a302.jpg?1431183135#h" rel="op_product_zoom" rev="http://www.guolehui.com.cn/public/images/e9/70/33/5c3f675040e8e9a8edcf97b20dabf84da316c2ae.jpg?1431183135#h"><img src="http://www.guolehui.com.cn/public/images/24/0b/89/c2dcd53e3bc3054c153f55bbb373e1f1c58de7b5.jpg?1431183135#h" alt="" width="60" height="60"></a></div>
+          </li>
+                </ul>
+    </div>
+    <div class="flip next backward over"><a href="javascript:void(0);" class="icon">5</a></div>
+  </div>
+</div>
+    <!-- 分享推荐 -->
+    <div class="share-recommend" id="share_recommend">
+    <!-- share -->
+  <span class="share pop-wrapper">
+    <button type="button" class="btn btn-rounded action-handle "><span><span><i class="icon icon-share">X</i><i class="text">分享</i><i class="icon arrow">7</i></span></span></button>
+    <div class="pop-body" style="display: none;">
+      <div class="share-mini">
+                <a href="http://shuo.douban.com/!service/share?href=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;image=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;name=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;" target="_blank" class="douban"><i class="icon"></i>豆瓣网</a>
+                <a href="http://www.kaixin001.com/rest/records.php?flag=1&amp;style=11&amp;url=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;pic=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;content=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;" target="_blank" class="kaixin001"><i class="icon"></i>开心网</a>
+                <a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;title=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;pics=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;" target="_blank" class="qzone"><i class="icon"></i>QQ空间</a>
+                <a href="http://widget.renren.com/dialog/share?resourceUrl=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;pic=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;title=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;" target="_blank" class="renren"><i class="icon"></i>人人网</a>
+                <a href="http://service.weibo.com/share/share.php?srcUrl=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;pic=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;title=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;appkey=h&amp;" target="_blank" class="sina"><i class="icon"></i>新浪微博</a>
+                <a href="http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;site=http%3A%2F%2Fwww.guolehui.com.cn%2Fproduct-929.html&amp;pic=http%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F6a%2F6b%2Fcd%2Fa97f3e3c99888afd98096e2226c51979a646db51.jpg%3F1434640282%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F23%2F48%2F47%2F6e6b74c6d62a1e40717af7b1a2fc7bad8a0d2572.jpg%3F1431184381%23h%2Chttp%3A%2F%2Fwww.guolehui.com.cn%2Fpublic%2Fimages%2F18%2Fda%2F20%2F0cdf78bba5d4ecce8cd94e384466cc72214059af.jpg%3F1431183135%23h&amp;title=%E3%80%90%E6%9E%9C%E4%B9%90%E6%B1%87%E7%A9%BA%E8%BF%90%E5%88%B0%E8%B4%A7%EF%BC%9B30mm%E4%BC%98%E8%B4%A8%E7%BE%8E%E5%9B%BD%E6%A8%B1%E6%A1%83%2F%E8%BD%A6%E5%8E%98%E5%AD%90%E3%80%90%E7%89%B9%E4%BB%B7%E3%80%91%E3%80%91%EF%BC%8C%E9%94%80%E5%94%AE%E4%BB%B7155.000%EF%BC%88%E5%88%86%E4%BA%AB%E8%87%AA+%E6%9E%9C%E4%B9%90%E6%B1%87%E2%80%94%E4%B8%AD%E9%AB%98%E7%AB%AF%E9%B2%9C%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E6%B0%B4%E6%9E%9C%E7%BD%91%E8%B4%AD%EF%BC%8C%E8%BF%9B%E5%8F%A3%E6%B0%B4%E6%9E%9C%E7%BD%91%EF%BC%8C%E5%85%A8%E5%9B%BD%E6%B0%B4%E6%9E%9C%E9%85%8D%E9%80%81%EF%BC%89&amp;appkey=h&amp;" target="_blank" class="tencent"><i class="icon"></i>腾讯微博</a>
+              </div>
+    </div>
+  </span>
+    <!-- recommend -->
+  <span class="recommend pop-wrapper">
+    <button type="button" class="btn btn-rounded action-handle "><span><span><i class="icon icon-recommend">@</i><i class="text">推荐</i><i class="icon arrow">7</i></span></span></button>
+    <div class="pop-body" style="display: none;">
+      <div class="pop-title">
+          <h3>将商品推荐给好友</h3>
+        <div class="close"><button type="button" class="btn pop-close icon">×</button></div>
+      </div>
+      <div class="pop-content">
+                <div class="notice">您还没有登录，请先            <a href="/passport-login.html" class="lnklike">登录</a> 或            <a href="/passport-signup.html" class="lnklike">注册</a> 后推荐给好友。</div>
+                <!-- <form action="" method="post"> -->
+          <ul class="form" id="op_recommend_form">
+            <li class="form-item">
+            <label for="" class="form-label">发件人：</label>
+            <span class="form-act"><i class="not-login">(登录后显示)</i></span>
+            </li>
+            <li class="form-item">
+            <label for="" class="form-label">收件人：</label>
+              <span class="form-act"><textarea name="email" id="" cols="30" rows="3" placeholder="填写多个地址请用逗号“,”隔开。" vtype="required&amp;&amp;emaillist" data-caution="请填写正确邮箱地址" disabled=""></textarea></span>
+            </li>
+            <li class="form-item">
+            <label for="" class="form-label">内容：</label>
+              <span class="form-act"><textarea name="content" id="" cols="30" rows="6" vtype="required" data-caution="请填写邮件内容" disabled=""></textarea></span>
+            </li>
+            <li class="form-item form-item-last">
+              <label for="" class="form-label"></label>
+              <span class="form-act">
+                <a class="btn btn-caution disabled" rel="_request" href="/product-recommend-257-929.html" data-ajax-config="{method:'post',data:$('op_recommend_form').toQueryString(),onSuccess:function(rs){notice.success('邮件发送成功，可继续推荐给好友', $('op_recommend_form'), 'before');}}"><span><span>发送</span></span></a>
+              </span>
+            </li>
+          </ul>
+        <!-- </form> -->
+      </div>
+    </div>
+  </span>
+    <!-- favarite -->
+  <a href="/passport-login.html" class="btn btn-rounded btn-addfav"><span><span><i class="icon icon-fav">.</i><i class="text">收藏</i></span></span></a>
+  </div>
+  </div>
+  <div class="product-main">
+    <!-- 商品基本信息 -->
+    <div id="product_information" class="product-information">
+      <!--商品价格 and 商品评分-->
+      <div class="product-concerns">
+    <ul>
+      <li class="item">
+      <span class="label">销售价：</span>
+        <span class="detail">
+            <b class="price"><ins class="action-price">￥<?php echo $output['goods']['goods_price'];?></ins></b>
+            <i class="minor"><span class="action-saveprice">(节省￥<?php echo $output['goods']['goods_marketprice']-$output['goods']['goods_price'];?>)</span></i>        </span>
+      </li>
+            <li class="item">
+      <span class="label">市场价：</span>
+        <span class="detail">
+          <i class="minor"><del class="action-mktprice">￥<?php echo $output['goods']['goods_marketprice'];?></del></i>
+        </span>
+      </li>
+                        
+          </ul>
+</div>
+      <!-- 赠品和促销 -->
+            <!-- 扩展属性 -->
+          <div class="product-params">
+            <table width="100%">
+              <tbody>
+                <tr>
+                      <td class="label"><div class="text-nowrap">货品编号：</div></td>
+                      <td width="90%"><?php echo $output['commonInfo']['goods_serial']?></td>
+                </tr>
+                <tr>
+                    <td class="label"><div class="text-nowrap">配送范围：</div></td>
+                    <td ><?php echo $output['commonInfo']['transport_title']?></td>
+                </tr>
+                <tr>
+                    <td class="label"><div class="text-nowrap">理赔保障：</div></td>
+                    <td width="45%">签收当日有效</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-weight:bold;">近期销量<span style="color:red;"><?php echo $output['goods']['goods_salenum']; ?></span>份</p>
+          <!-- 购买区 -->
+          <div class="product-buy">
+        <!-- 商品规格 -->
+        <div id="product_spec" class="product-spec">
+        <ul class="spec-area">
+
+     
+          <?php if (is_array($output['goods']['spec_name'])) { ?>
+          <?php foreach ($output['goods']['spec_name'] as $key => $val) {?>
+          <li class="spec-item">
+            <span class="item-label"><i><?php echo $val;?></i>：</span>
+            <span class="item-content">
+            <ul class="clearfix">
+            <?php if (is_array($output['goods']['spec_value'][$key]) and !empty($output['goods']['spec_value'][$key])) {?>
+            <?php foreach($output['goods']['spec_value'][$key] as $k => $v) {?>
+                <li class="spec-attr <?php if (isset($output['goods']['goods_spec'][$k])) {echo 'selected';}?>" data-param="{valid:<?php echo $k;?>}"><a href="javascript:void(0);"><span><?php echo $v;?></span><i></i></a></li>
+            <?php }?>
+            <?php }?>
+            </ul>
+            </span>
+          </li>
+          <?php }}?>
+
+
+                  </ul>
+      </span>
+    </li>
+      </ul>
+</div>
+        <div class="product-action">
+          <ul>
+            <!--商品库存-->
+            <li class="product-buy-quantity">
+  <label class="item-label" for="for_quantity_input" nctype="goods_stock">数量：</label>
+  <span class="item-content"><span class="p-quantity"><a href="javascript:void(0);" class="decrease">-</a><input type="text" id="quantity" value="1" min="1" max="99983"><a href="javascript:void(0);" class="increase">+</a></span> <span class="p-store hide"></span><input type="hidden" name="stock" value="99983"></span>
+</li>
+
+            <!--购买按钮-->
+            <li class="product-buy-action">
+              <a nctype="addcart_submit" class="btn btn-major btn-huge action-addtocart" rel="_request"><span><span>加入购物车</span></span></a>
+            </li>
+           <!-- S 加入购物车弹出提示框 -->
           <div class="ncs-cart-popup">
             <dl>
               <dt><?php echo $lang['goods_index_cart_success'];?><a title="<?php echo $lang['goods_index_close'];?>" onClick="$('.ncs-cart-popup').css({'display':'none'});">X</a></dt>
@@ -189,199 +244,283 @@ cursor: url(<?php echo SHOP_TEMPLATES_URL;
           </div>
           <!-- E 加入购物车弹出提示框 -->
 
+          </ul>
         </div>
-        <!-- E 购买按钮 -->
-        <div class="ncs_share"> <a href="javascript:void(0);" nc_type="sharegoods" data-param='{"gid":"<?php echo $output['goods']['goods_id'];?>"}'><i class="icon-share"></i><?php echo $lang['goods_index_snsshare_goods'];?><em nc_type="sharecount_<?php echo $output['goods']['goods_id'];?>"><?php echo intval($output['goods']['sharenum'])>0?intval($output['goods']['sharenum']):0;?></em></a><a href="javascript:collect_goods('<?php echo $output['goods']['goods_id']; ?>','count','goods_collect');"><i class="icon-star-empty"></i><?php echo $lang['goods_index_favorite_goods'];?><em nctype="goods_collect"><?php echo $output['goods']['goods_collect']?></em></a></div>
       </div>
-      <?php }else{?>
-      <div class="ncs-saleout">
-      <dl>
-        <dt><i class="icon-info-sign"></i><?php echo $lang['goods_index_is_no_show'];?></dt>
-        <dd><?php echo $lang['goods_index_is_no_show_message_one'];?></dd>
-        <dd><?php echo $lang['goods_index_is_no_show_message_two_1'];?>&nbsp;<a href="<?php echo urlShop('show_store', 'index', array('store_id'=>$output['goods']['store_id']), $output['store_info']['store_domain']);?>" class="ncs-btn-mini"><?php echo $lang['goods_index_is_no_show_message_two_2'];?></a>&nbsp;<?php echo $lang['goods_index_is_no_show_message_two_3'];?> </dd>
-      </dl></div>
-      <?php }?>
-      <!--E 商品信息 --> 
-      
     </div>
-    <!-- E 商品图片及收藏分享 --> 
-    <!--S 店铺信息-->
-    <div class="ncg-info" style=" position: absolute; z-index: 1; top: 60px; right: 0;">
-      <?php include template('store/info');?>
-    </div>
-    <!--E 店铺信息 --> 
   </div>
-  <div class="ncs-goods-layout expanded" >
-    <div class="ncs-goods-main" id="main-nav-holder">
-      <div class="ncs-promotion" style="display: none;">
-        <div class="ncs-goods-title-nav">
-          <ul>
-            <li class="current"><a href="javascript:void(0);">优惠套装</a></li>
-          </ul>
-        </div>
-        <div class="ncs-goods-info-content"><!--S 组合销售 -->
-          <div class="ncs-bundling" id="nc-bundling"> </div>
-          <!--E 组合销售 --></div>
-      </div>
-      <nav class="tabbar pngFix" id="main-nav">
-        <div class="ncs-goods-title-nav">
-          <ul id="categorymenu">
-            <li class="current"><a id="tabGoodsIntro" href="#content"><?php echo $lang['goods_index_goods_info'];?></a></li>
-            <li><a id="tabGoodsRate" href="#content"><?php echo $lang['goods_index_evaluation'];?></a></li>
-            <li><a id="tabGoodsTraded" href="#content"><?php echo $lang['goods_index_sold_record'];?></a></li>
-            <li><a id="tabGuestbook" href="#content"><?php echo $lang['goods_index_goods_consult'];?></a></li>
-          </ul>
-          <div class="switch-bar"><a href="javascript:void(0)" id="fold">&nbsp;</a></div>
-        </div>
-      </nav>
-      <div class="ncs-intro">
-        <div class="content bd" id="ncGoodsIntro"> 
-          
-          <!--S 满就送 -->
-          <?php if($output['mansong_info']) { ?>
-          <div class="nc-mansong">
-            <div class="nc-mansong-ico"></div>
-            <dl class="nc-mansong-content">
-              <dt><?php echo $output['mansong_info']['mansong_name'];?>
-                <time>( <?php echo $lang['nc_promotion_time'];?><?php echo $lang['nc_colon'];?><?php echo date('Y/m/d',$output['mansong_info']['start_time']).'--'.date('Y/m/d',$output['mansong_info']['end_time']);?> )</time>
-              </dt>
-              <dd>
-                <?php foreach($output['mansong_info']['rules'] as $rule) { ?>
-                <span><?php echo $lang['nc_man'];?><em><?php echo ncPriceFormat($rule['price']);?></em><?php echo $lang['nc_yuan'];?>
-                <?php if(!empty($rule['discount'])) { ?>
-                ， <?php echo $lang['nc_reduce'];?><i><?php echo ncPriceFormat($rule['discount']);?></i><?php echo $lang['nc_yuan'];?>
-                <?php } ?>
-                <?php if(!empty($rule['goods_id'])) { ?>
-                ， <?php echo $lang['nc_gift'];?> <a href="<?php echo $rule['goods_url'];?>" title="<?php echo $rule['mansong_goods_name'];?>" target="_blank"> <img src="<?php echo cthumb($rule['goods_image'], 60);?>" alt="<?php echo $rule['mansong_goods_name'];?>"> </a>&nbsp;。
-                <?php } ?>
-                </span>
-                <?php } ?>
-              </dd>
-              <dd class="nc-mansong-remark"><?php echo $output['mansong_info']['remark'];?></dd>
-            </dl>
-          </div>
-          <?php } ?>
-          <!--E 满就送 -->
-          <?php if(is_array($output['goods']['goods_attr']) || isset($output['goods']['brand_name'])){?>
-          <ul class="nc-goods-sort">
-            <li>商家货号：<?php echo $output['goods']['goods_serial'];?></li>
-            <?php if(isset($output['goods']['brand_name'])){echo '<li>'.$lang['goods_index_brand'].$lang['nc_colon'].$output['goods']['brand_name'].'</li>';}?>
-            <?php if(is_array($output['goods']['goods_attr']) && !empty($output['goods']['goods_attr'])){?>
-            <?php foreach ($output['goods']['goods_attr'] as $val){ $val= array_values($val);echo '<li>'.$val[0].$lang['nc_colon'].$val[1].'</li>'; }?>
-            <?php }?>
-          </ul>
-          <?php }?>
-          <div class="ncs-goods-info-content">
-            <?php if (isset($output['plate_array'][1])) {?>
-            <div class="top-template"><?php echo $output['plate_array'][1][0]['plate_content']?></div>
-            <?php }?>
-            <div class="default"><?php echo $output['goods']['goods_body']; ?></div>
-            <?php if (isset($output['plate_array'][0])) {?>
-            <div class="bottom-template"><?php echo $output['plate_array'][0][0]['plate_content']?></div>
-            <?php }?>
-          </div>
-        </div>
-      </div>
-      <div class="ncs-comment">
-        <div class="ncs-goods-title-bar hd">
-          <h4><a href="javascript:void(0);"><?php echo $lang['goods_index_evaluation'];?></a></h4>
-        </div>
+
+
+<div id="product_notify" class="product-notify" style="display:none;">
+  <p class="desc">该货品暂时缺货，请在下面输入您的邮箱地址或手机号码，当我们有现货供应时，我们会发送邮件通知您！</p>
+  <form class="form" method="post" action="/product-toNotify.html">
+    <input type="hidden" name="item[0][goods_id]" value="257">
+    <input type="hidden" name="item[0][product_id]" value="929">
+    <ul>
+      <li class="form-item">
+        <label for="" class="form-label">邮箱地址：</label>
+        <span class="form-act">
+          <input class="x-input" type="text" name="email" id="dom_el_2bf2490" size="30" vtype="required&amp;&amp;email">        </span>
+      </li>
+      <li class="form-item">
+        <label for="" class="form-label">手机号码：</label>
+        <span class="form-act">
+          <input class="x-input" type="text" name="cellphone" id="dom_el_2bf2491" size="30" vtype="required">        </span>
+      </li>
+      <li class="form-item form-item-last">
+        <label for="" class="form-label"></label>
+        <span class="form-act">
+          <button type="submit" class="btn btn-caution" rel="_request"><span><span>提交</span></span></button>        </span>
+      </li>
+    </ul>
+  </form>
+</div>
+
+    <div class="album-zooms-container" style="width: 450px; height: 450px; left: -10000px; top: 314px; visibility: hidden;"><img src="http://www.guolehui.com.cn/public/images/c9/eb/a1/101e3f407fe424fff7b18291ee329447ed05a302.jpg?1431183135#h" style="left: 0px; top: 0px; visibility: visible;"></div><img src="http://www.guolehui.com.cn/public/images/48/c2/f0/6cfd976101e93d7b3f9fd8bcd451bb9030ecdd3e.jpg?1434640282#h" class="album-big-image"><img src="http://www.guolehui.com.cn/public/images/84/94/79/7d50400ac2de4cc4a728e5663284edca0fecfad4.jpg?1434640282#h" class="album-mid-image"><img src="http://www.guolehui.com.cn/public/images/12/24/1a/e98b479f1fdf3d5df57b5126135ae84565557d9a.jpg?1431184381#h" class="album-big-image"><img src="http://www.guolehui.com.cn/public/images/b6/db/66/da4c9a068106e66ac3aae4a1faad97e12cff7b1f.jpg?1431184381#h" class="album-mid-image"><img src="http://www.guolehui.com.cn/public/images/c9/eb/a1/101e3f407fe424fff7b18291ee329447ed05a302.jpg?1431183135#h" class="album-big-image"><img src="http://www.guolehui.com.cn/public/images/e9/70/33/5c3f675040e8e9a8edcf97b20dabf84da316c2ae.jpg?1431183135#h" class="album-mid-image"></div>
+
+    <!-- 配件套餐 -->
+    
+    <div class="product-tags clearfix"><h2 class="tags-hd active"><a href="#detail">商品详情</a></h2><h2 class="tags-hd tag-comment"><a href="#recomment">商品评论</a></h2><h2 class="tags-hd tag-consult"><a href="#consult">商品咨询</a></h2></div><div id="product_section">
+      <div id="product_detail" class="product-section product-detail">
         
-        <div class="ncs-goods-info-content bd" id="ncGoodsRate">
-            <div class="top">
-                <div class="rate">
-                    <p><strong><?php echo $output['goods_evaluate_info']['good_percent'];?></strong><sub>%</sub>好评</p>
-              <span>共有<?php echo $output['goods_evaluate_info']['all'];?>人参与评分</span></div>
-            <div class="percent">
-              <dl>
-                <dt>好评<em>(<?php echo $output['goods_evaluate_info']['good_percent'];?>%)</em></dt>
-                <dd><i style="width: <?php echo $output['goods_evaluate_info']['good_percent'];?>%"></i></dd>
-              </dl>
-              <dl>
-                <dt>中评<em>(<?php echo $output['goods_evaluate_info']['normal_percent'];?>%)</em></dt>
-                <dd><i style="width: <?php echo $output['goods_evaluate_info']['normal_percent'];?>%"></i></dd>
-              </dl>
-              <dl>
-                <dt>差评<em>(<?php echo $output['goods_evaluate_info']['bad_percent'];?>%)</em></dt>
-                <dd><i style="width: <?php echo $output['goods_evaluate_info']['bad_percent'];?>%"></i></dd>
-              </dl>
-            </div>
-            <div class="btns"><span>您可对已购商品进行评价</span>
-              <p><a href="<?php echo urlShop('member_order', 'index');?>" class="ncs-btn ncs-btn-red" target="_blank"><i class="icon-comment-alt"></i>评价商品</a></p>
-            </div>
-          </div>
-          <div class="ncs-goods-title-nav">
-        <ul id="comment_tab">
-            <li data-type="all" class="current"><a href="javascript:void(0);"><?php echo $lang['goods_index_evaluation'];?>(<?php echo $output['goods_evaluate_info']['all'];?>)</a></li>
-            <li data-type="1"><a href="javascript:void(0);">好评(<?php echo $output['goods_evaluate_info']['good'];?>)</a></li>
-            <li data-type="2"><a href="javascript:void(0);">中评(<?php echo $output['goods_evaluate_info']['normal'];?>)</a></li> 
-            <li data-type="3"><a href="javascript:void(0);">差评(<?php echo $output['goods_evaluate_info']['bad'];?>)</a></li>
-        </ul></div>
-          <!-- 商品评价内容部分 -->
-          <div id="goodseval" class="ncs-commend-main"></div>
+        <div class="product-attributes">
+  <ul class="clearfix">
+    <li>品牌：<a href="/brand.html"></a></li>
+    <li>所属分类：美国水果</li>
+      </ul>
+</div>
+<div class="detail-content">
+  <div><img src="http://mall.guolehui.com.cn/public/images/e7/c3/22/6ed5c87aee29c633f0f40b1a7a471fd61b52a763.jpg?1433060724#w">
+<img src="http://mall.guolehui.com.cn/public/images/09/4f/26/48b9f3a66ca301086a1c5bae5a8dce63c34af784.jpg?1433060733#w">
+<img src="http://mall.guolehui.com.cn/public/images/7a/13/9d/b391c36f2f1612ed0177aa75ae2c28f9158a0a18.jpg?1433060748#w">
+<img src="http://mall.guolehui.com.cn/public/images/11/45/59/6affdaffdd176051e6b6d0926b260f1db2011cc3.jpg?1433060756#w">
+<img src="http://mall.guolehui.com.cn/public/images/80/cf/1d/6ed0b7db8bda8a2b705d083fea286dc5d7d191d1.jpg?1433060769#w">
+<img src="http://mall.guolehui.com.cn/public/images/1f/44/77/07ae38b1a2b7bb893e7b7e131c8a80716c3d8f74.jpg?1433060778#w"></div>
+</div>
+
+<div id="product_comment_init" class="product-comment " data-sync-type="product_comment_init"><div id="product_comment_init" class="mod" data-sync-type="product_comment_init">
+  <div class="mod-title">
+    <h2>商品评论</h2>
+  </div>
+  <div class="mod-content">
+    <div class="comment-list">
+      <table class="product-score">
+  <tbody>
+    <tr>
+            <td class="score-total">
+        <span class="label">商品评分</span>
+        <span class="values">
+          <em class="stars stars-45">
+            <span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span>
+          </em>
+          <b class="score">4.5</b>
+          <span class="total"><b class="total-count">473</b>人评分</span>
+        </span>
+      </td>
+      <td>
+        <ul class="scores-list">
+                    <li class="scores-item">
+          <span class="label">配送速度</span>
+          <em class="stars stars-45">
+            <span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span>
+          </em>
+          <b class="score">4.5</b>
+          </li>
+                    <li class="scores-item">
+          <span class="label">新鲜度</span>
+          <em class="stars stars-45">
+            <span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span>
+          </em>
+          <b class="score">4.5</b>
+          </li>
+                    <li class="scores-item">
+          <span class="label">口感</span>
+          <em class="stars stars-45">
+            <span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span>
+          </em>
+          <b class="score">4.5</b>
+          </li>
+                  </ul>
+      </td>
+            <td>
+        <p class="desc"><i></i></p>
+        <a href="/member-nodiscuss.html" class="btn btn-simple"><span><span>我要评论</span></span></a>
+        <p class="desc"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="title">共<i>473</i> 个评论。
+    <a href="javascript:void(0);" onclick="$$('.product-tags .tag-comment').fireEvent('click');window.fireEvent('scroll');location.href='#product_comment';">查看全部评论 »</a>
+  </div>
+<div class="action-content-list">
+  <ul class="content">
+        <li class="comment-item">
+      <input type="hidden" name="id" value="5068">
+      <div class="member">
+        <div class="member-avatar">
+          <img src="http://www.guolehui.com.cn/public/app/b2c/statics/sprites/default-avatar.png" alt="">        </div>
+        <div class="member-info">
+          <div class="level"></div>
+          <div class="username">小***妈</div>
         </div>
       </div>
-      <div class="ncg-salelog">
-        <div class="ncs-goods-title-bar hd">
-         <h4><a href="javascript:void(0);"><?php echo $lang['goods_index_sold_record'];?></a></h4>
-        </div>
-        <div class="ncs-goods-info-content bd" id="ncGoodsTraded">
-          <div class="top">
-            <div class="price"><?php echo $lang['goods_index_goods_price'];?><strong><?php echo $output['goods']['goods_price'];?></strong><?php echo $lang['goods_index_yuan'];?><span><?php echo $lang['goods_index_price_note'];?></span></div>
-          </div>
-          <!-- 成交记录内容部分 -->
-          <div id="salelog_demo" class="ncs-loading"> </div>
-        </div>
-      </div>
-      <div class="ncs-consult">
-        <div class="ncs-goods-title-bar hd">
-          <h4><a href="javascript:void(0);"><?php echo $lang['goods_index_goods_consult'];?></a></h4>
-        </div>
-        <div class="ncs-goods-info-content bd" id="ncGuestbook"> 
-          <!-- 咨询留言内容部分 -->
-          <div class="ncs-guestbook">
-            <div id="cosulting_demo" class="ncs-loading"> </div>
-          </div>
+      <div class="member-discuss">
+                <div class="point point-left"><i class="below"></i><i class="above"></i></div>
+        <div class="discuss-label"><span class="stars stars-50"><span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span></span><span class="time">15-06-22 17:58</span></div>
+                <p class="discuss-content">已经买了两次了</p>
+              </div>
+    </li>
+        <li class="comment-item">
+      <input type="hidden" name="id" value="5067">
+      <div class="member">
+        <div class="member-avatar">
+          <img src="http://www.guolehui.com.cn/public/app/b2c/statics/sprites/default-avatar.png" alt="">        </div>
+        <div class="member-info">
+          <div class="level"></div>
+          <div class="username">小***妈</div>
         </div>
       </div>
-      <?php if(!empty($output['goods_commend']) && is_array($output['goods_commend']) && count($output['goods_commend'])>1){?>
-      <div class="ncs-recommend">
-        <div class="title">
-          <h4><?php echo $lang['goods_index_goods_commend'];?></h4>
-        </div>
-        <div class="content">
-          <ul>
-            <?php foreach($output['goods_commend'] as $goods_commend){?>
-            <?php if($output['goods']['goods_id'] != $goods_commend['goods_id']){?>
-            <li>
-              <dl>
-                <dt class="goods-name"><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $goods_commend['goods_id']));?>" target="_blank" title="<?php echo $goods_commend['goods_jingle'];?>"><?php echo $goods_commend['goods_name'];?><em><?php echo $goods_commend['goods_jingle'];?></em></a></dt>
-                <dd class="goods-pic"><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $goods_commend['goods_id']));?>" target="_blank" title="<?php echo $goods_commend['goods_jingle'];?>"><img src="<?php echo thumb($goods_commend, 240);?>" alt="<?php echo $goods_commend['goods_name'];?>"/></a></dd>
-                <dd class="goods-price"><?php echo $lang['currency'];?><?php echo $goods_commend['goods_price'];?></dd>
-              </dl>
-            </li>
-            <?php }?>
-            <?php }?>
-          </ul>
-          <div class="clear"></div>
+      <div class="member-discuss">
+                <div class="point point-left"><i class="below"></i><i class="above"></i></div>
+        <div class="discuss-label"><span class="stars stars-50"><span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span></span><span class="time">15-06-22 17:54</span></div>
+                <p class="discuss-content">第三次购买了。</p>
+              </div>
+    </li>
+        <li class="comment-item">
+      <input type="hidden" name="id" value="5061">
+      <div class="member">
+        <div class="member-avatar">
+          <img src="http://www.guolehui.com.cn/public/app/b2c/statics/sprites/default-avatar.png" alt="">        </div>
+        <div class="member-info">
+          <div class="level"></div>
+          <div class="username">张***生</div>
         </div>
       </div>
-      <?php }?>
-    </div>
-    <div class="ncs-sidebar">
-      <div class="nc-s-c-s1">
-        <div class="title">
-          <h4>商品二维码</h4>
+      <div class="member-discuss">
+                <div class="point point-left"><i class="below"></i><i class="above"></i></div>
+        <div class="discuss-label"><span class="stars stars-40"><span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span></span><span class="time">15-06-21 14:16</span></div>
+                <p class="discuss-content">东西很好！物流这次有点不理想，但是卖家做出了很好的调整，很好，我兑现我的承诺，这家店值得信赖！</p>
+              </div>
+    </li>
+        <li class="comment-item">
+      <input type="hidden" name="id" value="5062">
+      <div class="member">
+        <div class="member-avatar">
+          <img src="http://www.guolehui.com.cn/public/app/b2c/statics/sprites/default-avatar.png" alt="">        </div>
+        <div class="member-info">
+          <div class="level"></div>
+          <div class="username">小***妈</div>
         </div>
-        <div class="content">
-          <div class="ncs-goods-code"><p><img src="<?php echo UPLOAD_SITE_URL.DS.ATTACH_STORE.DS.$output['goods']['store_id'].DS.$output['goods']['goods_id'].'.png';?>" onerror="this.src='<?php echo UPLOAD_SITE_URL.DS.ATTACH_STORE.DS.'default_qrcode.png';?>'" title="商品原始地址：<?php echo urlShop('goods', 'index', array('goods_id'=>$output['goods']['goods_id']));?>"></p> <span class="ncs-goods-code-note"><i></i>扫描二维码，手机查看分享</span> </div>
-         </div>
       </div>
-      <?php include template('store/callcenter');?>
-      <?php include template('store/left');?>
+      <div class="member-discuss">
+                <div class="point point-left"><i class="below"></i><i class="above"></i></div>
+        <div class="discuss-label"><span class="stars stars-50"><span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span></span><span class="time">15-06-21 11:26</span></div>
+                <p class="discuss-content">非常好。昨天中午下单，今天一早就到了。</p>
+              </div>
+    </li>
+      </ul>
+  </div>
+<!--回复-->
+<div class="post-reply action-post-reply hide">
+  <form action="/comment-toReply.html" method="post" class="action-code-form">
+    <input type="hidden" name="id">
+    <input type="hidden" name="product_id" value="">
+    <ul>
+            <li class="form-item">
+      <div class="form-act-wide no-permission">
+        <textarea class="action-filled-textarea" name="comment" id="" cols="30" rows="10" disabled="" vtype="required" data-caution="请填写回复内容，最多1000字" placeholder="请填写评论内容，最多1000字"></textarea>
+                <div class="mini-mask">没有开启回复功能!</div>
+                <div class="clearfix">
+          <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+          <div class="sub-label"></div>
+        </div>
+      </div>
+      </li>
+            <li class="form-item form-item-last">
+      <span class="form-act"><button type="submit" class="btn btn-simple action-submit-reply" rel="_request" disabled="disabled"><span><span>提交回复</span></span></button><a href="javascript:void(0);" class="btn-close action-close-reply">取消回复</a></span>
+      </li>
+    </ul>
+  </form>
+</div>
+
     </div>
   </div>
 </div>
+
+</div>
+<div id="product_consult_init" class="product-consult " data-sync-type="product_consult_init"><div class="mod">
+  <div class="mod-title"><h2>商品咨询</h2></div>
+  <div class="consult-title">
+  <button type="button" class="btn btn-simple" onclick="$$('.product-tags .tag-consult').fireEvent('click');window.fireEvent('scroll');location.href='#post_consult';"><span><span>我要咨询</span></span></button>  <em>请<a href="/passport-login.html">登录</a>后再咨询,如果您不是会员请<a href="/passport-signup.html">注册</a>!</em>
+</div>
+<div class="consult-content" id="consult_content_init">
+  <!---->
+
+<ul class="tabs clearfix switchable-triggerBox">
+  <li class="active"><a class="action-consult-trigger" href="/comment-ajax_type_ask-257.html">全部咨询(0)</a></li>
+    <li><a class="action-consult-trigger" href="/comment-ajax_type_ask-257-1.html">商品咨询(0)</a></li>
+    <li><a class="action-consult-trigger" href="/comment-ajax_type_ask-257-2.html">配送咨询(0)</a></li>
+    <li><a class="action-consult-trigger" href="/comment-ajax_type_ask-257-3.html">售后咨询(0)</a></li>
+  </ul>
+
+<div class="action-content-list switchable-panel">
+  <div class="no-message">如果您对本商品有什么问题,请提问咨询!</div>  <ul class="consult-list">
+      </ul>
+
+  </div>
+<div class="action-content-list switchable-panel" style="display:none;">
+</div>
+<div class="action-content-list switchable-panel" style="display:none;">
+</div>
+<div class="action-content-list switchable-panel" style="display:none;">
+</div>
+
+
+</div>
+
+<!-- 咨询回复/评论回复 -->
+<div class="post-answer action-post-reply hide">
+  <form action="/comment-toReply.html" method="post" class="action-code-form">
+    <input type="hidden" name="id">
+    <ul>
+            <li class="form-item">
+      <div class="form-act-wide no-permission">
+        <textarea class="action-filled-textarea" name="comment" id="" cols="30" rows="10" disabled="" vtype="required" data-caution="请填写回复内容，最多1000字" placeholder="欢迎发表回复，最多1000字。"></textarea>
+                <div class="mini-mask">请<a href="/passport-login.html">登录</a>后再咨询,如果您不是会员请<a href="/passport-signup.html">注册</a>!</div>
+                <div class="clearfix">
+          <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+          <div class="sub-label"></div>
+        </div>
+      </div>
+      </li>
+      <li class="form-item">
+                <label for="" class="form-label">联系方式：</label><span class="form-act"><input type="text" vtype="required" name="contact" id="" disabled=""> <span class="sub-label">可以是电话、email、qq等</span></span>
+              </li>
+            <li class="form-item">
+      <span class="form-act"><button type="submit" class="btn btn-simple action-submit-reply" disabled="disabled" rel="_request"><span><span>提交回复</span></span></button><a href="" class="btn-close action-close-reply">取消回复</a></span>
+      </li>
+    </ul>
+  </form>
+</div>
+  
+</div>
+</div>
+      </div>
+            <div id="product_comment" class="product-section product-comment" data-sync-type="product_comment" style="display:none;">
+        
+      </div>
+            <div id="product_consult" class="product-section product-consult" data-sync-type="product_consult" style="display:none;">
+          
+      </div>
+            <div id="product_related" class="product-related" data-widget-type="Switchable" data-sync-type="product_related">
+      </div>
+    </div>
+  </div>
+</div>
+
+</div></div>
+
 <form id="buynow_form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php">
   <input id="act" name="act" type="hidden" value="buy" />
   <input id="op" name="op" type="hidden" value="buy_step1" />
@@ -396,87 +535,7 @@ cursor: url(<?php echo SHOP_TEMPLATES_URL;
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.nyroModal/custom.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.poshytip.min.js" charset="utf-8"></script>
 <link href="<?php echo RESOURCE_SITE_URL;?>/js/jquery.nyroModal/styles/nyroModal.css" rel="stylesheet" type="text/css" id="cssfile2" />
-<script type="text/javascript">
-/** 辅助浏览 **/
-jQuery(function($){
-	//产品图片
-	$.getScript('<?php echo SHOP_RESOURCE_SITE_URL?>/js/ImageZoom.js', function(){
-		var 
-		zoomController,
-		zoomControllerUl,
-		zoomControllerUlLeft = 0,
-		shell = $('#ncs-goods-picture'),
-		shellPanel = shell.parent().hide(),
-		heightOffset = 80,
-		minGallerySize = [380, shellPanel.height() - heightOffset],
-		imageZoom = new ImageZoom({
-			shell: shell,
-			basePath: '',
-			levelASize: [60, 60],
-			levelBSize: [360, 360],
-			gallerySize: minGallerySize,
-			onBeforeZoom: function(index, level){
-				if(!zoomController){
-					zoomController = shell.find('div.controller');
-				}
 
-				var 
-				self = this,
-				duration = 320,
-				width = minGallerySize[0], 
-				height = minGallerySize[1],
-				zoomFx = function(){
-					self.ops.gallerySize = [width, height];
-					self.galleryPanel.stop().animate({width:width, height:height}, duration);
-					shellPanel.stop().animate({height:height + heightOffset}, duration);
-					zoomController.animate({width:width-22}, duration);
-					shell.stop().animate({width:width}, duration);
-				};
-				if(level !== this.level && this.level !== 0){
-					if(this.level === 1 && level > 1){
-						height = Math.max(520, shellPanel.height());
-						width = shellPanel.width();
-						zoomFx();
-					}
-					else if(level === 1){
-						zoomFx();
-					}
-				}
-			},
-			onZoom: function(index, level, prevIndex){
-				if(index !== prevIndex){
-					if(!zoomControllerUl){
-						zoomControllerUl = zoomController.find('ul').eq(0);
-					}
-					var 
-					width = 76, 
-					ops = this.ops,
-					count = ops.items.length,
-					panelVol = ~~((zoomController.width() + 10)/width),
-					minLeft = width * (panelVol - count),
-					left = Math.min(0, Math.max(minLeft, -width * ~~(index-panelVol/2)));
-
-					if(zoomControllerUlLeft !== left){
-						zoomControllerUl.stop().animate({left: left}, 320);
-						zoomControllerUlLeft = left;
-					}
-				}
-				shell.find('a.prev,a.next')[level<3 ? 'removeClass' : 'addClass']('hide');
-				shell.find('a.close').css('display', [level>1 ? 'block' : 'none']);
-			},
-			items: [ 
-	                <?php if (!empty($output['goods_image'])) {?>
-	                <?php echo implode(',', $output['goods_image']);?>
-	                <?php }?>
-					]
-		});
-		shell.data('imageZoom', imageZoom);
-
-		shellPanel.show();
-	});
-
-});
-</script> 
 <script>
     //收藏分享处下拉操作
     jQuery.divselect = function(divselectid,inputselectid) {
@@ -512,24 +571,12 @@ $(function(){
     $.divselect("#handle-l");
     $.divselect("#handle-r");
 
-    // 规格选择
-    $('dl[nctype="nc-spec"]').find('a').each(function(){
-        $(this).click(function(){
-            if ($(this).hasClass('hovered')) {
-                return false;
-            }
-            $(this).parents('ul:first').find('a').removeClass('hovered');
-            $(this).addClass('hovered');
-            checkSpec();
-        });
-    });
-
 });
 
 function checkSpec() {
     var spec_param = <?php echo $output['spec_list'];?>;
     var spec = new Array();
-    $('ul[nctyle="ul_sign"]').find('.hovered').each(function(){
+    $('#product_spec').find('.selected').each(function(){
         var data_str = ''; eval('data_str =' + $(this).attr('data-param'));
         spec.push(data_str.valid);
     });
@@ -552,11 +599,6 @@ function checkQuantity(){
         $("#quantity").val('1');
         return false;
     }
-    max = parseInt($('[nctype="goods_stock"]').text());
-    if(quantity > max){
-        alert("<?php echo $lang['goods_index_add_too_much'];?>");
-        return false;
-    }
     return quantity;
 }
 
@@ -566,7 +608,7 @@ function checkQuantity(){
 // 立即购买js
 function buynow(goods_id,quantity){
 <?php if ($_SESSION['is_login'] !== '1'){?>
-	login_dialog();
+  login_dialog();
 <?php }else{?>
     if (!quantity) {
         return;
@@ -578,19 +620,19 @@ function buynow(goods_id,quantity){
 $(function(){
     //选择地区查看运费
     $('#transport_pannel>a').click(function(){
-    	var id = $(this).attr('nctype');
-    	if (id=='undefined') return false;
-    	var _self = this,tpl_id = '<?php echo $output['goods']['transport_id'];?>';
-	    var url = 'index.php?act=goods&op=calc&rand='+Math.random();
-	    $('#transport_price').css('display','none');
-	    $('#loading_price').css('display','');
-	    $.getJSON(url, {'id':id,'tid':tpl_id}, function(data){
-	    	if (data == null) return false;
-	        if(data != 'undefined') {$('#nc_kd').html(data);}else{$('#nc_kd').html('');}
-	        $('#transport_price').css('display','');
-	    	$('#loading_price').css('display','none');
-	        $('#ncrecive').html($(_self).html());
-	    });
+      var id = $(this).attr('nctype');
+      if (id=='undefined') return false;
+      var _self = this,tpl_id = '<?php echo $output['goods']['transport_id'];?>';
+      var url = 'index.php?act=goods&op=calc&rand='+Math.random();
+      $('#transport_price').css('display','none');
+      $('#loading_price').css('display','');
+      $.getJSON(url, {'id':id,'tid':tpl_id}, function(data){
+        if (data == null) return false;
+          if(data != 'undefined') {$('#nc_kd').html(data);}else{$('#nc_kd').html('');}
+          $('#transport_price').css('display','');
+        $('#loading_price').css('display','none');
+          $('#ncrecive').html($(_self).html());
+      });
     });
     <?php if($output['goods']['goods_show'] == '1'){?>
     $("#nc-bundling").load('index.php?act=goods&op=get_bundling&goods_id=<?php echo $output['goods']['goods_id'];?>&store_id=<?php echo $output['goods']['store_id'];?>', function(){
@@ -603,127 +645,126 @@ $(function(){
         // Membership card
         $(this).find('[nctype="mcard"]').membershipCard({type:'shop'});
     });
-	$("#cosulting_demo").load('index.php?act=goods&op=cosulting&goods_id=<?php echo $output['goods']['goods_id'];?>&store_id=<?php echo $output['goods']['store_id'];?>', function(){
-		// Membership card
-		$(this).find('[nctype="mcard"]').membershipCard({type:'shop'});
-	});
+  $("#cosulting_demo").load('index.php?act=goods&op=cosulting&goods_id=<?php echo $output['goods']['goods_id'];?>&store_id=<?php echo $output['goods']['store_id'];?>', function(){
+    // Membership card
+    $(this).find('[nctype="mcard"]').membershipCard({type:'shop'});
+  });
 });
 
 /** goods.php **/
-$(function(){	
-	// 商品内容部分折叠收起侧边栏控制
-	$('#fold').click(function(){
-  		$('.ncs-goods-layout').toggleClass('expanded');
-	});
-	// 商品内容介绍Tab样式切换控制
-	$('#categorymenu').find("li").click(function(){
-		$('#categorymenu').find("li").removeClass('current');
-		$(this).addClass('current');
-	});
-	// 商品详情默认情况下显示全部
-	$('#tabGoodsIntro').click(function(){
-		$('.bd').css('display','');
-		$('.hd').css('display','');	
-	});
-	// 点击评价隐藏其他以及其标题栏
-	$('#tabGoodsRate').click(function(){
-		$('.bd').css('display','none');
-		$('#ncGoodsRate').css('display','');
-		$('.hd').css('display','none');
-	});
-	// 点击成交隐藏其他以及其标题
-	$('#tabGoodsTraded').click(function(){
-		$('.bd').css('display','none');
-		$('#ncGoodsTraded').css('display','');
-		$('.hd').css('display','none');
-	});
-	// 点击咨询隐藏其他以及其标题
-	$('#tabGuestbook').click(function(){
-		$('.bd').css('display','none');
-		$('#ncGuestbook').css('display','');
-		$('.hd').css('display','none');
-	});
-	//商品排行Tab切换
-	$(".ncs-top-tab > li > a").mouseover(function(e) {
-		if (e.target == this) {
-			var tabs = $(this).parent().parent().children("li");
-			var panels = $(this).parent().parent().parent().children(".ncs-top-panel");
-			var index = $.inArray(this, $(this).parent().parent().find("a"));
-			if (panels.eq(index)[0]) {
-				tabs.removeClass("current ").eq(index).addClass("current ");
-				panels.addClass("hide").eq(index).removeClass("hide");
-			}
-		}
-	});
-	//信用评价动态评分打分人次Tab切换
-	$(".ncs-rate-tab > li > a").mouseover(function(e) {
-		if (e.target == this) {
-			var tabs = $(this).parent().parent().children("li");
-			var panels = $(this).parent().parent().parent().children(".ncs-rate-panel");
-			var index = $.inArray(this, $(this).parent().parent().find("a"));
-			if (panels.eq(index)[0]) {
-				tabs.removeClass("current ").eq(index).addClass("current ");
-				panels.addClass("hide").eq(index).removeClass("hide");
-			}
-		}
-	});
-		
-//触及显示缩略图	
-	$('.goods-pic > .thumb').hover(
-		function(){
-			$(this).next().css('display','block');
-		},
-		function(){
-			$(this).next().css('display','none');
-		}
-	);
-	
-	/* 商品购买数量增减js */
-	// 增加
-	$('.increase').click(function(){
-		num = parseInt($('#quantity').val());
-	    <?php if (!empty($output['goods']['upper_limit'])) {?>
-	    max = <?php echo $output['goods']['upper_limit'];?>;
-	    if(num >= max){
-	        alert('最多限购'+max+'件');
-	        return false;
-	    }
-	    <?php } ?>
-		max = parseInt($('[nctype="goods_stock"]').text());
-		if(num < max){
-			$('#quantity').val(num+1);
-		}
-	});
-	//减少
-	$('.decrease').click(function(){
-		num = parseInt($('#quantity').val());
-		if(num > 1){
-			$('#quantity').val(num-1);
-		}
-	});
-	
-	// 搜索价格不能填写非数字。
-	var re = /^[1-9]+[0-9]*(\.\d*)?$|^0(\.\d*)?$/;
-	$('input[name="start_price"]').change(function(){
-		if(!re.test($(this).val())){
-			$(this).val('');
-		}
-	});
-	$('input[name="end_price"]').change(function(){
-		if(!re.test($(this).val())){
-			$(this).val('');
-		}
-	});
+$(function(){ 
+  // 商品内容部分折叠收起侧边栏控制
+  $('#fold').click(function(){
+      $('.ncs-goods-layout').toggleClass('expanded');
+  });
+  // 商品内容介绍Tab样式切换控制
+  $('#categorymenu').find("li").click(function(){
+    $('#categorymenu').find("li").removeClass('current');
+    $(this).addClass('current');
+  });
+  // 商品详情默认情况下显示全部
+  $('#tabGoodsIntro').click(function(){
+    $('.bd').css('display','');
+    $('.hd').css('display',''); 
+  });
+  // 点击评价隐藏其他以及其标题栏
+  $('#tabGoodsRate').click(function(){
+    $('.bd').css('display','none');
+    $('#ncGoodsRate').css('display','');
+    $('.hd').css('display','none');
+  });
+  // 点击成交隐藏其他以及其标题
+  $('#tabGoodsTraded').click(function(){
+    $('.bd').css('display','none');
+    $('#ncGoodsTraded').css('display','');
+    $('.hd').css('display','none');
+  });
+  // 点击咨询隐藏其他以及其标题
+  $('#tabGuestbook').click(function(){
+    $('.bd').css('display','none');
+    $('#ncGuestbook').css('display','');
+    $('.hd').css('display','none');
+  });
+  //商品排行Tab切换
+  $(".ncs-top-tab > li > a").mouseover(function(e) {
+    if (e.target == this) {
+      var tabs = $(this).parent().parent().children("li");
+      var panels = $(this).parent().parent().parent().children(".ncs-top-panel");
+      var index = $.inArray(this, $(this).parent().parent().find("a"));
+      if (panels.eq(index)[0]) {
+        tabs.removeClass("current ").eq(index).addClass("current ");
+        panels.addClass("hide").eq(index).removeClass("hide");
+      }
+    }
+  });
+  //信用评价动态评分打分人次Tab切换
+  $(".ncs-rate-tab > li > a").mouseover(function(e) {
+    if (e.target == this) {
+      var tabs = $(this).parent().parent().children("li");
+      var panels = $(this).parent().parent().parent().children(".ncs-rate-panel");
+      var index = $.inArray(this, $(this).parent().parent().find("a"));
+      if (panels.eq(index)[0]) {
+        tabs.removeClass("current ").eq(index).addClass("current ");
+        panels.addClass("hide").eq(index).removeClass("hide");
+      }
+    }
+  });
+    
+//触及显示缩略图 
+  $('.goods-pic > .thumb').hover(
+    function(){
+      $(this).next().css('display','block');
+    },
+    function(){
+      $(this).next().css('display','none');
+    }
+  );
+  
+  /* 商品购买数量增减js */
+  // 增加
+  $('.increase').click(function(){
+
+    num = parseInt($('#quantity').val());
+
+      <?php if (!empty($output['goods']['upper_limit'])) {?>
+      max = <?php echo $output['goods']['upper_limit'];?>;
+      if(num >= max){
+          alert('最多限购'+max+'件');
+          return false;
+      }
+      <?php } ?>
+    $('#quantity').val(num+1);
+  });
+  //减少
+  $('.decrease').click(function(){
+    num = parseInt($('#quantity').val());
+    if(num > 1){
+      $('#quantity').val(num-1);
+    }
+  });
+  
+  // 搜索价格不能填写非数字。
+  var re = /^[1-9]+[0-9]*(\.\d*)?$|^0(\.\d*)?$/;
+  $('input[name="start_price"]').change(function(){
+    if(!re.test($(this).val())){
+      $(this).val('');
+    }
+  });
+  $('input[name="end_price"]').change(function(){
+    if(!re.test($(this).val())){
+      $(this).val('');
+    }
+  });
 });
 
 /* add cart */
 function addcart(goods_id, quantity)
 {
-	if (!quantity) return false;
+  if (!quantity) return false;
     var url = 'index.php?act=cart&op=add';
     $.getJSON(url, {'goods_id':goods_id, 'quantity':quantity}, function(data){
-    	if(data != null){
-    		if (data.state)
+      if(data != null){
+        if (data.state)
             {
                 $('#bold_num').html(data.num);
                 $('#bold_mly').html(price_format(data.amount));
@@ -736,17 +777,17 @@ function addcart(goods_id, quantity)
             {
                 alert(data.msg);
             }
-    	}
+      }
     });
 }
 // 显示举报下拉链接
 $(document).ready(function() {
-	$(".ncs-inform").hover(function() {
-		$(this).addClass("hover");
-	},
-	function() {
-		$(this).removeClass("hover");
-	});
+  $(".ncs-inform").hover(function() {
+    $(this).addClass("hover");
+  },
+  function() {
+    $(this).removeClass("hover");
+  });
 })
 
 //评价列表
@@ -768,3 +809,4 @@ $(document).ready(function(){
     }
 });
 </script> 
+

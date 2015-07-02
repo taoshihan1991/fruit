@@ -1,15 +1,15 @@
 <?php
 defined('InShopNC') or exit('Access Invalid!');
 $config = array();
-$config['shop_site_url'] 		= 'http://localhost/4fruit/shop';
-$config['cms_site_url'] 		= 'http://localhost/4fruit/cms';
-$config['microshop_site_url'] 	= 'http://localhost/4fruit/microshop';
-$config['circle_site_url'] 		= 'http://localhost/4fruit/circle';
-$config['admin_site_url'] 		= 'http://localhost/4fruit/admin';
-$config['mobile_site_url'] 		= 'http://localhost/4fruit/mobile';
-$config['wap_site_url'] 		= 'http://localhost/4fruit/wap';
-$config['upload_site_url']		= 'http://localhost/4fruit/data/upload';
-$config['resource_site_url']	= 'http://localhost/4fruit/data/resource';
+$config['shop_site_url'] 		= 'http://192.168.1.201/4fruit/shop';
+$config['cms_site_url'] 		= 'http://192.168.1.201/4fruit/cms';
+$config['microshop_site_url'] 	= 'http://192.168.1.201/4fruit/microshop';
+$config['circle_site_url'] 		= 'http://192.168.1.201/4fruit/circle';
+$config['admin_site_url'] 		= 'http://192.168.1.201/4fruit/admin';
+$config['mobile_site_url'] 		= 'http://192.168.1.201/4fruit/mobile';
+$config['wap_site_url'] 		= 'http://192.168.1.201/4fruit/wap';
+$config['upload_site_url']		= 'http://192.168.1.201/4fruit/data/upload';
+$config['resource_site_url']	= 'http://192.168.1.201/4fruit/data/resource';
 $config['version'] 		= '201401162490';
 $config['setup_date'] 	= '2015-06-29 10:23:30';
 $config['gip'] 			= 0;

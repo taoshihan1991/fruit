@@ -5,6 +5,9 @@ body{
 .clear{
 	clear: both;
 }
+.clearfix{
+	display: block;
+}
 .menu-column{
 	overflow: hidden;
 	height: 115px;
@@ -246,4 +249,25 @@ padding-right: 13px;
 }
 .ex-slide1 ol li{
 	top: 0;
+}
+.pageview ul li{
+	border: 1px solid #ddd;
+	color: #666;
+	padding: 1px 8px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: auto;
+	letter-spacing: 0;
+}
+.product-side{
+	width: 300px;
+}
+.product-main{
+	width: 610px;
+	float: right;
+	margin-left: 0;
+}
+.product-action{
+	position: relative;
 }

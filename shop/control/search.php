@@ -37,7 +37,7 @@ class searchControl extends BaseHomeControl {
         $model_goods = Model('goods');
         if (!isset($data_attr['sign']) || $data_attr['sign'] === true) {
             // 字段
-            $fields = "goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count";
+            $fields = "goods_spec,goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count";
 
             $condition = array();
             if (is_array($indexer_ids)) {
@@ -108,7 +108,8 @@ class searchControl extends BaseHomeControl {
                     // 限时折扣
                     $xianshi_list = Model('p_xianshi_goods')->getXianshiGoodsListByGoodsString(implode(',', $goodsid_array));
                 }
-
+                
+                $model_extend=Model();
                 foreach ($goods_list as $key => $value) {
                     // 商品多图
                     foreach ($goodsimage_more as $v) {
@@ -129,6 +130,14 @@ class searchControl extends BaseHomeControl {
                         $goods_list[$key]['goods_price'] = $xianshi_list[$value['goods_id']]['xianshi_price'];
                         $goods_list[$key]['xianshi_flag'] = true;
                     }
+                    //属性
+                     $temp=$model_extend->table('goods_attr_index,attribute_value')
+                          ->join('left')->on('goods_attr_index.attr_value_id=attribute_value.attr_value_id')
+                          ->where("goods_attr_index.goods_id={$value['goods_id']}")
+                          ->select();
+                    $goods_list[$key]['spec']=unserialize($value['goods_spec']);
+                    $goods_list[$key]['attribute']=$temp[0]['attr_value_name'];
+                  
                 }
             }
             Tpl::output('goods_list', $goods_list);
@@ -309,6 +318,7 @@ class searchControl extends BaseHomeControl {
         }
         $groupbuy_list = Model('groupbuy')->getGroupbuyListByGoodsCommonIDString(implode(',', $commonid_array));
         $xianshi_list = Model('p_xianshi_goods')->getXianshiGoodsListByGoodsString(implode(',', $goodsid_array));
+        
         foreach ($goods_list as $key => $value) {
             // 团购
             if (isset($groupbuy_list[$value['goods_commonid']])) {
@@ -319,6 +329,7 @@ class searchControl extends BaseHomeControl {
                 $goods_list[$key]['goods_price'] = $xianshi_list[$value['goods_id']]['xianshi_price'];
                 $goods_list[$key]['xianshi_flag'] = true;
             }
+
         }
         Tpl::output('goods_list', $goods_list);
         Tpl::output('groupbuy_list', $groupbuy_list);

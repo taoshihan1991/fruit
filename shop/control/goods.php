@@ -26,7 +26,11 @@ class goodsControl extends BaseGoodsControl {
         
         // 商品详细信息
         $model_goods = Model('goods');
+        
         $goods_detail = $model_goods->getGoodsDetail($goods_id, '*');
+        $commonInfo=$model_goods->getGoodeCommonInfo(array('goods_commonid'=>$goods_detail['goods_info']['goods_commonid']));
+        Tpl::output('commonInfo', $commonInfo);
+
         $goods_info = $goods_detail['goods_info'];
         if (empty($goods_info)) {
             showMessage(L('goods_index_no_goods'), '', 'html', 'error');

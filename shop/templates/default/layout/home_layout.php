@@ -58,7 +58,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 <link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/base-extend.css" />
 <link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/extend.css" />
 <script src="<?php echo SHOP_TEMPLATES_URL;?>/js/jquery.SuperSlide.2.1.1.js"></script>
-
+<script src="<?php echo SHOP_TEMPLATES_URL;?>/js/extend.js"></script>
 <!-- [//扩展js和css] -->
 
 </head>
@@ -189,7 +189,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 
 
 
-<?php //include template('home/cur_local');?>
+<?php include template('home/cur_local');?>
 <?php require_once($tpl_file);?>
 <?php require_once template('footer');?>
 </body>

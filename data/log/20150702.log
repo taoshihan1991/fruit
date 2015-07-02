@@ -1,0 +1,12 @@
+[2015-07-02 11:29:57] /4fruit/shop/index.php?act=search&op=index&cate_id=1057 ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods.goods_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods_attr_index` AS `goods_attr_index` LEFT JOIN `fruit`.`fr_attribute_value` AS `attribute_value` ON goods.goods_id=goods_attr_index.goods_id WHERE goods_attr_index.goods_id=100002 ORDER BY goods.goods_addtime desc LIMIT 1000  
+[2015-07-02 11:30:16] /4fruit/shop/index.php?act=search&op=index&cate_id=1057 ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods.goods_id' in 'on clause'
+SELECT * FROM `fruit`.`fr_goods_attr_index` AS `goods_attr_index` LEFT JOIN `fruit`.`fr_attribute_value` AS `attribute_value` ON goods.goods_id=goods_attr_index.goods_id WHERE goods_attr_index.goods_id=100002 ORDER BY goods.goods_addtime desc LIMIT 1000  
+[2015-07-02 11:30:36] /4fruit/shop/index.php?act=search&op=index&cate_id=1057 ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods.goods_addtime' in 'order clause'
+SELECT * FROM `fruit`.`fr_goods_attr_index` AS `goods_attr_index` LEFT JOIN `fruit`.`fr_attribute_value` AS `attribute_value` ON goods_attr_index.attr_value_id=attribute_value.attr_value_id WHERE goods_attr_index.goods_id=100002 ORDER BY goods.goods_addtime desc LIMIT 1000  
+[2015-07-02 11:30:45] /4fruit/shop/index.php?act=search&op=index&cate_id=1057 ( act=search&op=index ) 
+ERR: Db Error: Unknown column 'goods.goods_addtime' in 'order clause'
+SELECT * FROM `fruit`.`fr_goods_attr_index` AS `goods_attr_index` LEFT JOIN `fruit`.`fr_attribute_value` AS `attribute_value` ON goods_attr_index.attr_value_id=attribute_value.attr_value_id WHERE goods_attr_index.goods_id=100002 ORDER BY goods.goods_addtime desc LIMIT 1000  

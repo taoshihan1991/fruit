@@ -359,7 +359,7 @@ p{margin:0;}
 .product-buy .product-buy-action{min-height:1%;_height:1%;}
 .product-buy .product-buy-action:after{clear:both;content:".";overflow:hidden;height:0;display:block;}
 .product-buy .product-buy-action .action-buynow{display:none;}
-.product-buy .product-buy-action .action-addtocart{float:left;width:174px;height:45px;background:url("../images/page.gif") no-repeat 0 -26px;padding:0;text-indent:-999em;overflow:hidden;border:none;}
+.product-buy .product-buy-action .action-addtocart{cursor:pointer;float:left;width:174px;height:45px;background:url("../images/page.gif") no-repeat 0 -26px;padding:0;text-indent:-999em;overflow:hidden;border:none;}
 .product-buy .product-buy-action .action-addtocart span,
 .product-buy .product-buy-action .action-addtocart span span{display:none;}
 .product-buy .product-buy-action .action-addtocart:hover span{opacity:0.9;}

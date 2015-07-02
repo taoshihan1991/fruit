@@ -6,13 +6,6 @@
 
 
 <!-- 列表页box -->
-<div class="crumb"><div class="Navigation">您现在的位置：  <span><a href="http://www.guolehui.com.cn" alt="" title="">首页</a></span>
-  <span>&gt;</span>
-    <span class="now">进口鲜果 &gt;&gt;</span>
-
-</div></div>
-
-
 <div class="wrap" id="content">
     <div class="w162 flt">
       <div class="sidecat">
@@ -58,87 +51,79 @@
   <!-- 商品列表开始 -->
   <div class="page-maincontent">
         <!-- 筛选区 -->
+        <?php if(!empty($output['attr_array']) && is_array($output['attr_array'])){?>
         <div class="list-right-nav">
                     <ul>
-                                    <li>品类：
-                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-1">绿奇异果</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-3">苹果</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-8">橙</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-36">樱桃</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0-0-54">阳光金果</a>
-                             </li>
-                                    <li>产地：
-                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
-                                                                <a href="/web/product_list/40/0/1-0-0-0-0-0-0">进口</a>
-                                                                <a href="/web/product_list/40/0/2-0-0-0-0-0-0">国产</a>
-                             </li>
-                                    <li>品牌：
-                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
-                                                                <a href="/web/product_list/40/0/0-1-0-0-0-0-0">经典佳沛</a>
-                                                                <a href="/web/product_list/40/0/0-2-0-0-0-0-0">新奇士</a>
-                             </li>
-                                    <li>规格：
-                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-1-0-0-0">单品</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-2-0-0-0">套餐</a>
-                             </li>
-                                    <li style="border-bottom:none;">价格：
-                                <a class="now-ss" href="/web/product_list/40/0/0-0-0-0-0-0-0">不限</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-0T100-0-0">100以下</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-100T300-0-0">100~300</a>
-                                                                <a href="/web/product_list/40/0/0-0-0-0-300T-0-0">300以上</a>
-                             </li>
-                                </ul>
+                      <?php if(isset($output['checked_attr']) && is_array($output['checked_attr'])){?>
+                      <li class="nch-module-filter">您以选择:
+                      <?php foreach ($output['checked_attr'] as $val){?>
+                      <span class="selected" nctype="span_filter"><?php echo $val['attr_name'].':<em>'.$val['attr_value_name'].'</em>'?><i data-uri="<?php echo removeParam(array('a_id' => $val['attr_value_id']));?>">X</i></span>
+                      <?php }?>
+                      </li><?php }?>
+
+                      
+                      <?php foreach ($output['attr_array'] as $key=>$val){?>
+                      <li><?php echo $val['name'].$lang['nc_colon'];?>
+                             <?php 
+                             if($output['checked_attr']){
+                                foreach($output['checked_attr'] as $tK=>$t){
+                                  if($tK==$key){$flag=true;}
+                                }
+                            }
+                            ?>
+                             <a <?if (!$output['checked_attr']||!$flag){?>class="now-ss"<?php }?> href="<?php echo replaceParam(array('a_id' => $a_id));?>">不限</a>
+                            <?php foreach ($val['value'] as $k=>$v){?>
+                            <a  <?php if($output['checked_attr'][$key]){$temp=$output['checked_attr'][$key];if(in_array($v['attr_value_id'], $temp)){?>class="now-ss"<?php }}?> href="<?php $a_id = (($_GET['a_id'] != '' && $_GET['a_id'] != 0)?$_GET['a_id'].'_'.$k:$k); echo replaceParam(array('a_id' => $a_id));?>"><?php echo $v['attr_value_name'];?></a>
+                            <?php }?>
+                      </li>
+                      <?php }?> 
+                    </ul>
                </div>
+          <?php }?> 
         <!-- //筛选区 -->
     <!-- 排序状态条 -->
     <div id="gallery_sortbar" class="gallery-sortbar clearfix">
       <div class="gallery-sort">
-        <a href="javascript:void(0);" class="action-sort active" data-sort=""><em>默认</em></a>
-        <a href="javascript:void(0);" class="action-sort price-desc" data-sort="price desc"><em>价格<span class="icon desc">*</span><span class="icon asc">+</span></em></a>
-        <a href="javascript:void(0);" class="action-sort " data-sort="buy_w_count desc"><em>销量<span class="icon">*</span></em></a>
-        <label for="">排序：</label><select name="orderBy" id="" class="action-orderby">
-                    <option value="" selected="">默认</option>
-                    <option value="price desc">按价格 从高到低</option>
-                    <option value="price asc">按价格 从低到高</option>
-                    <option value="view_w_count desc">访问周次数</option>
-                    <option value="view_count desc">总访问次数</option>
-                    <option value="buy_count desc">周购买次数</option>
-                    <option value="buy_w_count desc">总购买次数</option>
-                  </select>
+        <a href="<?php echo dropParam(array('order', 'key'));?>" class="action-sort <?php if($_GET['key']==0){?>active<?php }?>"><em>默认</em></a>
+        <a class="action-sort<?php if($_GET['key']==3) echo " active";?>" href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '3') ? replaceParam(array('key' => '3', 'order' => '1')):replaceParam(array('key' => '3', 'order' => '2')); ?>" ><em>价格<span class="icon desc">*</span></em></a>
+        <a class="action-sort<?php if($_GET['key']==1) echo " active";?>" href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1') ? replaceParam(array('key' => '1', 'order' => '1')):replaceParam(array('key' => '1', 'order' => '2')); ?>"><em>销量<span class="icon">*</span></em></a>
       </div>
 
 
           
           </div>
+           <?php if(empty($output['goods_list'])){?>
+           <p>暂时没有数据</p>
+           <?php }?>
+          <?php if(!empty($output['goods_list'])){?>
     <div id="gallery_show" class="gallery-show">
       <div class="gallery-grid">
-
-  <ul class="clearfix">
-        <?php if(!empty($output['goods_list'])){foreach($output['goods_list'] as $value){?>
-            <li class="goods-item first">
-                <div class="goods-pic">
-                      <a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><img class="action-goods-img" alt="<?php echo $value['goods_name'];?>" src="<?php echo thumb($value, 360);?>"></a>
+        <ul class="clearfix">
+          <?php foreach($output['goods_list'] as $value){?>
+              <li class="goods-item first">
+                  <div class="goods-pic">
+                        <a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><img class="action-goods-img" alt="<?php echo $value['goods_name'];?>" src="<?php echo thumb($value, 360);?>"></a>
+                    </div>
+                  <div class="goods-info">
+                        <h3 class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><?php echo $value['goods_name'];?></a></h3>
+                        <div class="attribute">
+                          <p>产地:<?php echo $value['attribute']?></p>
+                          <p>品种:<?php $temp= $value['spec'];echo $temp[key($temp)]?></p>
                   </div>
-                <div class="goods-info">
-                      <h3 class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>"><?php echo $value['goods_name'];?></a></h3>
-                      <div class="attribute">
-                        <p>产地:山东 配送:青岛</p>
-                        <p>品种:樱桃</p>
-                </div>
 
-          <div class="goods-action">
-            <div class="goods-buy">
-                <a class="btn btn-major action-addtocart" href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>" target="_dialog_minicart"><span><span>加入购物车</span></span></a>
-            </div>
-          </div>  
-          <div class="goods-price"><ins class="price">￥<?php echo $value['goods_price'];?></ins></div>
-        </li>
-        <?php }}?>
-      </ul>
+            <div class="goods-action">
+              <div class="goods-buy">
+                  <a class="btn btn-major action-addtocart" href="<?php echo urlShop('goods','index',array('goods_id'=>$value['goods_id']));?>" target="_dialog_minicart"><span><span>加入购物车</span></span></a>
+              </div>
+            </div>  
+            <div class="goods-price"><ins class="price">￥<?php echo $value['goods_price'];?></ins></div>
+          </li>
+          <?php }?>
+        </ul>
+      </div>
+      <div class="pageview"><?php echo $output['show_page']; ?></div>    
+      <?php }?>
 </div>
-<div class="pageview"><span class="flip prev over"><i class="ico prev">‹</i></span><a href="/gallery-ajax_get_goods.html" class="flip active">1</a><a href="/gallery-ajax_get_goods.html" class="flip">2</a><a href="/gallery-ajax_get_goods.html" class="flip next"><i class="ico next">›</i></a></div>    </div>
    
   </div>
 
@@ -163,191 +148,6 @@
 
 
 
-
-<div class="nch-container wrapper" >
-  <div class="left">
-    <?php if (!empty($output['goods_class_array'])) {?>
-    <div class="nch-module nch-module-style02">
-      <div class="title">
-        <h3>分类筛选</h3>
-      </div>
-      <div class="content">
-        <ul id="files" class="tree">
-          <?php foreach ($output['goods_class_array'] as $value) {?>
-          <li><i class="tree-parent tree-parent-collapsed"></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $value['gc_id']));?>" <?php if ($value['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $value['gc_name']?></a>
-            <?php if (!empty($value['class2'])) {?>
-            <ul>
-              <?php foreach ($value['class2'] as $val) {?>
-              <li><i class="tree-parent tree-parent-collapsed"></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $val['gc_id']));?>" <?php if ($val['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $val['gc_name']?></a>
-                <?php if (!empty($val['class3'])) {?>
-                <ul>
-                  <?php foreach ($val['class3'] as $v) {?>
-                  <li class="tree-parent tree-parent-collapsed"><i></i><a href="<?php echo urlShop('search', 'index', array('cate_id' => $v['gc_id']));?>" <?php if ($v['gc_id'] == $_GET['cate_id']) {?>class="selected"<?php }?>><?php echo $v['gc_name']?></a></li>
-                  <?php }?>
-                </ul>
-                <?php }?>
-              </li>
-              <?php }?>
-            </ul>
-            <?php }?>
-          </li>
-          <?php }?>
-        </ul>
-      </div>
-    </div>
-    <?php }?>
-    <!-- S 推荐展位 -->
-    <div nctype="booth_goods" class="nch-module" style="display:none;"> </div>
-    <!-- E 推荐展位 -->
-    <div class="nch-module-sidebar"> <?php echo loadadv(37,'html');?>
-      <div class="clear"></div>
-    </div>
-    <div class="nch-module nch-module-style03">
-      <div class="title">
-        <h3><?php echo $lang['goods_class_viewed_goods']; ?></h3>
-      </div>
-      <div class="content">
-        <?php foreach ($output['viewed_goods'] as $k=>$v){?>
-        <dl class="nch-sidebar-bowers">
-          <dt class="goods-name"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$v['goods_id'])); ?>"><?php echo $v['goods_name']; ?></a></dt>
-          <dd class="goods-pic"><a href="<?php echo urlShop('goods','index',array('goods_id'=>$v['goods_id'])); ?>"><img src="<?php echo thumb($v, 60); ?>" title="<?php echo $v['goods_name']; ?>" alt="<?php echo $v['goods_name']; ?>" ></a></dd>
-          <dd class="goods-price"><?php echo $lang['currency'];?><?php echo $v['goods_price']; ?></dd>
-        </dl>
-        <?php } ?>
-      </div>
-    </div>
-  </div>
-  <div class="right">
-    <?php if(!isset($output['goods_class_array']['child']) && empty($output['goods_class_array']['child']) && !empty($output['goods_class_array'])){?>
-    <?php $dl=1;  //dl标记?>
-    <?php if((!empty($output['brand_array']) && is_array($output['brand_array'])) || (!empty($output['attr_array']) && is_array($output['attr_array']))){?>
-    <div class="nch-module nch-module-style01">
-      <div class="title">
-        <h3>
-          <?php if (!empty($output['class_name'])) {?>
-          <em><?php echo $output['class_name'];?></em> -
-          <?php }?>
-          商品筛选</h3>
-      </div>
-      <div class="content">
-        <div class="nch-module-filter">
-          <?php if((isset($output['checked_brand']) && is_array($output['checked_brand'])) || (isset($output['checked_attr']) && is_array($output['checked_attr']))){?>
-          <dl nc_type="ul_filter">
-            <dt><?php echo $lang['goods_class_index_selected'].$lang['nc_colon'];?></dt>
-            <dd class="list">
-              <?php if(isset($output['checked_brand']) && is_array($output['checked_brand'])){?>
-              <?php foreach ($output['checked_brand'] as $key=>$val){?>
-              <span class="selected" nctype="span_filter"><?php echo $lang['goods_class_index_brand'];?>:<em><?php echo $val['brand_name']?></em><i data-uri="<?php echo removeParam(array('b_id' => $key));?>">X</i></span>
-              <?php }?>
-              <?php }?>
-              <?php if(isset($output['checked_attr']) && is_array($output['checked_attr'])){?>
-              <?php foreach ($output['checked_attr'] as $val){?>
-              <span class="selected" nctype="span_filter"><?php echo $val['attr_name'].':<em>'.$val['attr_value_name'].'</em>'?><i data-uri="<?php echo removeParam(array('a_id' => $val['attr_value_id']));?>">X</i></span>
-              <?php }?>
-              <?php }?>
-            </dd>
-          </dl>
-          <?php }?>
-          <?php if (!isset($output['checked_brand']) || empty($output['checked_brand'])){?>
-          <?php if(!empty($output['brand_array']) && is_array($output['brand_array'])){?>
-          <dl <?php if($dl>3){?>class="dl_hide"<?php }?>>
-            <dt><?php echo $lang['goods_class_index_brand'].$lang['nc_colon'];?></dt>
-            <dd class="list">
-              <ul>
-                <?php $i = 0;foreach ($output['brand_array'] as $k=>$v){$i++;?>
-                <li <?php if ($i>10){?>style="display:none" nc_type="none"<?php }?>><a href="<?php $b_id = (($_GET['b_id'] != '' && intval($_GET['b_id']) != 0)?$_GET['b_id'].'_'.$k:$k); echo replaceParam(array('b_id' => $b_id));?>"><?php echo $v['brand_name'];?></a></li>
-                <?php }?>
-              </ul>
-            </dd>
-            <?php if (count($output['brand_array']) > 10){?>
-            <dd class="all"><span nc_type="show"><i class="icon-angle-down"></i><?php echo $lang['goods_class_index_more'];?></span></dd>
-            <?php }?>
-          </dl>
-          <?php $dl++;}?>
-          <?php }?>
-
-          <?php if(!empty($output['cate_array']) && is_array($output['cate_array'])){?>
-          <dl <?php if($dl>3){?>class="dl_hide"<?php }?>>
-            <dt><?php echo $lang['goods_class_index_goods_class'].$lang['nc_colon'];?></dt>
-            <dd class="list">
-              <ul>
-                <?php $i = 0;foreach ($output['cate_array'] as $k=>$v){$i++;?>
-                <li <?php if ($i>10){?>style="display:none" nc_type="none"<?php }?>><a href="<?php $b_id = (($_GET['cate_id'] != '' && intval($_GET['cate_id']) != 0)?$_GET['cate_id'].'_'.$k:$k); echo replaceParam(array('cate_id' => $b_id));?>"><?php echo $v['gc_name'];?></a></li>
-                <?php }?>
-              </ul>
-            </dd>
-            <?php if (count($output['brand_array']) > 10){?>
-            <dd class="all"><span nc_type="show"><i class="icon-angle-down"></i><?php echo $lang['goods_class_index_more'];?></span></dd>
-            <?php }?>
-          </dl>
-          <?php $dl++;?>
-          <?php }?>
-
-          <?php if(!empty($output['attr_array']) && is_array($output['attr_array'])){?>
-          <?php $j = 0;foreach ($output['attr_array'] as $key=>$val){$j++;?>
-          <?php if(!isset($output['checked_attr'][$key]) && !empty($val['value']) && is_array($val['value'])){?>
-          <dl>
-            <dt><?php echo $val['name'].$lang['nc_colon'];?></dt>
-            <dd class="list">
-              <ul>
-                <?php $i = 0;foreach ($val['value'] as $k=>$v){$i++;?>
-                <li <?php if ($i>10){?>style="display:none" nc_type="none"<?php }?>><a href="<?php $a_id = (($_GET['a_id'] != '' && $_GET['a_id'] != 0)?$_GET['a_id'].'_'.$k:$k); echo replaceParam(array('a_id' => $a_id));?>"><?php echo $v['attr_value_name'];?></a></li>
-                <?php }?>
-              </ul>
-            </dd>
-            <?php if (count($val['value']) > 10){?>
-            <dd class="all"><span nc_type="show"><i class="icon-angle-down"></i><?php echo $lang['goods_class_index_more'];?></span></dd>
-            <?php }?>
-          </dl>
-          <?php }?>
-          <?php $dl++;} ?>
-          <?php }?>      
-
-        </div>
-      </div>
-    </div>
-    <?php }?>
-    <?php }?>
-    <div class="shop_con_list" id="main-nav-holder">
-      <nav class="sort-bar" id="main-nav">
-      <div class="pagination"><?php echo $output['show_page1']; ?> </div>
-      <div class="nch-all-category">
-        <div class="all-category">
-            <?php require template('layout/home_goods_class');?>
-        </div>
-      </div>
-        <div class="nch-sortbar-array"> 排序方式：
-          <ul>
-            <li <?php if(!$_GET['key']){?>class="selected"<?php }?>><a href="<?php echo dropParam(array('order', 'key'));?>"  title="<?php echo $lang['goods_class_index_default_sort'];?>"><?php echo $lang['goods_class_index_default'];?></a></li>
-            <li <?php if($_GET['key'] == '1'){?>class="selected"<?php }?>><a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1') ? replaceParam(array('key' => '1', 'order' => '1')):replaceParam(array('key' => '1', 'order' => '2')); ?>" <?php if($_GET['key'] == '1'){?>class="<?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '1')?$lang['goods_class_index_sold_asc']:$lang['goods_class_index_sold_desc']; ?>"><?php echo $lang['goods_class_index_sold'];?><i></i></a></li>
-            <li <?php if($_GET['key'] == '2'){?>class="selected"<?php }?>><a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '2') ? replaceParam(array('key' => '2', 'order' => '1')):replaceParam(array('key' => '2', 'order' => '2')); ?>" <?php if($_GET['key'] == '2'){?>class="<?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php  echo ($_GET['order'] == '2' && $_GET['key'] == '2')?$lang['goods_class_index_click_asc']:$lang['goods_class_index_click_desc']; ?>"><?php echo $lang['goods_class_index_click']?><i></i></a></li>
-            <li <?php if($_GET['key'] == '3'){?>class="selected"<?php }?>><a href="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '3') ? replaceParam(array('key' => '3', 'order' => '1')):replaceParam(array('key' => '3', 'order' => '2')); ?>" <?php if($_GET['key'] == '3'){?>class="<?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ($_GET['order'] == '2' && $_GET['key'] == '3')?$lang['goods_class_index_price_asc']:$lang['goods_class_index_price_desc']; ?>"><?php echo $lang['goods_class_index_price'];?><i></i></a></li>
-          </ul>
-        </div>
-        <div class="nch-sortbar-owner">商品类型： <span><a href="<?php echo dropParam(array('type'));?>" <?php if (!isset($_GET['type']) || !in_array($_GET['type'], array(1,2))) {?>class="selected"<?php }?>><i></i>全部</a></span> <span><a href="<?php echo replaceParam(array('type' => '1'));?>" <?php if ($_GET['type'] == 1) {?>class="selected"<?php }?>><i></i>商城自营</a></span> <span><a href="<?php echo replaceParam(array('type' => '2'));?>" <?php if ($_GET['type'] == 2) {?>class="selected"<?php }?>><i></i>商家加盟</a></span> </div>
-        <div class="nch-sortbar-location">商品所在地：
-          <div class="select-layer">
-            <div class="holder"><em nc_type="area_name"><?php echo $lang['goods_class_index_area']; ?><!-- 所在地 --></em></div>
-            <div class="selected"><a nc_type="area_name"><?php echo $lang['goods_class_index_area']; ?><!-- 所在地 --></a></div>
-            <i class="direction"></i>
-            <ul class="options">
-              <?php require(BASE_TPL_PATH.'/home/goods_class_area.php');?>
-            </ul>
-          </div>
-        </div>
-
-      </nav>
-      <!-- 商品列表循环  -->
-
-      <div>
-        <?php require_once (BASE_TPL_PATH.'/home/goods.squares.php');?>
-      </div>
-      <div class="tc mt20 mb20">
-        <div class="pagination"> <?php echo $output['show_page']; ?> </div>
-      </div>
-    </div>
-  </div>
-</div>
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/waypoints.js"></script>
 <script src="<?php echo SHOP_RESOURCE_SITE_URL;?>/js/search_category_menu.js"></script>
 <script type="text/javascript">
