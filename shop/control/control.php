@@ -11,7 +11,24 @@
 defined('InShopNC') or exit('Access Invalid!');
 
 class Control{
-
+	/**
+	* 取底部文章数据
+	* @return 分配变量
+	*/
+	public function getBottomArticle(){
+		$model_ac=Model('article_class');
+		$model_article=Model('article');
+		$classList=$model_ac->getClassList(array());
+		$result=array();
+		foreach($classList as $v){
+			$list=$model_article->getArticleList(array('ac_id'=>$v['ac_id'],'field'=>'article_title,article_id'),5);
+			$temp=array();
+			$temp['ac_name']=$v['ac_name'];
+			$temp['list']=$list;
+			$result[]=$temp;
+		}
+		Tpl::output('bottomArticle',$result);
+	}
 	/**
 	 * 系统通知发送函数
 	 *
@@ -287,7 +304,7 @@ class BaseHomeControl extends Control {
 		if ($_GET['column'] && strtoupper(CHARSET) == 'GBK'){
 			$_GET = Language::getGBK($_GET);
 		}
-
+		$this->getBottomArticle();
 		$this->article();//文章输出
 		if(!C('site_status')) halt(C('closed_reason'));
 
@@ -307,6 +324,7 @@ class BaseBuyControl extends Control {
 		}
         //文章输出
 		$this->article();
+		$this->getBottomArticle();
 		if(!C('site_status')) halt(C('closed_reason'));
 	}
 
@@ -335,6 +353,7 @@ class BaseMemberControl extends Control {
 		Tpl::output('nav_list',($nav = H('nav')) ? $nav : H('nav',true));
 		//自动更新订单，执行一次
 		if(empty($_SESSION['order_update_time'])) $this->updateOrder();
+		$this->getBottomArticle();
 	}
 
 	/**
@@ -415,6 +434,7 @@ class BaseSNSControl extends Control {
 
 		//允许插入新记录的最大条数
 		Tpl::output('max_recordnum',self::MAX_RECORDNUM);
+		$this->getBottomArticle();
 	}
 
 	/**
@@ -653,6 +673,7 @@ class BaseStoreControl extends Control {
 		Tpl::output('nav_list',($g = H('nav')) ? $g : H('nav',true));
         $this->getStoreNavigation($store_id);
         $this->outputSeoInfo($this->store_info);
+        $this->getBottomArticle();
 	}
 
 	/**
@@ -724,6 +745,7 @@ class BaseGoodsControl extends BaseStoreControl {
 		$this->article();//文章输出
 		$this->checkMessage();
 		$this->queryCart();
+		$this->getBottomArticle();
 	}
 
     protected function getStoreInfo($store_id) {
@@ -808,6 +830,7 @@ class BaseSellerControl extends Control {
             $this->checkMessage();
     		//自动更新订单，执行一次
     		if(empty($_SESSION['order_update_time'])) $this->updateOrder();
+    		$this->getBottomArticle();
         }
     }
 

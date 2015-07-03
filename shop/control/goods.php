@@ -175,6 +175,19 @@ class goodsControl extends BaseGoodsControl {
         $seo_param['key'] = $goods_info['goods_keywords'];
         $seo_param['description'] = $goods_info['goods_description'];
         Model('seo')->type('product')->param($seo_param)->show();
+
+                // 商品多图
+        $pictureList=$model_goods->getGoodsImageList(array('goods_commonid' => $goods_detail['goods_info']['goods_commonid'], 'color_id' => $goods_detail['goods_info']['color_id']), 'goods_image');
+        foreach ($pictureList as $k => $v) {
+            $temp=array(
+                'small'=>cthumb($v['goods_image'], 60, $goods_detail['goods_info']['store_id']),
+                'middle'=>cthumb($v['goods_image'], 360, $goods_detail['goods_info']['store_id']),
+                'big'=>cthumb($v['goods_image'], 1280, $goods_detail['goods_info']['store_id']),
+            );
+            $resPictureList[]=$temp;
+        }
+        Tpl::output('pictureList', $resPictureList );
+        
         Tpl::showpage('goods');
     }
 

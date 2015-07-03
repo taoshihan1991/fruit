@@ -52,14 +52,6 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.masonry.js"></script>
 <script src="<?php echo RESOURCE_SITE_URL;?>/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
 
-<!-- [扩展js和css] -->
-<link href="<?php echo SHOP_TEMPLATES_URL;?>/css/basic.min.css" rel="stylesheet" media="screen, projection" />
-<link href="<?php echo SHOP_TEMPLATES_URL;?>/css/goodsplace.css" rel="stylesheet" media="screen, projection" />
-<link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/base-extend.css" />
-<link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/extend.css" />
-<script src="<?php echo SHOP_TEMPLATES_URL;?>/js/jquery.SuperSlide.2.1.1.js"></script>
-<script src="<?php echo SHOP_TEMPLATES_URL;?>/js/extend.js"></script>
-<!-- [//扩展js和css] -->
 
 </head>
 <body>
@@ -70,59 +62,61 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
   <div class="menu-column wrap">
     <div class="m-text frt"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/phone.png"/></div>
     <h1 class="logo FFfix flt"><a href="./"><img alt="四季果园" src="<?php echo SHOP_TEMPLATES_URL;?>/images/logo.png" border="0"/></a></h1>
-    <div class="eara_list flt"> <div class="now-region-div">配送至：<span class="now_region">优鲜达>></span>
+    <div class="eara_list flt"> <div class="now-region-div">配送至：<span class="now_region"><?php if($_COOKIE['area_name']){echo $_COOKIE['area_name'];}else{?>优鲜达>><?php }?></span>
     <img class="region-jiao" src="<?php echo SHOP_TEMPLATES_URL;?>/images/jiao.jpg" width="11" height="11">
     <div class="province-reach">
         <ul class="ul-area1">
             <li>
                 <p class="area02">
-                            <div class="region-div">
-                                <a href="javascript:void(0);" data-child='childregion_104' class="area_child">安徽</a>
-                                <div class="childregion_104 childregion">
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">合肥市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">安庆市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">蚌埠市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">亳州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">巢湖市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">池州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">滁州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">阜阳市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">淮北市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">淮南市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">黄山市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">六安市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">马鞍山市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">宿州市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">铜陵市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">芜湖市</a></div>
-                                                                            <div class="region-div"><a href="javascript:void(0);" style="margin:0 1px;">宣城市</a></div>
-                                                                        <div style="clear: both;"></div>
-                                </div>
-                            </div>
-                                        </p>
+                 
+                    <?php
+                    require_once(BASE_DATA_PATH.'/area/area.php');
+                    $area_model=Model('area');
+                    ?>
+                    <?php foreach($area_array as $p_k=>$p){
+                      if($p['area_parent_id']==15){?>
+                    <div class="region-div">
+                    <a href="javascript:void(0);" data-child='childregion_<?php echo $p_k;?>' class="area_child" data-cityid=<?php echo $p_k;?>><?php echo $p['area_name']?></a>
+                    <div class="childregion_<?php echo $p_k;?> childregion">
+                      <?php 
+                      $cityList=$area_model->getAreaList(array('area_parent_id'=>$p_k));
+                      foreach($cityList as $c_k=>$c){?>
+                      <div class="region-div"><a href="javascript:void(0);" class="regionBtn" data-areaid=<?php echo $c['area_id']?>><?php echo $c['area_name']?></a></div>
+                      <?php }?>
+                      <div style="clear: both;"></div>
+                    </div>
+                    </div>
+                    <?php }}?>
+                  
+                </p>
             </li>
         </ul>
     </div>
 </div>
 <script>
     (function(){
-        jQuery('.region-div a').click(function(){
-            if(!$(this).hasClass('area_child')){
-                jQuery('.now_region').set('html',$(this).get('html'));
-                jQuery('.childregion').hide();
-                jQuery('.province-reach').hide();
-            }
-        });
-        jQuery('.area_child').click(function(){
-            jQuery('.childregion').hide();
-            jQuery('.'+$(this).get('data-child')).show();
-        });
+
         jQuery('.now-region-div').mouseover(function(){
             jQuery('.province-reach').show();
         });
         jQuery('.now-region-div').mouseout(function(){
             jQuery('.province-reach').hide();
         });
+        jQuery('.area_child').click(function(){
+          jQuery('.childregion').hide();
+          var ch=jQuery(this).attr('data-child');
+          jQuery('.'+ch).show();
+          jQuery.cookie('city_name',jQuery(this).text());
+          jQuery.cookie('city_id',jQuery(this).attr('data-cityid'));
+        });
+        jQuery('.regionBtn').click(function(){
+          jQuery('.now_region').text(jQuery(this).text());
+          jQuery.cookie('area_id',jQuery(this).attr('data-areaid'));
+          jQuery.cookie('area_name',jQuery(this).text());
+
+        });
+
+
     })();
 </script>
 </div>
@@ -144,12 +138,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
     </div>
     <div class="nav-column" id="nav">
             <div class="wrap clr">
-              <div class="all-category flt" id="all-category">
-                  <div class="category-handle cat-popup" id="category_handle">
-                      <a href="/gallery.html?scontent=n," target="_blank">全部商品</a>
-                  </div>
-              
-              </div>
+         
               <div class="nav flt">
                 <ul class="MenuList MenuList_194 clearfix">
                   <li><a  href="" >首页</a></li>
@@ -162,24 +151,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
                  
                 </ul>
               </div>
-               <ul class="category-list">
-                  <li class="category-item">
-                      <a href="" class="indexCateDoor">基础展示</a>
-                  </li>
-                  <li class="category-item">
-                      <a href="" class="indexCateDoor">种植联盟</a>
-                  </li>
-                      <li class="category-item">
-                      <a href="" class="indexCateDoor">质量认证</a>
-                  </li>
-                  <li class="category-item">
-                      <a href="" class="indexCateDoor">线下门店</a>
-                  </li>
-              
-                  <li class="category-item current">
-                      <a href="" class="indexCateDoor">发布公告</a>
-                  </li>
-              </ul>
+             
           </div>
         </div>
     </div>

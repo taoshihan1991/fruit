@@ -1,4 +1,14 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
+
+<!-- [扩展js和css] -->
+<link href="<?php echo SHOP_TEMPLATES_URL;?>/css/basic.min.css" rel="stylesheet" media="screen, projection" />
+<link href="<?php echo SHOP_TEMPLATES_URL;?>/css/goodsplace.css" rel="stylesheet" media="screen, projection" />
+<link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/base-extend.css" />
+<link rel="stylesheet"  href="<?php echo SHOP_TEMPLATES_URL;?>/css/extend.css" />
+<script src="<?php echo SHOP_TEMPLATES_URL;?>/js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="<?php echo SHOP_TEMPLATES_URL;?>/js/extend.js"></script>
+<!-- [//扩展js和css] -->
+
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 
@@ -7,7 +17,7 @@
   <div class="topbar" id="topbar">
       <div class="wrap">    
           <ul class="quick-menu frt">
-               <li class="cart-menu"><div class="head-cart"><a href="" class="minicart-text">购物车<b class="op-cart-number"><?php echo $output['cart_goods_num'];?></b>件  </a></div>
+               <li class="cart-menu"><div class="head-cart"><a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="minicart-text">购物车<b class="op-cart-number"><?php echo $output['cart_goods_num'];?></b>件  </a></div>
               </li>
                <li><a rel="nofollow" target="_top" href="<?php echo SHOP_SITE_URL;?>/index.php?act=member_order">我的订单</a></li>           
                <li><span class="line">|</span></li> 

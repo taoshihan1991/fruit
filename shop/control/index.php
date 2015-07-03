@@ -47,29 +47,12 @@ class indexControl extends BaseHomeControl{
 		// 5F 
 		$floor5Goods=$this->getGoodsByLevelPid($goods_class,1061);
 		Tpl::output('floor5Goods',$floor5Goods);
-		$this->getBottomArticle();
+
 
 		Model('seo')->type('index')->show();
 		Tpl::showpage('index');
 	}
-	/**
-	* 按楼层组装数据
-	* @return 分配变量
-	*/
-	public function getBottomArticle(){
-		$model_ac=Model('article_class');
-		$model_article=Model('article');
-		$classList=$model_ac->getClassList(array());
-		$result=array();
-		foreach($classList as $v){
-			$list=$model_article->getArticleList(array('ac_id'=>$v['ac_id'],'field'=>'article_title,article_id'),5);
-			$temp=array();
-			$temp['ac_name']=$v['ac_name'];
-			$temp['list']=$list;
-			$result[]=$temp;
-		}
-		Tpl::output('bottomArticle',$result);
-	}
+
 	/**
 	* 按楼层组装数据
 	* @return 分配变量

@@ -478,4 +478,4 @@
 
 
 
-<script type="text/javascript" src="<?php echo SHOP_RESOURCE_SITE_URL;?>/js/home_index.js" charset="utf-8"></script>
+

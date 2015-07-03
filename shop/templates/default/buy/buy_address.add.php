@@ -14,17 +14,19 @@
       <dt><i class="required">*</i><?php echo $lang['cart_step1_area'].$lang['nc_colon'];?></dt>
       <dd>
         <div id="region">
-          <select class="w110">
-          </select>
-          <input type="hidden" value="" name="city_id" id="city_id">
-          <input type="hidden" name="area_id" id="area_id" class="area_ids"/>
-          <input type="hidden" name="area_info" id="area_info" class="area_names"/>
+          
+          <?php if($_COOKIE['area_id']){echo "山东 ".$_COOKIE['city_name']." ".$_COOKIE['area_name'];}else{?><select class="w110">
+          </select><?php }?>
+          <input type="hidden" name="city_id" id="city_id" value="<?php if($_COOKIE['city_id']){echo $_COOKIE['city_id'];}?>">
+          <input type="hidden" name="area_id" id="area_id" class="area_ids" value="<?php if($_COOKIE['area_id']){echo $_COOKIE['area_id'];}?>"/>
+          <input type="hidden" name="area_info" id="area_info" class="area_names" value="<?php if($_COOKIE['area_id']){echo "山东 ".$_COOKIE['city_name']." ".$_COOKIE['area_name'];}?>"/>
         </div>
       </dd>
     </dl>
     <dl>
       <dt><i class="required">*</i><?php echo $lang['cart_step1_whole_address'].$lang['nc_colon'];?></dt>
       <dd>
+       
         <input type="text" class="text w500" name="address" id="address" maxlength="80" value=""/>
         <p class="hint"><?php echo $lang['cart_step1_true_address'];?></p>
       </dd>
@@ -103,7 +105,9 @@ function checkPhone(){
 function submitAddAddr(){
     if ($('#addr_form').valid()){
         $('#buy_city_id').val($('#region').find('select').eq(1).val());
-        $('#city_id').val($('#region').find('select').eq(1).val());
+        var city_id=$('#city_id').val();
+        if(!city_id) $('#city_id').val($('#region').find('select').eq(1).val());
+        
         var datas=$('#addr_form').serialize();
         $.post('index.php',datas,function(data){
             if (data.state){

@@ -63,7 +63,7 @@ catch(e){}
 <?php require_once template('layout/layout_top');?>
 <header id="header" class="pngFix">
   <div class="wrapper">
-    <h1 id="logo" title="<?php echo C('site_name'); ?>"><a href="<?php echo SHOP_SITE_URL;?>"><img src="<?php echo C('member_logo') == ''?UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('site_logo'):UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('member_logo'); ?>" alt="<?php echo C('site_name'); ?>" class="pngFix"></a></h1>
+    <h1 id="logo" title="<?php echo C('site_name'); ?>"><a href="<?php echo SHOP_SITE_URL;?>"><img style="width: 126px;margin-top: -22px;" src="<?php echo C('member_logo') == ''?UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('site_logo'):UPLOAD_SITE_URL.DS.ATTACH_COMMON.DS.C('member_logo'); ?>" alt="<?php echo C('site_name'); ?>" class="pngFix"></a></h1>
     <nav>
       <ul>
         <li class="frist"><a <?php if($output['header_menu_sign'] == 'snsindex'){ echo "class='active'";}else{ echo "class='normal'";}?> href="index.php?act=member_snsindex" title="<?php echo $lang['nc_member_path_buyerindex'];?>"><?php echo $lang['nc_member_path_buyerindex'];?></a></li>
