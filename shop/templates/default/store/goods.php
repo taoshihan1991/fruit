@@ -94,45 +94,10 @@ cursor: url(<?php echo SHOP_TEMPLATES_URL;
     <div class="share-recommend" id="share_recommend">
     <!-- share -->
   <span class="share pop-wrapper">
-    <a href="javascript:void(0);" nc_type="sharegoods" data-param='{"gid":"<?php echo $output['goods']['goods_id'];?>"}' class="btn btn-rounded action-handle "><span><span><i class="icon icon-share">X</i><i class="text">分享</i></span></span></a>
-  </span>
-    <!-- recommend -->
-  <span class="recommend pop-wrapper">
-    <button type="button" class="btn btn-rounded action-handle "><span><span><i class="icon icon-recommend">@</i><i class="text">推荐</i><i class="icon arrow">7</i></span></span></button>
-    <div class="pop-body" style="display: none;">
-      <div class="pop-title">
-          <h3>将商品推荐给好友</h3>
-        <div class="close"><button type="button" class="btn pop-close icon">×</button></div>
-      </div>
-      <div class="pop-content">
-                <div class="notice">您还没有登录，请先            <a href="/passport-login.html" class="lnklike">登录</a> 或            <a href="/passport-signup.html" class="lnklike">注册</a> 后推荐给好友。</div>
-                <!-- <form action="" method="post"> -->
-          <ul class="form" id="op_recommend_form">
-            <li class="form-item">
-            <label for="" class="form-label">发件人：</label>
-            <span class="form-act"><i class="not-login">(登录后显示)</i></span>
-            </li>
-            <li class="form-item">
-            <label for="" class="form-label">收件人：</label>
-              <span class="form-act"><textarea name="email" id="" cols="30" rows="3" placeholder="填写多个地址请用逗号“,”隔开。" vtype="required&amp;&amp;emaillist" data-caution="请填写正确邮箱地址" disabled=""></textarea></span>
-            </li>
-            <li class="form-item">
-            <label for="" class="form-label">内容：</label>
-              <span class="form-act"><textarea name="content" id="" cols="30" rows="6" vtype="required" data-caution="请填写邮件内容" disabled=""></textarea></span>
-            </li>
-            <li class="form-item form-item-last">
-              <label for="" class="form-label"></label>
-              <span class="form-act">
-                <a class="btn btn-caution disabled" rel="_request" href="/product-recommend-257-929.html" data-ajax-config="{method:'post',data:$('op_recommend_form').toQueryString(),onSuccess:function(rs){notice.success('邮件发送成功，可继续推荐给好友', $('op_recommend_form'), 'before');}}"><span><span>发送</span></span></a>
-              </span>
-            </li>
-          </ul>
-        <!-- </form> -->
-      </div>
-    </div>
+    <a href="javascript:void(0);" nc_type="sharegoods" data-param='{"gid":"<?php echo $output['goods']['goods_id'];?>"}' class="btn btn-rounded action-handle "><span><span><i class="icon icon-share"></i><i class="text">分享</i></span></span></a>
   </span>
     <!-- favarite -->
-  <a href="/passport-login.html" class="btn btn-rounded btn-addfav"><span><span><i class="icon icon-fav">.</i><i class="text">收藏</i></span></span></a>
+  <a href="javascript:collect_goods('<?php echo $output['goods']['goods_id'];?>','count','goods_collect');" class="btn btn-rounded btn-addfav" ><span><span><i class="icon icon-fav"></i><i class="text">收藏</i></span></span></a>
   </div>
   </div>
   <div class="product-main">

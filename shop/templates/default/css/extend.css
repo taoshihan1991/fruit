@@ -24,7 +24,7 @@ body{
 	position: absolute;
 }
 .search {
-	padding: 42px 0 0 212px;
+	margin-top: 45px;
 }
 .header .m-text{
 	margin-top: 28px;
@@ -51,7 +51,7 @@ body{
 }
 .MenuList li a{
 	padding: 0;
-	width: 160px;
+	width: 147px;
 
 	color: #444;
 }
@@ -178,8 +178,8 @@ body{
 .pageFooter .left .f_wx {margin-left: 20px;}
 
 .pageFooter .left .f_tel{width:230px;text-align:left;font-size:12px;font-weight:normal;}
-.pageFooter .right{float:left;margin:35px 0 0 0;width:820px;}
-.pageFooter .right ul{float:left;margin:0px 39px 0px 0px;padding:0px 0px 0px 0px;width:120px;}
+.pageFooter .right{float:left;margin:35px 0 0 0;width:950px;}
+.pageFooter .right ul{float:left;margin:0px 39px 0px 0px;padding:0px 0px 0px 0px;width:117px;}
 .pageFooter .right ul li{text-align:left;font-family:Microsoft YaHei;height:24px;line-height:24px;color:#646464;}
 .pageFooter .right ul li a{color:#707070;display:block;padding:0px 0px 0px 0px;}
 .pageFooter .right ul li.title{color:#707070;font-weight:bold;font-size:14px; }
@@ -352,4 +352,62 @@ body .ncc-head-layout .site-logo{
 body .ncc-head-layout .site-logo img{
 	max-width: 134px;
 	max-height: inherit;
+}
+body #header nav{
+	background-color:#65B33F!important;
+}
+#header nav ul li a.active{
+	background-color: #65B33F;
+	text-shadow: 1px 1px 0 #65B33F;
+}
+#header nav ul li a{
+	text-shadow:none;
+	border-color: transparent #59A335 transparent #65B33F;
+}
+#header nav ul li a:hover{
+	background-color: #59A335;
+	text-shadow: none;
+}
+#header nav .search-box{
+	border-left:none;
+}
+.menu-column .logo a{
+	display: block;
+}
+.menu-column .logoText{
+	display: block;
+	width: 121px;
+	height: 49px;
+	margin-top: 45px;
+	margin-left: 10px;
+}
+.eara_list{
+	padding: 55px 0 0 290px;
+}
+.MenuList li.cur{
+	background: #008939;
+}
+.MenuList li.cur a{
+	color: #fff;
+	border:none;
+}
+body .nch-container{
+	width: 1190px;
+}
+.nch-container .nch-module-style01{
+	border-top: solid 2px #008939;
+}
+.nch-container .nch-sidebar-article-class li a:hover{
+	background: #008939;
+}
+.share-recommend .icon-share{
+	background: url(../images/iconfont-fenxiang.svg);
+	background-size: 18px 15px;
+}
+.share-recommend .icon-fav{
+	background: url(../images/iconfont-shoucang.svg);
+	background-size: 18px 15px;	
+	display: inline-block;
+	width: 18px;
+	height: 15px;
 }

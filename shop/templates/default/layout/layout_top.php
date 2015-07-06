@@ -34,7 +34,7 @@
               Hi，欢迎来到四季果园！<a href="<?php echo urlShop('login');?>">请登录</a><a href="<?php echo urlShop('login','register');?>">免费注册</a></span>
               <?}else{?>
               <span id="memberBar_191">
-                  Hi，<span id="uname_191"></span>！<a href="<?php echo urlShop('member_snsindex');?>">会员中心</a><a href="<?php echo urlShop('login','logout');?>">退出</a>
+                  Hi，<span id="uname_191"><?php echo $_SESSION['member_name'];?></span>！<a href="<?php echo urlShop('member_snsindex');?>">会员中心</a><a href="<?php echo urlShop('login','logout');?>">退出</a>
               </span>
               <?php }?>
               </li>

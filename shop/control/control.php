@@ -21,8 +21,9 @@ class Control{
 		$classList=$model_ac->getClassList(array());
 		$result=array();
 		foreach($classList as $v){
-			$list=$model_article->getArticleList(array('ac_id'=>$v['ac_id'],'field'=>'article_title,article_id'),5);
+			$list=$model_article->getArticleList(array('ac_id'=>$v['ac_id'],'field'=>'article_title,article_id,ac_id'),5);
 			$temp=array();
+			$temp['ac_id']=$v['ac_id'];
 			$temp['ac_name']=$v['ac_name'];
 			$temp['list']=$list;
 			$result[]=$temp;
@@ -336,7 +337,8 @@ class BaseMemberControl extends Control {
 	public function __construct(){
 
 		if(!C('site_status')) halt(C('closed_reason'));
-
+		//购物车商品种数查询
+		$this->queryCart();
 		Language::read('common,member_layout');
 
 		if ($_GET['column'] && strtoupper(CHARSET) == 'GBK'){

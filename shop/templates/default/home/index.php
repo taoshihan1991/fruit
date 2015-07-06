@@ -26,7 +26,7 @@
                       <div class="bd">
                           <ul>
                               <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
-                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
+                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner2.jpg" /></a></li>
                               <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
                           </ul>
                       </div>

@@ -62,6 +62,8 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
   <div class="menu-column wrap">
     <div class="m-text frt"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/phone.png"/></div>
     <h1 class="logo FFfix flt"><a href="./"><img alt="四季果园" src="<?php echo SHOP_TEMPLATES_URL;?>/images/logo.png" border="0"/></a></h1>
+    <img src="<?php echo SHOP_TEMPLATES_URL;?>/images/logo_text.jpg" class="logoText flt">
+
     <div class="eara_list flt"> <div class="now-region-div">配送至：<span class="now_region"><?php if($_COOKIE['area_name']){echo $_COOKIE['area_name'];}else{?>优鲜达>><?php }?></span>
     <img class="region-jiao" src="<?php echo SHOP_TEMPLATES_URL;?>/images/jiao.jpg" width="11" height="11">
     <div class="province-reach">
@@ -73,7 +75,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
                     require_once(BASE_DATA_PATH.'/area/area.php');
                     $area_model=Model('area');
                     ?>
-                    <?php foreach($area_array as $p_k=>$p){
+                    <?php if(!empty($area_array)){foreach($area_array as $p_k=>$p){
                       if($p['area_parent_id']==15){?>
                     <div class="region-div">
                     <a href="javascript:void(0);" data-child='childregion_<?php echo $p_k;?>' class="area_child" data-cityid=<?php echo $p_k;?>><?php echo $p['area_name']?></a>
@@ -86,7 +88,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
                       <div style="clear: both;"></div>
                     </div>
                     </div>
-                    <?php }}?>
+                    <?php }}}?>
                   
                 </p>
             </li>
@@ -113,7 +115,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
           jQuery('.now_region').text(jQuery(this).text());
           jQuery.cookie('area_id',jQuery(this).attr('data-areaid'));
           jQuery.cookie('area_name',jQuery(this).text());
-
+          document.location.reload();
         });
 
 
@@ -121,7 +123,7 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
 </script>
 </div>
         <div class="search flt"> 
-            <form action="<?php echo SHOP_SITE_URL;?>" method="post" class="SearchBar searchBar_">
+            <form action="<?php echo SHOP_SITE_URL;?>?act=search" method="get" class="SearchBar searchBar_">
               <input name="act" id="search_act" value="search" type="hidden">
             <table cellpadding="0" cellspacing="0">
               <tr>
@@ -132,7 +134,10 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
               </tr>
             </table>
           </form>         
-          <div class="search-words"><ul class="urllist"><li class="first"><a href="" target="_blank">新西兰奇异果</a></li></ul></div>
+          <div class="search-words"><ul class="urllist"><li class="first">
+          <?php if(is_array($output['hot_search']) && !empty($output['hot_search'])) { foreach($output['hot_search'] as $val) { ?>
+              <a href="<?php echo urlShop('search', 'index', array('keyword' => $val));?>"><?php echo $val; ?></a>
+              <?php } }?></li></ul></div>
         </div>
 
     </div>
@@ -141,7 +146,8 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
          
               <div class="nav flt">
                 <ul class="MenuList MenuList_194 clearfix">
-                  <li><a  href="" >首页</a></li>
+                  <li class="cur"><a  href="<?php echo SHOP_SITE_URL;?>" >首页</a></li>
+
                   <?php if(!empty($output['nav_list']) && is_array($output['nav_list'])){?>
                   <?php foreach($output['nav_list'] as $nav){?>
                   <?php if($nav['nav_location'] == '1'){?>

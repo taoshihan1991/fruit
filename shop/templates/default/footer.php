@@ -4,14 +4,14 @@
       <div class="pageFooter">
  
       <div class="right">
-        <?php if(!empty($output['bottomArticle'])){foreach($output['bottomArticle'] as $v){?>
+        <?php if(!empty($output['bottomArticle'])){foreach($output['bottomArticle'] as $v){if($v['ac_id']!=9){?>
         <ul>
           <li class="title"><?php echo $v['ac_name']?></li>
           <?php if(!empty($v['list'])){foreach($v['list'] as $row){?>
           <li><a rel="nofollow" href="<?php echo urlShop('article','show',array('article_id'=>$row['article_id']))?>" target="_blank"><?php echo $row['article_title']?></a></li>
           <?php }}?>
         </ul>
-        <?php }}?>
+        <?php }}}?>
       </div>
       <div class="left">
         <div class="f_wx">

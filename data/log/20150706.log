@@ -1,0 +1,6 @@
+[2015-07-06 13:49:55] /4fruit/shop/index.php?act=article&op=show&article_id=42 ( act=article&op=show ) 
+ERR: Db Error: Unknown column 'g' in 'order clause'
+SELECT * FROM `fruit`.`fr_article_class` as `article_class`  WHERE  ac_parent_id = '0' and ac_id != '0' and ac_name = 'g' and ac_id <= 7 order by g
+[2015-07-06 13:49:57] /4fruit/shop/templates/default/css/ui/bgshadow.gif ( act=index&op=index ) 
+ERR: Db Error: Unknown column 'g' in 'order clause'
+SELECT * FROM `fruit`.`fr_article_class` as `article_class`  WHERE  ac_parent_id = '0' and ac_id != '0' and ac_name = 'g' and ac_id <= 7 order by g
