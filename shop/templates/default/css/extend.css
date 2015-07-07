@@ -93,8 +93,8 @@ body{
 	background: #6ca735;
 }
 
-        .indexBanner{ width:1600px; height:515px; overflow:hidden; position:relative;margin: 0 auto;}
-        .indexBanner .hd{ height:20px; overflow:hidden; position:absolute; right:250px; bottom:5px; z-index:1; }
+        .indexBanner{ width:1190px; height:400px; overflow:hidden; position:relative;margin: 0 auto;}
+        .indexBanner .hd{ height:20px; overflow:hidden; position:absolute; right:50%; bottom:5px; z-index:1;margin-left: 50px; }
         .indexBanner .hd ul{ overflow:hidden; zoom:1; float:left;  }
         .indexBanner .hd ul li{
 		background: #000;
@@ -114,31 +114,60 @@ body{
         .indexBanner .hd ul li.on{ background:#f00; color:#fff; }
         .indexBanner .bd{ position:relative; height:100%; z-index:0;}
         .indexBanner .bd li{ zoom:1; vertical-align:middle; }
-        .indexBanner .bd img{width:1600px; height:515px;display:block;  }
+        .indexBanner .bd img{width:1190px; height:400px;display:block;  }
 
         /* 下面是前/后按钮代码，如果不需要删除即可 */
         .indexBanner .prev,
-        .indexBanner .next{ position:absolute; left:0; top:50%; margin-top:-25px; display:block; width:42px; height:75px; background:url(../images/icon-slides.png) 0px 0px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
-        .indexBanner .next{ left:auto; right:3%; background-position:-42px 0px; }
+        .indexBanner .next{ position:absolute; left:0; top:30%; display:block; width:42px; height:75px; background:url(../images/icon-slides.png) 0px 0px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+        .indexBanner .next{ left:auto; right:0; background-position:-42px 0px; }
         .indexBanner .prev:hover,
         .indexBanner .next:hover{ filter:alpha(opacity=100);opacity:1;  }
         .indexBanner .prevStop{ display:none;  }
         .indexBanner .nextStop{ display:none;  }
 .banner-pic {
-	float: right;
-	width: 950px;
-	height: 125px;
+	float: none;
+	width: 1190px;
+	height: 130px;
 	overflow: hidden;
+	margin: 0 auto;
 }
 .banner-pic a{
 	display: block;
-	width: 237px;
+	width: 235px;
 	height: 125px;
 	float: left;
 }
 .banner-pic a img{
-	width: 237px;
+	width: 235px;
 }
+.banner-pic .noticeNews{
+	width: 248px;
+	float: right;
+}
+.banner-pic .noticeTitle{
+	width: 248px;
+	height: 35px;
+	line-height: 35px;
+	border-top: 2px solid #5de229;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 16px;
+	font-weight: bold;
+}
+.banner-pic .noticeTitle span{
+	margin-left: 20px;
+}
+.banner-pic .noticeList{
+	width: 220px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.banner-pic .noticeList a{
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	margin-left: 20px;
+}
+
 .floor .hd h3{
 	font-size: 20px;
 	font-family: "Microsoft Yahei";
@@ -411,3 +440,23 @@ body .nch-container{
 	width: 18px;
 	height: 15px;
 }
+.ex-slide1{
+        width:240px;
+        height:520px;
+        overflow:hidden;
+        position:relative;
+    }
+.ex-slide1 ol li{
+        height:520px;
+        width:240px;
+        list-style:none;
+        display:block;
+        overflow:hidden;
+        border:0;
+        margin:0;
+		visibility:visible !important;
+    }
+    .ex-slide1 .slide-trigger{
+        position:absolute;
+        z-index:999;
+    }

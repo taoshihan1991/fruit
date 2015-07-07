@@ -1,0 +1,13 @@
+@charset "utf-8";
+/*==全局样式==*/
+*{padding:0;margin:0;}
+div,dl,dt,dd,form,h1,h2,h3,h4,h5,h6,img,ol,ul,li,table,th,td,p,span,a{border:0;}
+img{border:none;}
+li{list-style: none;}
+body{font-family:"微软雅黑",Arial,Helvetica,"宋体";font-size:12px;background:#fff;color:#000;}
+ul,ol{list-style-type:none;}
+.clear{clear:both;font-size:1px;height:0;visibility:hidden;line-height:0;}
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+a:link,a:visited{text-decoration:none;color: #000;}
+a:hover,a:active{text-decoration:none;color: #000;}

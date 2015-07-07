@@ -1,0 +1,93 @@
+
+.banner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.banner img {
+    width: 100%;
+    height: 463px;
+
+}
+
+.activity_box {
+    width: 1188px;
+    margin: 10px auto;
+    height: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.activity_box img{
+    width: 1188px;
+}
+.grouptitle {
+    width: 1178px;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+    text-align: left;
+    padding-left: 10px;
+    color: #333;
+    font-size: 15px;
+    background-color: #ddd;
+}
+
+.activity_box form {
+    width: 660px;
+    margin-left: 210px;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+input:-webkit-autofill {
+    background-color: white;
+}
+
+form label {
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    float: left;
+    margin-bottom: 10px;
+}
+
+form .fill_box {
+    width: 170px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+form span.warn {
+    display: block;
+    height: 12px;
+    margin-left: 100px;
+    line-height: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+#need{
+    width:425px;
+    height:130px;
+    resize: none;
+    margin-bottom: 8px;
+}
+span.text_pic{
+    cursor: pointer;
+    display: block;
+    width: 110px;
+    height: 26px;
+    float: left;
+ }
+span.text_pic img{
+    width: 110px;
+    height: 26px;
+}
+.group_purchase{
+    margin-top: 10px;
+}

@@ -15,21 +15,21 @@ class indexControl extends BaseHomeControl{
 		Language::read('home_index_index');
 		Tpl::output('index_sign','index');
 
-		//团购专区
-		Language::read('member_groupbuy');
-        $model_groupbuy = Model('groupbuy');
-        $group_list = $model_groupbuy->getGroupbuyCommendedList(array(), null, '', '*', 4);
-		Tpl::output('group_list', $group_list);
+		//大图轮播广告位
+		$buyBannerList=$this->getAdvByAdvId(373);
+		Tpl::output('buyBannerList',$buyBannerList);
 
-		//限时折扣
-        $model_xianshi_goods = Model('p_xianshi_goods');
-        $xianshi_item = $model_xianshi_goods->getXianshiGoodsCommendList(4);
-		Tpl::output('xianshi_item', $xianshi_item);
+		$bannerAdList=$this->getAdvByAdvId(374);
+		Tpl::output('bannerAdList',$bannerAdList);
 
-		//板块信息
-		$model_web_config = Model('web_config');
-		$web_html = $model_web_config->getWebHtml('index');
-		Tpl::output('web_html',$web_html);
+		//鲜果区广告位
+		$floor1Ad=$this->getAdvByAdvId(375);
+		Tpl::output('floor1Ad',$floor1Ad);
+
+		//新闻公告
+		$model_article=Model('article');
+		$noticeList=$model_article->getArticleList(array('ac_id'=>9,'field'=>'article_title,article_id,ac_id'),3);
+		Tpl::output('noticeList',$noticeList);
 
 		// 1F 鲜果区楼层数据
 		$goods_class = H('goods_class');

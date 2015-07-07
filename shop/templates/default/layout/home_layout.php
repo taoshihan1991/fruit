@@ -72,7 +72,8 @@ var COOKIE_PRE = '<?php echo COOKIE_PRE;?>';var _CHARSET = '<?php echo strtolowe
                 <p class="area02">
                  
                     <?php
-                    require_once(BASE_DATA_PATH.'/area/area.php');
+                    $area_array=$output['area_array'];
+                    if(empty($area_array)) require_once(BASE_DATA_PATH.'/area/area.php');
                     $area_model=Model('area');
                     ?>
                     <?php if(!empty($area_array)){foreach($area_array as $p_k=>$p){

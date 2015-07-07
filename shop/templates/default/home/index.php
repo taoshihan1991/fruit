@@ -21,13 +21,17 @@
 <!-- [banner大图轮播] -->
                   <div id="indexBanner" class="indexBanner">
                       <div class="hd">
-                          <ul><li>1</li><li>2</li><li>3</li></ul>
+                          <ul>
+                            <?php if(!empty($output['buyBannerList'])){foreach($output['buyBannerList'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
+                          </ul>
                       </div>
                       <div class="bd">
                           <ul>
-                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
-                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner2.jpg" /></a></li>
-                              <li><a href="" target="_blank"><img src="<?php echo SHOP_TEMPLATES_URL;?>/images/banner1.jpg" /></a></li>
+                            <?php if(!empty($output['buyBannerList'])){foreach($output['buyBannerList'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+                            <?php }}?>
                           </ul>
                       </div>
 
@@ -42,6 +46,22 @@
                   jQuery(".indexBanner").slide({mainCell:".bd ul",autoPlay:true});
                   </script>
 <!-- [//banner大图轮播] -->
+<div class="banner-pic wrap">
+    <?php if(!empty($output['bannerAdList'])){foreach($output['bannerAdList'] as $v){?>
+    <a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a>
+    <?php }}?>
+
+    <div class="noticeNews">
+      <p class="noticeTitle"><span>活动公告</span></p>
+      <div class="noticeList">
+      <?php if(!empty($output['noticeList'])){foreach($output['noticeList'] as $v){?>
+      <a href="<?php echo urlShop('article','show',array('article_id'=>$v['article_id']));?>"><?php echo $v['article_title'];?></a>
+      <?php }}?>
+
+      </div>
+    </div>
+</div>
+
 <div class="content wrap" id="content">
 
    <div class="floor floor3">
@@ -54,26 +74,16 @@
 <div class="ex-slide1-box">
   <div id="ex_slide_236" class="ex-slide1">
     <ol class="switchable-content clearfix">
-                      <li class="switchable-panel">
-                  <a href="http://www.guolehui.com.cn/gallery-48.html" title="" >
-                        <img src="http://mall.guolehui.com.cn/public/images/d8/17/7c/27be6709fc639915b5cec874278cfd98ead487b8.jpg?1421201249#h" width="240px" height="520px" alt="" />
-                  </a>
-          </li>
-                      <li class="switchable-panel">
-                  <a href="http://www.guolehui.com.cn/product-676.html" title="" >
-                        <img src="http://mall.guolehui.com.cn/public/images/96/cf/24/ea16295e81a5cb8d11ce036a50ade7a8ca9f1214.jpg?1413358520#h" width="240px" height="520px" alt="" />
-                  </a>
-          </li>
-                      <li class="switchable-panel">
-                  <a href="http://mall.guolehui.com.cn/product-965.html" title="" >
-                        <img src="http://mall.guolehui.com.cn/public/images/8d/5b/d2/fd1d50f9af2e4612ff0904fbbb88252f68e1425f.jpg?1413358617#h" width="240px" height="520px" alt="" />
-                  </a>
-          </li>
+      <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+      <?php }}?>
+         
               </ol>
         <ul class="switchable-triggerBox slide-trigger">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
+                       <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
+                   
                 </ul>
   </div>
 </div>
@@ -134,29 +144,17 @@
         <div class="bd clr">
           <div class="l-column fl">
               
-<div class="ex-slide1-box" style="width:240px;height:520px;">
+<div class="ex-slide1-box">
   <div id="ex_slide_235" class="ex-slide1">
     <ol class="switchable-content clearfix">
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/product-642.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/28/66/27/cdb4358b21e1837c0204bcf46564e50251b8592e.jpg?1429026190#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/product-571.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/9c/21/60/85d204982b084294d1a27fe1af0c79518b130563.jpg?1429026688#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/product-676.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/d5/db/38/5842924aa93f3140d3fb51126c0b9b6ada1631b0.jpg?1421123040#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
+          <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+      <?php }}?>
           </ol>
     <ul class="switchable-triggerBox slide-trigger">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+             <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
           </ul>
   </div>
 </div>
@@ -216,34 +214,22 @@
         <div class="bd clr">
           <div class="l-column fl">
               
-<div class="ex-slide1-box" style="width:240px;height:520px;">
-  <div id="ex_slide_236" class="ex-slide1">
+<div class="ex-slide1-box">
+  <div id="ex_slide_237" class="ex-slide1">
     <ol class="switchable-content clearfix">
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/gallery-48.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/d8/17/7c/27be6709fc639915b5cec874278cfd98ead487b8.jpg?1421201249#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/product-676.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/96/cf/24/ea16295e81a5cb8d11ce036a50ade7a8ca9f1214.jpg?1413358520#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://mall.guolehui.com.cn/product-965.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/8d/5b/d2/fd1d50f9af2e4612ff0904fbbb88252f68e1425f.jpg?1413358617#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
+      <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+      <?php }}?>
           </ol>
     <ul class="switchable-triggerBox slide-trigger">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+           <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
           </ul>
   </div>
 </div>
 <script>
-    new Switchable('ex_slide_236',{
+    new Switchable('ex_slide_237',{
         effect:'fade',
         autoplay:true,
     interval:3000
@@ -298,34 +284,22 @@
         <div class="bd clr">
           <div class="l-column fl">
               
-<div class="ex-slide1-box" style="width:240px;height:520px;">
-  <div id="ex_slide_237" class="ex-slide1">
+<div class="ex-slide1-box">
+  <div id="ex_slide_238" class="ex-slide1">
     <ol class="switchable-content clearfix">
-              <li class="switchable-panel">
-          <a href="http://mall.guolehui.com.cn/gallery-63.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/fd/27/43/699e8e9101b14a2f5ae93ad8b6f7b9bd755bde51.jpg?1413381517#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://mall.guolehui.com.cn/gallery-49.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/56/8c/86/2a6587aa69415a0c74fb8658e16c84dd81bb7281.jpg?1417938658#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/05/08/49/c70086304f46cce869095b79b0065f60a2927d97.jpg?1413504320#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
+       <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+      <?php }}?>
           </ol>
     <ul class="switchable-triggerBox slide-trigger">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+              <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
           </ul>
   </div>
 </div>
 <script>
-    new Switchable('ex_slide_237',{
+    new Switchable('ex_slide_238',{
         effect:'fade',
         autoplay:true,
     interval:5000
@@ -380,34 +354,22 @@
         <div class="bd clr">
           <div class="l-column fl">
               
-<div class="ex-slide1-box" style="width:240px;height:520px;">
-  <div id="ex_slide_236" class="ex-slide1">
+<div class="ex-slide1-box">
+  <div id="ex_slide_239" class="ex-slide1">
     <ol class="switchable-content clearfix">
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/gallery-48.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/d8/17/7c/27be6709fc639915b5cec874278cfd98ead487b8.jpg?1421201249#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://www.guolehui.com.cn/product-676.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/96/cf/24/ea16295e81a5cb8d11ce036a50ade7a8ca9f1214.jpg?1413358520#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
-              <li class="switchable-panel">
-          <a href="http://mall.guolehui.com.cn/product-965.html" title="" >
-            <img src="http://mall.guolehui.com.cn/public/images/8d/5b/d2/fd1d50f9af2e4612ff0904fbbb88252f68e1425f.jpg?1413358617#h" width="240px" height="520px" alt="" />
-          </a>
-      </li>
+  <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $v){?>
+                              <li><a href="<?php echo $v['url']?>" target="_blank"><img src="<?php echo $v['pic']?>" /></a></li>
+      <?php }}?>
           </ol>
     <ul class="switchable-triggerBox slide-trigger">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+        <?php if(!empty($output['floor1Ad'])){foreach($output['floor1Ad'] as $k=>$v){?>
+                            <li><?php echo $k+1;?></li>
+                            <?php }}?>
           </ul>
   </div>
 </div>
 <script>
-    new Switchable('ex_slide_236',{
+    new Switchable('ex_slide_239',{
         effect:'fade',
         autoplay:true,
     interval:3000

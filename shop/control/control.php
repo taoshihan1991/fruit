@@ -12,6 +12,31 @@ defined('InShopNC') or exit('Access Invalid!');
 
 class Control{
 	/**
+	* 根据广告位id获取广告
+	* @return array()
+	*/
+	public function getAdvByAdvId($advid){
+		$condition=array(
+			'ap_id'=>$advid,
+			'field'=>'adv_content,adv_id,adv_title'
+		);
+		$adv_model=Model('adv');
+		$list=$adv_model->getList($condition);
+		if(empty($list)) return array();
+		$advList=array();
+		foreach($list as $k=>$v){
+			$content=unserialize($v['adv_content']);
+			$temp=array();
+			$temp['pic']=UPLOAD_SITE_URL.'/shop/adv/'.$content['adv_pic'];
+			$temp['text']=$v['adv_title'];
+			$temp['link']=$content['adv_word_url'];
+			$temp['url']=$content['adv_pic_url'];
+			$temp['id']=$v['adv_id'];
+			$advList[]=$temp;
+		}
+		return $advList;
+	}
+	/**
 	* 取底部文章数据
 	* @return 分配变量
 	*/
